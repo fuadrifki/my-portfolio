@@ -139,6 +139,7 @@ export const ui = {
     },
   },
   online: { en: "Online", id: "Daring" },
+  watchRecording: { en: "Watch recording", id: "Tonton rekaman" },
   footerNote: {
     en: "Designed and built with Next.js, React, TypeScript, and Tailwind CSS.",
     id: "Dirancang dan dibangun dengan Next.js, React, TypeScript, dan Tailwind CSS.",
@@ -593,10 +594,11 @@ export const talks: Talk[] = [
     },
     host: "MySkill × Lion Parcel",
     date: { en: "October 3, 2024", id: "3 Oktober 2024" },
-    format: { en: "Online via Zoom", id: "Daring via Zoom" },
+    format: { en: "Online", id: "Daring" },
     description: {
       en: "A community short class introducing CSS fundamentals — how styling works, the box model, layout, and the core properties that every frontend developer uses daily.",
       id: "Kelas singkat komunitas yang memperkenalkan dasar CSS — cara kerja styling, box model, layout, dan properti inti yang dipakai frontend developer setiap hari.",
     },
+    link: "https://www.youtube.com/live/6Iof3UyVHyM?si=tnzqa-dMSOGNy9vp",
   },
 ];

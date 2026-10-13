@@ -1,6 +1,6 @@
 "use client";
 
-import { CalendarDays, Mic, MonitorSmartphone } from "lucide-react";
+import { ArrowUpRight, CalendarDays, Mic, MonitorSmartphone } from "lucide-react";
 import { useLanguage } from "@/components/providers";
 import { Reveal } from "@/components/reveal";
 import { Section } from "@/components/section";
@@ -49,7 +49,8 @@ export function Speaking() {
                     rel="noreferrer noopener"
                     className="btn btn-outline mt-6"
                   >
-                    {t(ui.online)}
+                    {t(ui.watchRecording)}
+                    <ArrowUpRight className="size-4" />
                   </a>
                 ) : null}
               </div>
