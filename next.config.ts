@@ -2,8 +2,17 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+
+  // Static export: `next build` emits a fully static site into `out/`,
+  // which is what Cloudflare Pages serves.
+  //
+  // NOTE: `cacheComponents` (and therefore `partialPrefetching`, which
+  // requires it) is intentionally NOT enabled. `cacheComponents` turns on
+  // Partial Prerendering (PPR), and Next.js forbids PPR in export mode
+  // (`Invariant: PPR cannot be enabled in export mode`). This portfolio has
+  // no dynamic server content and uses no Cache Components features, so
+  // static export is the correct target.
+  output: "export",
   turbopack: {
     rules: {
       "*.css": {
