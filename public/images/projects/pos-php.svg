@@ -1,26 +1,13 @@
 <svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- placeholder: Point of Sales (PHP Native) — replace with real screenshot -->
   <rect width="800" height="500" fill="#f8fafc"/>
-  <rect x="40" y="30" width="180" height="406" rx="8" fill="#1e293b"/>
-  <rect x="60" y="50" width="140" height="22" rx="4" fill="#f59e0b"/>
-  <rect x="60" y="90" width="140" height="30" rx="4" fill="#334155"/>
-  <rect x="60" y="130" width="140" height="30" rx="4" fill="#334155"/>
-  <rect x="60" y="170" width="140" height="30" rx="4" fill="#f59e0b" opacity="0.7"/>
-  <rect x="60" y="210" width="140" height="30" rx="4" fill="#334155"/>
-  <rect x="60" y="250" width="140" height="30" rx="4" fill="#334155"/>
-  <rect x="240" y="30" width="520" height="70" rx="8" fill="#fff" stroke="#e2e8f0"/>
-  <text x="260" y="72" font-family="system-ui" font-size="18" font-weight="700" fill="#1e293b">Point of Sales</text>
-  <rect x="240" y="120" width="250" height="130" rx="8" fill="#fff" stroke="#e2e8f0"/>
-  <rect x="256" y="136" width="100" height="14" rx="3" fill="#f59e0b" opacity="0.4"/>
-  <rect x="256" y="160" width="218" height="26" rx="4" fill="#f1f5f9" stroke="#e2e8f0"/>
-  <rect x="256" y="194" width="218" height="26" rx="4" fill="#f1f5f9" stroke="#e2e8f0"/>
-  <rect x="510" y="120" width="250" height="130" rx="8" fill="#fff" stroke="#e2e8f0"/>
-  <rect x="526" y="136" width="100" height="14" rx="3" fill="#22c55e" opacity="0.4"/>
-  <rect x="526" y="160" width="120" height="30" rx="4" fill="#22c55e"/>
-  <rect x="526" y="198" width="180" height="12" rx="2" fill="#94a3b8"/>
-  <rect x="240" y="270" width="520" height="166" rx="8" fill="#fff" stroke="#e2e8f0"/>
-  <line x1="260" y1="310" x2="740" y2="310" stroke="#e2e8f0" stroke-width="1"/>
-  <line x1="260" y1="350" x2="740" y2="350" stroke="#e2e8f0" stroke-width="1"/>
-  <line x1="260" y1="390" x2="740" y2="390" stroke="#e2e8f0" stroke-width="1"/>
-  <rect x="260" y="282" width="200" height="14" rx="3" fill="#1e293b"/>
-  <text x="400" y="470" font-family="system-ui" font-size="14" font-weight="600" fill="#1e293b" text-anchor="middle">PHP Native · 2019</text>
+  <rect x="40" y="30" width="720" height="56" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+  <circle cx="70" cy="58" r="14" fill="#65A30D"/>
+  <rect x="94" y="48" width="140" height="20" rx="4" fill="#cbd5e1"/>
+  <rect x="600" y="48" width="120" height="20" rx="10" fill="#65A30D" opacity="0.85"/>
+  <text x="60" y="175" font-family="system-ui, sans-serif" font-size="44" font-weight="700" fill="#0f172a">Point of Sales (PHP Native)</text>
+  <text x="60" y="210" font-family="system-ui, sans-serif" font-size="18" fill="#64748b">Preview placeholder — replace with real screenshot</text>
+  <rect x="60" y="245" width="200" height="175" rx="12" fill="#65A30D" opacity="0.12"/>
+  <rect x="280" y="245" width="200" height="175" rx="12" fill="#65A30D" opacity="0.12"/>
+  <rect x="500" y="245" width="200" height="175" rx="12" fill="#65A30D" opacity="0.12"/>
 </svg>

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { MapPin } from "lucide-react";
 import { useLanguage } from "@/components/providers";
 import { Reveal } from "@/components/reveal";
 import { Section } from "@/components/section";
@@ -26,7 +27,7 @@ export function Education() {
                 alt={`${item.school} ${t(ui.logoAlt)}`}
                 width={44}
                 height={44}
-                className="size-11 shrink-0 rounded-lg border border-(--line)"
+                className="size-11 shrink-0 rounded-lg border border-(--line) bg-white/60 object-contain p-1"
               />
               <div>
                 <h3 className="text-base font-semibold text-(--ink)">
@@ -36,6 +37,10 @@ export function Education() {
                   {t(item.degree)} · {t(item.field)}
                 </p>
                 <p className="eyebrow mt-2">{item.period}</p>
+                <p className="mt-1.5 inline-flex items-center gap-1.5 text-xs text-(--muted)">
+                  <MapPin className="size-3.5" />
+                  {t(item.location)}
+                </p>
                 <p className="mt-3 text-sm leading-relaxed text-(--muted)">
                   {t(item.description)}
                 </p>

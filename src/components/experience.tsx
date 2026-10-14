@@ -19,7 +19,7 @@ function ExperienceItem({ item }: { item: Experience }) {
             alt={`${item.company} ${t(ui.logoAlt)}`}
             width={40}
             height={40}
-            className="size-10 shrink-0 rounded-lg border border-(--line)"
+            className="size-10 shrink-0 rounded-lg border border-(--line) bg-white/60 object-contain p-1"
           />
           <div className="min-w-0">
             <h3 className="display text-lg">{t(item.role)}</h3>

@@ -481,7 +481,7 @@ export type Experience = {
 export const experiences: Experience[] = [
   {
     company: "Lion Parcel",
-    logo: "/images/logos/lion-parcel.svg",
+    logo: "/images/logos/lion-parcel.png",
     role: { en: "Frontend Engineer", id: "Frontend Engineer" },
     period: {
       en: "April 2021 — Present",
@@ -519,7 +519,7 @@ export const experiences: Experience[] = [
   },
   {
     company: "Refactory",
-    logo: "/images/logos/refactory.svg",
+    logo: "/images/logos/refactory.png",
     role: { en: "Frontend Developer", id: "Frontend Developer" },
     period: {
       en: "October 2019 — April 2021",
@@ -548,7 +548,7 @@ export const experiences: Experience[] = [
   },
   {
     company: "Jersium",
-    logo: "/images/logos/jersium.svg",
+    logo: "/images/logos/jersium.png",
     role: { en: "Frontend Developer", id: "Frontend Developer" },
     period: {
       en: "January 2025 — December 2025",
@@ -619,16 +619,18 @@ export type Education = {
   degree: Localized;
   field: Localized;
   period: string;
+  location: Localized;
   description: Localized;
 };
 
 export const education: Education[] = [
   {
     school: "Universitas Mercu Buana Yogyakarta",
-    logo: "/images/logos/umb.svg",
+    logo: "/images/logos/umb.png",
     degree: { en: "Bachelor's Degree (S1)", id: "Sarjana (S1)" },
     field: { en: "Information Technology", id: "Teknologi Informasi" },
     period: "March 2020 — May 2022",
+    location: { en: "Yogyakarta, Indonesia", id: "Yogyakarta, Indonesia" },
     description: {
       en: "Studied information technology with a focus on software development, databases, and information systems.",
       id: "Menempuh studi teknologi informasi dengan fokus pada pengembangan perangkat lunak, basis data, dan sistem informasi."
@@ -636,10 +638,11 @@ export const education: Education[] = [
   },
   {
     school: "Politeknik Sawunggalih Aji",
-    logo: "/images/logos/psa.svg",
+    logo: "/images/logos/polsa.png",
     degree: { en: "Associate Degree (D3)", id: "Ahli Madya (D3)" },
     field: { en: "Information Technology", id: "Teknologi Informasi" },
     period: "September 2016 — August 2019",
+    location: { en: "Purworejo, Indonesia", id: "Purworejo, Indonesia" },
     description: {
       en: "Vocational training in information technology, covering programming fundamentals and applied software work.",
       id: "Pendidikan vokasi teknologi informasi, mencakup dasar pemrograman dan pekerjaan perangkat lunak terapan."
@@ -654,6 +657,7 @@ export const education: Education[] = [
 export type Talk = {
   title: Localized;
   host: string;
+  logos?: string[];
   date: Localized;
   format: Localized;
   description: Localized;
@@ -667,6 +671,7 @@ export const talks: Talk[] = [
       id: "Short Class: CSS Introduction"
     },
     host: "MySkill × Lion Parcel",
+    logos: ["/images/logos/myskill.png", "/images/logos/lion-parcel.png"],
     date: { en: "October 3, 2024", id: "3 Oktober 2024" },
     format: { en: "Online", id: "Daring" },
     description: {

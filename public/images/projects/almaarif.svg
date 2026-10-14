@@ -1,27 +1,13 @@
 <svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- placeholder: Al Maarif Jambi Web — replace with real screenshot -->
   <rect width="800" height="500" fill="#f8fafc"/>
-  <rect x="40" y="30" width="720" height="56" rx="8" fill="#0f766e"/>
-  <text x="60" y="64" font-family="system-ui" font-size="16" font-weight="600" fill="white">Al Maarif Jambi Plus</text>
-  <rect x="40" y="106" width="230" height="120" rx="8" fill="#fff" stroke="#e2e8f0"/>
-  <rect x="56" y="122" width="120" height="14" rx="3" fill="#0f766e" opacity="0.3"/>
-  <rect x="56" y="146" width="180" height="28" rx="4" fill="#0f766e"/>
-  <rect x="56" y="182" width="140" height="12" rx="2" fill="#94a3b8"/>
-  <rect x="286" y="106" width="230" height="120" rx="8" fill="#fff" stroke="#e2e8f0"/>
-  <rect x="302" y="122" width="120" height="14" rx="3" fill="#3b82f6" opacity="0.3"/>
-  <rect x="302" y="146" width="180" height="28" rx="4" fill="#3b82f6"/>
-  <rect x="302" y="182" width="140" height="12" rx="2" fill="#94a3b8"/>
-  <rect x="532" y="106" width="228" height="120" rx="8" fill="#fff" stroke="#e2e8f0"/>
-  <rect x="548" y="122" width="120" height="14" rx="3" fill="#f59e0b" opacity="0.4"/>
-  <rect x="548" y="146" width="180" height="28" rx="4" fill="#f59e0b"/>
-  <rect x="548" y="182" width="140" height="12" rx="2" fill="#94a3b8"/>
-  <rect x="40" y="246" width="720" height="190" rx="8" fill="#fff" stroke="#e2e8f0"/>
-  <rect x="60" y="266" width="200" height="16" rx="3" fill="#0f172a"/>
-  <line x1="60" y1="300" x2="740" y2="300" stroke="#e2e8f0" stroke-width="1"/>
-  <line x1="60" y1="340" x2="740" y2="340" stroke="#e2e8f0" stroke-width="1"/>
-  <line x1="60" y1="380" x2="740" y2="380" stroke="#e2e8f0" stroke-width="1"/>
-  <rect x="60" y="272" width="90" height="16" rx="3" fill="#0f766e" opacity="0.25"/>
-  <rect x="60" y="312" width="130" height="16" rx="3" fill="#0f766e" opacity="0.25"/>
-  <rect x="60" y="352" width="110" height="16" rx="3" fill="#0f766e" opacity="0.25"/>
-  <rect x="60" y="392" width="150" height="16" rx="3" fill="#0f766e" opacity="0.25"/>
-  <text x="400" y="470" font-family="system-ui" font-size="14" font-weight="600" fill="#1e293b" text-anchor="middle">Pesantren Digital Platform</text>
+  <rect x="40" y="30" width="720" height="56" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+  <circle cx="70" cy="58" r="14" fill="#0F766E"/>
+  <rect x="94" y="48" width="140" height="20" rx="4" fill="#cbd5e1"/>
+  <rect x="600" y="48" width="120" height="20" rx="10" fill="#0F766E" opacity="0.85"/>
+  <text x="60" y="175" font-family="system-ui, sans-serif" font-size="44" font-weight="700" fill="#0f172a">Al Maarif Jambi Web</text>
+  <text x="60" y="210" font-family="system-ui, sans-serif" font-size="18" fill="#64748b">Preview placeholder — replace with real screenshot</text>
+  <rect x="60" y="245" width="200" height="175" rx="12" fill="#0F766E" opacity="0.12"/>
+  <rect x="280" y="245" width="200" height="175" rx="12" fill="#0F766E" opacity="0.12"/>
+  <rect x="500" y="245" width="200" height="175" rx="12" fill="#0F766E" opacity="0.12"/>
 </svg>

@@ -1,51 +1,13 @@
 <svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- placeholder: SIA UT — replace with real screenshot -->
   <rect width="800" height="500" fill="#f8fafc"/>
-  <rect x="40" y="30" width="720" height="50" rx="8" fill="#e2e8f0" stroke="#cbd5e1"/>
-  <rect x="40" y="40" width="140" height="30" rx="4" fill="#8b5cf6" opacity="0.3"/>
-  <rect x="600" y="40" width="100" height="30" rx="4" fill="#3b82f6"/>
-  <rect x="40" y="100" width="720" height="360" rx="8" fill="#f1f5f9" stroke="#e2e8f0"/>
-  <rect x="60" y="120" width="680" height="320" rx="4" fill="#fff" stroke="#e2e8f0"/>
-  <rect x="70" y="130" width="660" height="36" rx="4" fill="#fff" stroke="#e2e8f0"/>
-  <rect x="80" y="138" width="120" height="20" rx="3" fill="#8b5cf6" opacity="0.2"/>
-  <rect x="220" y="138" width="80" height="20" rx="3" fill="#22c55e"/>
-  <rect x="320" y="138" width="80" height="20" rx="3" fill="#f59e0b"/>
-  <rect x="420" y="138" width="80" height="20" rx="3" fill="#ef4444"/>
-  <rect x="520" y="138" width="100" height="20" rx="3" fill="#94a3b8"/>
-  <line x1="80" y1="185" x2="720" y2="185" stroke="#e2e8f0" stroke-width="1"/>
-  <rect x="80" y="200" width="30" height="16" rx="2" fill="#0f172a"/>
-  <rect x="130" y="200" width="160" height="16" rx="2" fill="#8b5cf6" opacity="0.3"/>
-  <rect x="310" y="200" width="80" height="16" rx="2" fill="#22c55e"/>
-  <rect x="410" y="200" width="80" height="16" rx="2" fill="#f59e0b"/>
-  <rect x="510" y="200" width="80" height="16" rx="2" fill="#ef4444"/>
-  <rect x="610" y="200" width="60" height="16" rx="2" fill="#94a3b8"/>
-  <line x1="80" y1="230" x2="720" y2="230" stroke="#e2e8f0" stroke-width="1"/>
-  <rect x="80" y="240" width="30" height="16" rx="2" fill="#0f172a"/>
-  <rect x="130" y="240" width="160" height="16" rx="2" fill="#8b5cf6" opacity="0.3"/>
-  <rect x="310" y="240" width="80" height="16" rx="2" fill="#22c55e"/>
-  <rect x="410" y="240" width="80" height="16" rx="2" fill="#f59e0b"/>
-  <rect x="510" y="240" width="80" height="16" rx="2" fill="#ef4444"/>
-  <rect x="610" y="240" width="60" height="16" rx="2" fill="#94a3b8"/>
-  <line x1="80" y1="270" x2="720" y2="270" stroke="#e2e8f0" stroke-width="1"/>
-  <rect x="80" y="280" width="30" height="16" rx="2" fill="#0f172a"/>
-  <rect x="130" y="280" width="160" height="16" rx="2" fill="#8b5cf6" opacity="0.3"/>
-  <rect x="310" y="280" width="80" height="16" rx="2" fill="#22c55e"/>
-  <rect x="410" y="280" width="80" height="16" rx="2" fill="#f59e0b"/>
-  <rect x="510" y="280" width="80" height="16" rx="2" fill="#ef4444"/>
-  <rect x="610" y="280" width="60" height="16" rx="2" fill="#94a3b8"/>
-  <rect x="80" y="320" width="660" height="140" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
-  <rect x="100" y="340" width="300" height="80" rx="4" fill="#faf5ff" stroke="#e9d5ff"/>
-  <rect x="120" y="350" width="60" height="60" rx="4" fill="#8b5cf6" opacity="0.2"/>
-  <rect x="200" y="360" width="180" height="20" rx="2" fill="#1e293b"/>
-  <rect x="200" y="385" width="200" height="12" rx="2" fill="#8b5cf6" opacity="0.5"/>
-  <rect x="450" y="350" width="280" height="80" rx="4" fill="#fef3c7" stroke="#fcd34d"/>
-  <rect x="470" y="360" width="100" height="60" rx="4" fill="#f59e0b" opacity="0.2"/>
-  <rect x="470" y="410" width="200" height="12" rx="2" fill="#92400e" opacity="0.5"/>
-  <rect x="80" y="420" width="660" height="40" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
-  <rect x="100" y="425" width="80" height="12" rx="2" fill="#94a3b8"/>
-  <rect x="200" y="425" width="80" height="12" rx="2" fill="#94a3b8"/>
-  <rect x="300" y="425" width="80" height="12" rx="2" fill="#94a3b8"/>
-  <rect x="400" y="425" width="80" height="12" rx="2" fill="#94a3b8"/>
-  <rect x="500" y="425" width="80" height="12" rx="2" fill="#94a3b8"/>
-  <rect x="600" y="425" width="80" height="12" rx="2" fill="#8b5cf6"/>
-  <text x="400" y="30" font-family="system-ui" font-size="14" font-weight="600" fill="#1e293b">SIA Universitas Terbuka</text>
+  <rect x="40" y="30" width="720" height="56" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+  <circle cx="70" cy="58" r="14" fill="#7C3AED"/>
+  <rect x="94" y="48" width="140" height="20" rx="4" fill="#cbd5e1"/>
+  <rect x="600" y="48" width="120" height="20" rx="10" fill="#7C3AED" opacity="0.85"/>
+  <text x="60" y="175" font-family="system-ui, sans-serif" font-size="44" font-weight="700" fill="#0f172a">SIA UT</text>
+  <text x="60" y="210" font-family="system-ui, sans-serif" font-size="18" fill="#64748b">Preview placeholder — replace with real screenshot</text>
+  <rect x="60" y="245" width="200" height="175" rx="12" fill="#7C3AED" opacity="0.12"/>
+  <rect x="280" y="245" width="200" height="175" rx="12" fill="#7C3AED" opacity="0.12"/>
+  <rect x="500" y="245" width="200" height="175" rx="12" fill="#7C3AED" opacity="0.12"/>
 </svg>

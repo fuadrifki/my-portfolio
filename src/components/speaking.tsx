@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { ArrowUpRight, CalendarDays, Mic, MonitorSmartphone } from "lucide-react";
 import { useLanguage } from "@/components/providers";
 import { Reveal } from "@/components/reveal";
@@ -26,6 +27,20 @@ export function Speaking() {
                   <Mic className="size-5" />
                 </span>
                 <p className="eyebrow mt-4">{talk.host}</p>
+                {talk.logos && talk.logos.length > 0 ? (
+                  <div className="mt-3 flex items-center gap-2">
+                    {talk.logos.map((logo) => (
+                      <Image
+                        key={logo}
+                        src={logo}
+                        alt={`${talk.host} ${t(ui.logoAlt)}`}
+                        width={64}
+                        height={32}
+                        className="h-8 w-auto rounded-md border border-(--line) bg-white object-contain px-1.5 py-1"
+                      />
+                    ))}
+                  </div>
+                ) : null}
               </div>
               <div className="md:col-span-8">
                 <h3 className="display text-xl text-balance sm:text-2xl">

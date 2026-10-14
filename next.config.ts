@@ -13,6 +13,10 @@ const nextConfig: NextConfig = {
   // no dynamic server content and uses no Cache Components features, so
   // static export is the correct target.
   output: "export",
+  // Static export has no Image Optimization API, so serve images as-is.
+  images: {
+    unoptimized: true,
+  },
   turbopack: {
     rules: {
       "*.css": {
