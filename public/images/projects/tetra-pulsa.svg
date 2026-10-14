@@ -1,0 +1,18 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="#f8fafc"/>
+  <rect x="300" y="60" width="200" height="380" rx="24" fill="#0f172a"/>
+  <rect x="312" y="72" width="176" height="356" rx="16" fill="#fff"/>
+  <rect x="324" y="84" width="152" height="28" rx="6" fill="#7c3aed"/>
+  <text x="400" y="103" font-family="system-ui" font-size="13" font-weight="600" fill="white" text-anchor="middle">Pulsa</text>
+  <rect x="324" y="124" width="152" height="60" rx="6" fill="#f5f3ff" stroke="#ddd6fe"/>
+  <rect x="334" y="134" width="90" height="14" rx="3" fill="#7c3aed" opacity="0.3"/>
+  <rect x="334" y="154" width="132" height="20" rx="4" fill="#7c3aed"/>
+  <rect x="324" y="196" width="70" height="56" rx="6" fill="#f1f5f9" stroke="#e2e8f0"/>
+  <rect x="402" y="196" width="70" height="56" rx="6" fill="#f1f5f9" stroke="#e2e8f0"/>
+  <rect x="324" y="260" width="70" height="56" rx="6" fill="#f1f5f9" stroke="#e2e8f0"/>
+  <rect x="402" y="260" width="70" height="56" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+  <rect x="324" y="328" width="152" height="44" rx="8" fill="#7c3aed"/>
+  <text x="400" y="355" font-family="system-ui" font-size="13" font-weight="600" fill="white" text-anchor="middle">Bayar</text>
+  <rect x="324" y="384" width="152" height="32" rx="6" fill="#f1f5f9" stroke="#e2e8f0"/>
+  <text x="400" y="470" font-family="system-ui" font-size="14" font-weight="600" fill="#1e293b" text-anchor="middle">Tetra Pulsa</text>
+</svg>

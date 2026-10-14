@@ -339,19 +339,19 @@ export const projects: Project[] = [
   {
     slug: "ayo-belajar",
     name: "Ayo Belajar",
-    category: "personal",
+    category: "enterprise",
     image: "/images/projects/ayo-belajar.svg",
-    period: "Personal project",
+    period: "Software house project",
     role: { en: "Frontend Developer", id: "Frontend Developer" },
     summary: {
-      en: "A learning web application exploring structured lessons and study content in a simple, friendly interface.",
-      id: "Aplikasi web pembelajaran yang mengeksplorasi materi terstruktur dalam antarmuka yang sederhana dan ramah."
+      en: "A learning-management dashboard with class operations, live classes, quizzes, payments, and community features.",
+      id: "Dashboard learning-management dengan operasional kelas, live class, kuis, pembayaran, dan fitur komunitas."
     },
     description: {
-      en: "A self-initiated build used to practise component design, content structure, and responsive layout for educational experiences.",
-      id: "Proyek mandiri untuk melatih desain komponen, struktur konten, dan layout responsif untuk pengalaman edukasi."
+      en: "Built as part of a software-house team: an LMS dashboard covering class management, live classes, chapters and quizzes, instructor and student flows, earnings and withdrawals, payments, messages, and forums across multiple roles. The frontend follows clean-architecture boundaries (app / domain / data) with React 16 and TypeScript, integrated against mock and staged REST APIs.",
+      id: "Dikerjakan sebagai bagian dari tim software house: dashboard LMS yang mencakup manajemen kelas, live class, chapter dan kuis, alur instruktur dan siswa, earning dan withdrawal, pembayaran, pesan, dan forum untuk beberapa peran. Frontend memakai batas clean architecture (app / domain / data) dengan React 16 dan TypeScript, terintegrasi ke REST API mock dan staging."
     },
-    stack: ["React", "JavaScript", "Tailwind CSS"]
+    stack: ["React 16", "TypeScript", "Redux", "Clean Architecture", "REST API"]
   },
   {
     slug: "pintoko",
@@ -388,21 +388,75 @@ export const projects: Project[] = [
     stack: ["Nuxt", "TypeScript", "Drizzle", "Neon PostgreSQL"]
   },
   {
-    slug: "s1-learning",
-    name: "S1 Learning Platform",
+    slug: "mobile-learning-app",
+    name: "Mobile Learning App",
     category: "personal",
-    image: "/images/projects/s1-learning.svg",
+    image: "/images/projects/mobile-learning-app.svg",
     period: "Personal project",
     role: { en: "Mobile Frontend Developer", id: "Mobile Frontend Developer" },
     summary: {
-      en: "A cross-platform learning app built with React Native and Expo, with Firebase Authentication and Firestore.",
-      id: "Aplikasi pembelajaran lintas platform dengan React Native dan Expo, menggunakan Firebase Authentication dan Firestore."
+      en: "A cross-platform learning app with structured chapters, exercises, tasks, and video lessons, backed by Firebase.",
+      id: "Aplikasi pembelajaran lintas platform dengan chapter, latihan, dan tugas terstruktur plus video materi, berbasis Firebase."
     },
     description: {
-      en: "Built the mobile experience with React Native and Expo: authenticated flows, Firestore-backed lesson data, and navigation that stays comfortable on small screens.",
-      id: "Membangun pengalaman mobile dengan React Native dan Expo: alur terautentikasi, data materi berbasis Firestore, dan navigasi yang nyaman di layar kecil."
+      en: "Built the mobile experience with React Native: authenticated flows (sign in / sign up), chapter-based study structure with exercises and tasks, progress reports, and video lessons, backed by Firebase Authentication and Firestore.",
+      id: "Membangun pengalaman mobile dengan React Native: alur terautentikasi (masuk / daftar), struktur belajar berbasis chapter dengan latihan dan tugas, laporan progres, dan video materi, berbasis Firebase Authentication dan Firestore."
     },
-    stack: ["React Native", "Expo", "Firebase Auth", "Firestore"]
+    stack: ["React Native", "Firebase Auth", "Firestore", "React Navigation"]
+  },
+  {
+    slug: "tetra-pulsa",
+    name: "Tetra Pulsa",
+    category: "ecommerce",
+    image: "/images/projects/tetra-pulsa.svg",
+    period: "Freelance",
+    role: {
+      en: "Mobile Frontend Developer (Freelance)",
+      id: "Mobile Frontend Developer (Freelance)"
+    },
+    summary: {
+      en: "A cross-platform mobile top-up app for Android and iOS, delivered end to end as the sole frontend contributor.",
+      id: "Aplikasi pulsa lintas platform untuk Android dan iOS, dikerjakan end to end sebagai satu-satunya kontributor frontend."
+    },
+    description: {
+      en: "Sole frontend owner across 130+ commits: a React Native top-up app with clean-architecture boundaries (domain / services / containers), credential-based API integration, and native builds for both stores.",
+      id: "Pemilik tunggal frontend dalam 130+ commit: aplikasi pulsa React Native dengan batas clean architecture (domain / services / containers), integrasi API berbasis kredensial, dan build native untuk kedua store."
+    },
+    stack: ["React Native", "TypeScript", "Clean Architecture", "REST API"]
+  },
+  {
+    slug: "almaarif-jambi-plus",
+    name: "Al Maarif Jambi Plus",
+    category: "enterprise",
+    image: "/images/projects/almaarif.svg",
+    period: "Project work",
+    role: { en: "Frontend Developer", id: "Frontend Developer" },
+    summary: {
+      en: "A digital platform for an Islamic boarding school: admin operations on a monorepo with PostgreSQL behind it.",
+      id: "Platform digital pondok pesantren: operasional admin dalam monorepo dengan PostgreSQL di belakangnya."
+    },
+    description: {
+      en: "Contributed to a Turborepo/pnpm monorepo (Next.js 16 App Router, React 19, TypeScript, Tailwind v4) backed by Drizzle ORM on Neon PostgreSQL — admin screens, data flows, and environment-based configuration.",
+      id: "Berkontribusi pada monorepo Turborepo/pnpm (Next.js 16 App Router, React 19, TypeScript, Tailwind v4) yang didukung Drizzle ORM di atas Neon PostgreSQL — layar admin, alur data, dan konfigurasi berbasis environment."
+    },
+    stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "Drizzle", "Neon PostgreSQL", "Turborepo"]
+  },
+  {
+    slug: "pos-php-native",
+    name: "Point of Sales (PHP Native)",
+    category: "personal",
+    image: "/images/projects/pos-php.svg",
+    period: "Personal project",
+    role: { en: "Fullstack Developer", id: "Fullstack Developer" },
+    summary: {
+      en: "A 2019 cashier POS built with native PHP MVC and MySQL — kept as an archive of the pre-JavaScript era.",
+      id: "POS kasir 2019 berbasis PHP MVC native dan MySQL — disimpan sebagai arsip era pra-JavaScript."
+    },
+    description: {
+      en: "A legacy point-of-sales system: custom PHP MVC (controllers / models / views), MySQL database, and a Gentelella admin template covering categories, products, customers, and sales. Kept as-is as proof of the journey from PHP into full-JS frontend work.",
+      id: "Sistem point-of-sales lawas: PHP MVC custom (controller / model / view), basis data MySQL, dan template admin Gentelella yang mencakup kategori, produk, customer, dan penjualan. Disimpan apa adanya sebagai bukti perjalanan dari PHP ke frontend full-JS."
+    },
+    stack: ["PHP", "MySQL", "Bootstrap", "Gentelella"]
   }
 ];
 
@@ -493,7 +547,7 @@ export const experiences: Experience[] = [
     keyProjects: ["Pindad", "Refactory Company Profile"]
   },
   {
-    company: "Freelance",
+    company: "Jersium",
     logo: "/images/logos/jersium.svg",
     role: { en: "Frontend Developer", id: "Frontend Developer" },
     period: {
