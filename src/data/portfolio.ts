@@ -37,8 +37,12 @@ export const profile = {
     id: "Vue · React · Nuxt · Next.js · JavaScript & TypeScript"
   } satisfies Localized,
   location: {
-    en: "Jakarta Metropolitan Area · On site · Hybrid · Remote friendly",
-    id: "Jakarta Metropolitan Area · Di tempat · Hybrid · Terbuka untuk remote"
+    en: "Jakarta Metropolitan Area",
+    id: "Jakarta Metropolitan Area"
+  } satisfies Localized,
+  workplace: {
+    en: "On-site · Hybrid · Remote friendly",
+    id: "Di tempat · Hybrid · Terbuka untuk remote"
   } satisfies Localized,
   availability: {
     en: "Open to Frontend Engineering roles",
@@ -470,9 +474,11 @@ export const otherProjects = projects.filter((project) => !project.featured);
 export type Experience = {
   company: string;
   logo: string;
+  logoTone?: "light" | "dark";
   role: Localized;
   period: Localized;
   location: Localized;
+  arrangement?: Localized;
   description: Localized;
   highlights: Localized[];
   keyProjects: string[];
@@ -549,12 +555,14 @@ export const experiences: Experience[] = [
   {
     company: "Jersium",
     logo: "/images/logos/jersium.png",
+    logoTone: "dark",
     role: { en: "Frontend Developer", id: "Frontend Developer" },
     period: {
       en: "January 2025 — December 2025",
       id: "Januari 2025 — Desember 2025"
     },
-    location: { en: "Poland (Remote)", id: "Polandia (Remote)" },
+    location: { en: "Poland", id: "Polandia" },
+    arrangement: { en: "Remote", id: "Remote" },
     description: {
       en: "Independent frontend work for e-commerce and product clients, delivered end to end from interface build to API integration.",
       id: "Pekerjaan frontend mandiri untuk klien e-commerce dan produk, dikerjakan end to end dari pembangunan antarmuka hingga integrasi API."
@@ -616,6 +624,7 @@ export const skillGroups: SkillGroup[] = [
 export type Education = {
   school: string;
   logo: string;
+  logoTone?: "light" | "dark";
   degree: Localized;
   field: Localized;
   period: string;
@@ -662,6 +671,8 @@ export type Talk = {
   format: Localized;
   description: Localized;
   link?: string;
+  videoId?: string;
+  videoTitle?: string;
 };
 
 export const talks: Talk[] = [
@@ -678,6 +689,8 @@ export const talks: Talk[] = [
       en: "A community short class introducing CSS fundamentals — how styling works, the box model, layout, and the core properties that every frontend developer uses daily.",
       id: "Kelas singkat komunitas yang memperkenalkan dasar CSS — cara kerja styling, box model, layout, dan properti inti yang dipakai frontend developer setiap hari."
     },
-    link: "https://www.youtube.com/live/6Iof3UyVHyM?si=tnzqa-dMSOGNy9vp"
+    link: "https://www.youtube.com/live/6Iof3UyVHyM?si=tnzqa-dMSOGNy9vp",
+    videoId: "6Iof3UyVHyM",
+    videoTitle: "Short Class CSS Introduction | MySkill x Lion Parcel"
   }
 ];

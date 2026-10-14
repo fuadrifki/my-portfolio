@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Mail, MapPin } from "lucide-react";
+import { ArrowRight, Briefcase, Mail, MapPin } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { useLanguage } from "@/components/providers";
 import { profile, ui } from "@/data/portfolio";
@@ -86,6 +86,12 @@ export function Hero() {
                 <span className="inline-flex items-center gap-2">
                   <MapPin className="size-4" />
                   {t(profile.location)}
+                </span>
+              </div>
+              <div className="flex items-center justify-between gap-4 py-1.5 text-sm text-(--ink-soft) transition-colors hover:text-(--accent)">
+                <span className="inline-flex items-center gap-2">
+                  <Briefcase className="size-4" />
+                  {t(profile.workplace)}
                 </span>
               </div>
               <a

@@ -19,7 +19,11 @@ function ExperienceItem({ item }: { item: Experience }) {
             alt={`${item.company} ${t(ui.logoAlt)}`}
             width={40}
             height={40}
-            className="size-10 shrink-0 rounded-lg border border-(--line) bg-white/60 object-contain p-1"
+            className={
+              item.logoTone === "dark"
+                ? "size-10 shrink-0 rounded-lg border border-(--line) bg-slate-950 object-contain p-1"
+                : "size-10 shrink-0 rounded-lg border border-(--line) bg-white/60 object-contain p-1"
+            }
           />
           <div className="min-w-0">
             <h3 className="display text-lg">{t(item.role)}</h3>
@@ -32,6 +36,7 @@ function ExperienceItem({ item }: { item: Experience }) {
         <p className="mt-3 inline-flex items-center gap-1.5 text-xs text-(--muted)">
           <MapPin className="size-3.5" />
           {t(item.location)}
+          {item.arrangement ? ` · ${t(item.arrangement)}` : null}
         </p>
       </div>
 

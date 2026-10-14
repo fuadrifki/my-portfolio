@@ -1,11 +1,65 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
-import { ArrowUpRight, CalendarDays, Mic, MonitorSmartphone } from "lucide-react";
+import { CalendarDays, Mic, MonitorSmartphone, Play } from "lucide-react";
 import { useLanguage } from "@/components/providers";
 import { Reveal } from "@/components/reveal";
 import { Section } from "@/components/section";
-import { talks, ui } from "@/data/portfolio";
+import { talks, ui, type Talk } from "@/data/portfolio";
+
+function VideoPreview({ talk }: { talk: Talk }) {
+  const [playing, setPlaying] = useState(false);
+
+  if (!talk.videoId) return null;
+
+  if (playing) {
+    return (
+      <div className="overflow-hidden rounded-xl border border-(--line)">
+        <iframe
+          src={`https://www.youtube.com/embed/${talk.videoId}?autoplay=1&rel=0`}
+          title={talk.videoTitle ?? talk.title.en}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+          className="aspect-video w-full"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div className="overflow-hidden rounded-xl border border-(--line)">
+      <button
+        type="button"
+        onClick={() => setPlaying(true)}
+        className="group relative block w-full cursor-pointer"
+        aria-label={`Play video: ${talk.videoTitle ?? talk.title.en}`}
+      >
+        <Image
+          src={`https://i.ytimg.com/vi/${talk.videoId}/hqdefault.jpg`}
+          alt={talk.videoTitle ?? talk.title.en}
+          width={480}
+          height={360}
+          className="aspect-video w-full object-cover"
+        />
+        <span className="absolute inset-0 grid place-items-center bg-black/20 transition group-hover:bg-black/30">
+          <span className="grid size-14 place-items-center rounded-full bg-white/95 text-(--accent) shadow-lg transition group-hover:scale-105">
+            <Play className="size-6 fill-current" />
+          </span>
+        </span>
+      </button>
+      <div className="flex items-center gap-3 bg-(--surface) px-4 py-3">
+        <div className="min-w-0">
+          <p className="truncate text-sm font-semibold text-(--ink)">
+            {talk.videoTitle ?? talk.title.en}
+          </p>
+          <p className="mt-0.5 text-xs text-(--muted)">youtube.com</p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function Speaking() {
   const { t } = useLanguage();
@@ -57,16 +111,10 @@ export function Speaking() {
                   </span>
                 </div>
                 <p className="lede mt-4 text-pretty">{t(talk.description)}</p>
-                {talk.link ? (
-                  <a
-                    href={talk.link}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="btn btn-outline mt-6"
-                  >
-                    {t(ui.watchRecording)}
-                    <ArrowUpRight className="size-4" />
-                  </a>
+                {talk.videoId ? (
+                  <div className="mt-6">
+                    <VideoPreview talk={talk} />
+                  </div>
                 ) : null}
               </div>
             </article>

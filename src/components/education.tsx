@@ -27,7 +27,11 @@ export function Education() {
                 alt={`${item.school} ${t(ui.logoAlt)}`}
                 width={44}
                 height={44}
-                className="size-11 shrink-0 rounded-lg border border-(--line) bg-white/60 object-contain p-1"
+                className={
+                  item.logoTone === "dark"
+                    ? "size-11 shrink-0 rounded-lg border border-(--line) bg-slate-950 object-contain p-1"
+                    : "size-11 shrink-0 rounded-lg border border-(--line) bg-white/60 object-contain p-1"
+                }
               />
               <div>
                 <h3 className="text-base font-semibold text-(--ink)">
