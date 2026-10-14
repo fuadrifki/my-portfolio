@@ -51,7 +51,7 @@ function FeaturedCard({ project }: { project: Project }) {
       </div>
       <div className="flex flex-col p-6 md:p-8">
         <div className="flex items-center gap-3">
-          <span className="inline-flex items-center rounded-full bg-[var(--accent-soft)] px-2.5 py-1 text-[0.68rem] font-semibold uppercase tracking-wide text-[var(--accent)]">
+          <span className="inline-flex items-center rounded-full bg-(--accent-soft) px-2.5 py-1 text-[0.68rem] font-semibold uppercase tracking-wide text-(--accent)">
             {t(ui.featured)}
           </span>
           <span className="eyebrow">{t(categoryLabels[project.category])}</span>
@@ -59,11 +59,11 @@ function FeaturedCard({ project }: { project: Project }) {
         <h3 className="display mt-4 text-2xl text-balance sm:text-[1.75rem]">
           {project.name}
         </h3>
-        <p className="mt-2 font-mono text-xs text-[var(--muted)]">
+        <p className="mt-2 font-mono text-xs text-(--muted)">
           {t(project.role)} · {project.period}
         </p>
         <p className="lede mt-4 text-pretty">{t(project.summary)}</p>
-        <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
+        <p className="mt-3 text-sm leading-relaxed text-(--muted)">
           {t(project.description)}
         </p>
         <div className="mt-6 pt-6 md:mt-auto">
@@ -92,7 +92,7 @@ function GridCard({ project }: { project: Project }) {
       <div className="flex flex-1 flex-col p-6">
         <span className="eyebrow">{t(categoryLabels[project.category])}</span>
         <h3 className="display mt-2 text-xl">{project.name}</h3>
-        <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
+        <p className="mt-3 text-sm leading-relaxed text-(--muted)">
           {t(project.summary)}
         </p>
         <div className="mt-6 pt-6 md:mt-auto">
@@ -130,11 +130,11 @@ export function Projects() {
 
       <Reveal className="mt-14">
         <h3 className="eyebrow mb-2">{t(ui.moreProjects)}</h3>
-        <ul className="border-t border-[var(--line)]">
+        <ul className="border-t border-(--line)">
           {otherProjects.map((project) => (
             <li
               key={project.slug}
-              className="grid gap-3 border-b border-[var(--line)] py-5 md:grid-cols-12 md:gap-6"
+              className="grid gap-3 border-b border-(--line) py-5 md:grid-cols-12 md:gap-6"
             >
               <div className="md:col-span-4">
                 <h4 className="display text-lg">{project.name}</h4>
@@ -142,7 +142,7 @@ export function Projects() {
                   {t(categoryLabels[project.category])} · {project.period}
                 </p>
               </div>
-              <p className="text-sm leading-relaxed text-[var(--muted)] md:col-span-5">
+              <p className="text-sm leading-relaxed text-(--muted) md:col-span-5">
                 {t(project.description)}
               </p>
               <div className="md:col-span-3">

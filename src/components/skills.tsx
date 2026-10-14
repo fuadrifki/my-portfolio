@@ -25,11 +25,11 @@ export function Skills() {
                 {group.items.map((item) => (
                   <li
                     key={item}
-                    className="flex items-center gap-2.5 text-sm text-[var(--ink-soft)]"
+                    className="flex items-center gap-2.5 text-sm text-(--ink-soft)"
                   >
                     <span
                       aria-hidden="true"
-                      className="size-1.5 shrink-0 rounded-full bg-[var(--accent)]"
+                      className="size-1.5 shrink-0 rounded-full bg-(--accent)"
                     />
                     {item}
                   </li>

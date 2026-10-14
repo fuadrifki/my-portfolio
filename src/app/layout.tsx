@@ -6,22 +6,25 @@ import "./globals.css";
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
-  display: "swap",
+  display: "swap"
 });
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-geist-mono",
-  display: "swap",
+  display: "swap"
 });
 
 export const metadata: Metadata = {
   title: {
     default: "Fuad Rifqi Zamzami — Frontend Engineer",
-    template: "%s · Fuad Rifqi Zamzami",
+    template: "%s · Fuad Rifqi Zamzami"
   },
   description:
     "Frontend engineer building maintainable web and mobile applications with JavaScript, TypeScript, Vue, React, Next.js, and Nuxt.js.",
+  icons: {
+    icon: "/favicon.svg"
+  },
   keywords: [
     "Fuad Rifqi Zamzami",
     "Frontend Engineer",
@@ -33,8 +36,7 @@ export const metadata: Metadata = {
     "Next.js",
     "Nuxt.js",
     "React Native",
-    "Expo",
-    "Tailwind CSS",
+    "Tailwind CSS"
   ],
   authors: [{ name: "Fuad Rifqi Zamzami" }],
   creator: "Fuad Rifqi Zamzami",
@@ -43,20 +45,20 @@ export const metadata: Metadata = {
     title: "Fuad Rifqi Zamzami — Frontend Engineer",
     description:
       "Frontend engineer building maintainable web and mobile applications with JavaScript, TypeScript, Vue, React, Next.js, and Nuxt.js.",
-    siteName: "Fuad Rifqi Zamzami",
+    siteName: "Fuad Rifqi Zamzami"
   },
   twitter: {
     card: "summary_large_image",
     title: "Fuad Rifqi Zamzami — Frontend Engineer",
     description:
-      "Frontend engineer building maintainable web and mobile applications with JavaScript, TypeScript, Vue, React, Next.js, and Nuxt.js.",
-  },
+      "Frontend engineer building maintainable web and mobile applications with JavaScript, TypeScript, Vue, React, Next.js, and Nuxt.js."
+  }
 };
 
 const themeScript = `(function(){try{var t=localStorage.getItem('portfolio-theme');var m=window.matchMedia('(prefers-color-scheme: dark)').matches;if(t==='dark'||(!t&&m)){document.documentElement.classList.add('dark');}var l=localStorage.getItem('portfolio-locale');if(l==='en'||l==='id'){document.documentElement.lang=l;}}catch(e){}})();`;
 
 export default function RootLayout({
-  children,
+  children
 }: {
   children: React.ReactNode;
 }) {
@@ -66,7 +68,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${montserrat.variable} ${geistMono.variable}`}
     >
-      <body className="min-h-screen bg-[var(--bg)] text-[var(--ink)] antialiased">
+      <body className="min-h-screen bg-(--bg) text-(--ink) antialiased">
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <Providers>{children}</Providers>
       </body>

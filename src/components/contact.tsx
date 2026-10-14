@@ -11,12 +11,12 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="scroll-mt-24 border-t border-[var(--line)]"
+      className="scroll-mt-24 border-t border-(--line)"
     >
       <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:px-8 md:py-24">
-        <div className="overflow-hidden rounded-2xl bg-[var(--ink)] px-6 py-12 text-[var(--bg)] sm:px-12 sm:py-16">
+        <div className="overflow-hidden rounded-2xl bg-(--ink) px-6 py-12 text-(--bg) sm:px-12 sm:py-16">
           <p className="font-mono text-xs uppercase tracking-[0.18em] text-[color-mix(in_srgb,var(--bg)_65%,transparent)]">
-            <span className="text-[var(--accent)]">06</span> — {t(ui.contactSection.eyebrow)}
+            <span className="text-(--accent)">06</span> — {t(ui.contactSection.eyebrow)}
           </p>
           <h2 className="display mt-4 max-w-3xl text-3xl text-balance sm:text-5xl">
             {t(ui.contactSection.title)}
@@ -28,7 +28,7 @@ export function Contact() {
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href={`mailto:${profile.email}`}
-              className="btn bg-[var(--accent)] text-[var(--accent-ink)] hover:brightness-110"
+              className="btn bg-(--accent) text-(--accent-ink) hover:brightness-110"
             >
               <Mail className="size-4" />
               {profile.email}
@@ -37,7 +37,7 @@ export function Contact() {
               href={profile.linkedin}
               target="_blank"
               rel="noreferrer noopener"
-              className="btn border border-[color-mix(in_srgb,var(--bg)_30%,transparent)] text-[var(--bg)] hover:bg-[color-mix(in_srgb,var(--bg)_12%,transparent)]"
+              className="btn border border-[color-mix(in_srgb,var(--bg)_30%,transparent)] text-(--bg) hover:bg-[color-mix(in_srgb,var(--bg)_12%,transparent)]"
             >
               <LinkedinIcon className="size-4" />
               LinkedIn
@@ -47,7 +47,7 @@ export function Contact() {
               href={profile.github}
               target="_blank"
               rel="noreferrer noopener"
-              className="btn border border-[color-mix(in_srgb,var(--bg)_30%,transparent)] text-[var(--bg)] hover:bg-[color-mix(in_srgb,var(--bg)_12%,transparent)]"
+              className="btn border border-[color-mix(in_srgb,var(--bg)_30%,transparent)] text-(--bg) hover:bg-[color-mix(in_srgb,var(--bg)_12%,transparent)]"
             >
               <GithubIcon className="size-4" />
               GitHub

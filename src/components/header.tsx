@@ -12,7 +12,7 @@ const NAV: { id: string; label: Localized }[] = [
   { id: "skills", label: ui.nav.skills },
   { id: "education", label: ui.nav.education },
   { id: "speaking", label: ui.nav.speaking },
-  { id: "contact", label: ui.nav.contact },
+  { id: "contact", label: ui.nav.contact }
 ];
 
 const SECTION_IDS = NAV.map((item) => item.id);
@@ -30,13 +30,10 @@ function useActiveSection(ids: string[]) {
       (entries) => {
         const visible = entries
           .filter((entry) => entry.isIntersecting)
-          .sort(
-            (a, b) =>
-              a.boundingClientRect.top - b.boundingClientRect.top,
-          );
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
         if (visible[0]) setActive(visible[0].target.id);
       },
-      { rootMargin: "-40% 0px -55% 0px", threshold: 0 },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -123,9 +120,9 @@ export function Header() {
     () =>
       NAV.map((item) => ({
         ...item,
-        label: t(item.label),
+        label: t(item.label)
       })),
-    [t],
+    [t]
   );
 
   return (
@@ -136,79 +133,79 @@ export function Header() {
       <header
         className={`sticky top-0 z-50 transition-colors duration-300 ${
           scrolled
-            ? "border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--bg)_88%,transparent)] backdrop-blur-md"
+            ? "border-b border-(--line) bg-[color-mix(in_srgb,var(--bg)_88%,transparent)] backdrop-blur-md"
             : "border-b border-transparent"
         }`}
       >
-      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-5 sm:px-8">
-        <a
-          href="#top"
-          className="group flex items-center gap-2.5 text-sm font-semibold text-[var(--ink)]"
-        >
-          <span className="grid size-8 place-items-center rounded-lg bg-[var(--ink)] text-[0.7rem] font-bold tracking-tight text-[var(--bg)] transition-colors group-hover:bg-[var(--accent)] group-hover:text-[var(--accent-ink)]">
-            {profile.monogram}
-          </span>
-          <span className="hidden sm:block">{profile.name}</span>
-        </a>
-
-        <nav
-          className="hidden items-center gap-7 lg:flex"
-          aria-label={t(ui.ariaPrimary)}
-        >
-          {navLinks.map((item) => (
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              className="nav-link"
-              data-active={active === item.id}
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-2">
-          <LanguageControl className="hidden sm:inline-flex" />
-          <ThemeControl />
-          <button
-            type="button"
-            className="btn btn-ghost h-9 w-9 p-0 lg:hidden"
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            aria-label={open ? t(ui.closeMenu) : t(ui.menu)}
-            onClick={() => setOpen((value) => !value)}
+        <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-5 sm:px-8">
+          <a
+            href="#top"
+            className="group flex items-center gap-2.5 text-sm font-semibold text-(--ink)"
           >
-            {open ? <X className="size-5" /> : <Menu className="size-5" />}
-          </button>
-        </div>
-      </div>
+            <span className="grid size-8 place-items-center rounded-lg bg-(--ink) text-[0.7rem] font-bold tracking-tight text-(--bg) transition-colors group-hover:bg-(--accent) group-hover:text-(--accent-ink)">
+              {profile.monogram}
+            </span>
+            <span className="hidden sm:block">{profile.name}</span>
+          </a>
 
-      {open ? (
-        <div
-          id="mobile-nav"
-          className="animate-fade-in border-t border-[var(--line)] bg-[var(--bg)] lg:hidden"
-        >
           <nav
-            className="mx-auto flex w-full max-w-6xl flex-col px-5 py-3 sm:px-8"
-            aria-label={t(ui.ariaMobile)}
+            className="hidden items-center gap-7 lg:flex"
+            aria-label={t(ui.ariaPrimary)}
           >
             {navLinks.map((item) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="flex items-center justify-between border-b border-[var(--line)] py-3 text-sm font-medium text-[var(--ink-soft)] last:border-b-0"
-                onClick={() => setOpen(false)}
+                className="nav-link"
+                data-active={active === item.id}
               >
                 {item.label}
-                <span className="eyebrow">/{item.id}</span>
               </a>
             ))}
-            <div className="flex items-center justify-between gap-3 py-3 sm:hidden">
-              <LanguageControl />
-            </div>
           </nav>
+
+          <div className="flex items-center gap-2">
+            <LanguageControl className="hidden sm:inline-flex" />
+            <ThemeControl />
+            <button
+              type="button"
+              className="btn btn-ghost h-9 w-9 p-0 lg:hidden"
+              aria-expanded={open}
+              aria-controls="mobile-nav"
+              aria-label={open ? t(ui.closeMenu) : t(ui.menu)}
+              onClick={() => setOpen((value) => !value)}
+            >
+              {open ? <X className="size-5" /> : <Menu className="size-5" />}
+            </button>
+          </div>
         </div>
-      ) : null}
+
+        {open ? (
+          <div
+            id="mobile-nav"
+            className="animate-fade-in border-t border-(--line) bg-(--bg) lg:hidden"
+          >
+            <nav
+              className="mx-auto flex w-full max-w-6xl flex-col px-5 py-3 sm:px-8"
+              aria-label={t(ui.ariaMobile)}
+            >
+              {navLinks.map((item) => (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  className="flex items-center justify-between border-b border-(--line) py-3 text-sm font-medium text-(--ink-soft) last:border-b-0"
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                  <span className="eyebrow">/{item.id}</span>
+                </a>
+              ))}
+              <div className="flex items-center justify-between gap-3 py-3 sm:hidden">
+                <LanguageControl />
+              </div>
+            </nav>
+          </div>
+        ) : null}
       </header>
     </>
   );

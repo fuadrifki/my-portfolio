@@ -11,7 +11,7 @@ function ExperienceItem({ item }: { item: Experience }) {
   const { t } = useLanguage();
 
   return (
-    <article className="grid gap-6 border-b border-[var(--line)] py-8 first:pt-0 md:grid-cols-12 md:gap-8 md:py-10">
+    <article className="grid gap-6 border-b border-(--line) py-8 first:pt-0 md:grid-cols-12 md:gap-8 md:py-10">
       <div className="md:col-span-4">
         <div className="flex items-start gap-3">
           <Image
@@ -19,17 +19,17 @@ function ExperienceItem({ item }: { item: Experience }) {
             alt={`${item.company} ${t(ui.logoAlt)}`}
             width={40}
             height={40}
-            className="size-10 shrink-0 rounded-lg border border-[var(--line)]"
+            className="size-10 shrink-0 rounded-lg border border-(--line)"
           />
           <div className="min-w-0">
             <h3 className="display text-lg">{t(item.role)}</h3>
-            <p className="mt-0.5 text-sm font-semibold text-[var(--accent)]">
+            <p className="mt-0.5 text-sm font-semibold text-(--accent)">
               {item.company}
             </p>
-            <p className="eyebrow mt-1.5">{item.period}</p>
+            <p className="eyebrow mt-1.5">{t(item.period)}</p>
           </div>
         </div>
-        <p className="mt-3 inline-flex items-center gap-1.5 text-xs text-[var(--muted)]">
+        <p className="mt-3 inline-flex items-center gap-1.5 text-xs text-(--muted)">
           <MapPin className="size-3.5" />
           {t(item.location)}
         </p>
@@ -41,11 +41,11 @@ function ExperienceItem({ item }: { item: Experience }) {
           {item.highlights.map((highlight, index) => (
             <li
               key={index}
-              className="flex gap-3 text-sm leading-relaxed text-[var(--muted)]"
+              className="flex gap-3 text-sm leading-relaxed text-(--muted)"
             >
               <span
                 aria-hidden="true"
-                className="mt-2 h-px w-3.5 shrink-0 bg-[var(--accent)]"
+                className="mt-2 h-px w-3.5 shrink-0 bg-(--accent)"
               />
               <span>{t(highlight)}</span>
             </li>
@@ -75,7 +75,7 @@ export function Experience() {
       title={ui.experienceSection.title}
       description={ui.experienceSection.description}
     >
-      <div className="border-t border-[var(--line)] pt-8 md:pt-10">
+      <div className="border-t border-(--line) pt-8 md:pt-10">
         {experiences.map((item, index) => (
           <Reveal key={item.company} delay={index * 60}>
             <ExperienceItem item={item} />

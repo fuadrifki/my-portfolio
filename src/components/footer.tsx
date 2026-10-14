@@ -18,19 +18,19 @@ export function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="border-t border-[var(--line)]">
+    <footer className="border-t border-(--line)">
       <div className="mx-auto w-full max-w-6xl px-5 py-12 sm:px-8">
         <div className="grid gap-8 md:grid-cols-12">
           <div className="md:col-span-5">
             <a href="#top" className="flex items-center gap-2.5">
-              <span className="grid size-8 place-items-center rounded-lg bg-[var(--ink)] text-[0.7rem] font-bold tracking-tight text-[var(--bg)]">
+              <span className="grid size-8 place-items-center rounded-lg bg-(--ink) text-[0.7rem] font-bold tracking-tight text-(--bg)">
                 {profile.monogram}
               </span>
-              <span className="text-sm font-semibold text-[var(--ink)]">
+              <span className="text-sm font-semibold text-(--ink)">
                 {profile.name}
               </span>
             </a>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-[var(--muted)]">
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-(--muted)">
               {t(ui.footerNote)}
             </p>
           </div>
@@ -42,7 +42,7 @@ export function Footer() {
                 <li key={item.id}>
                   <a
                     href={`#${item.id}`}
-                    className="text-sm text-[var(--ink-soft)] transition-colors hover:text-[var(--accent)]"
+                    className="text-sm text-(--ink-soft) transition-colors hover:text-(--accent)"
                   >
                     {t(ui.nav[item.key])}
                   </a>
@@ -57,7 +57,7 @@ export function Footer() {
               <li>
                 <a
                   href={`mailto:${profile.email}`}
-                  className="text-sm text-[var(--ink-soft)] transition-colors hover:text-[var(--accent)]"
+                  className="text-sm text-(--ink-soft) transition-colors hover:text-(--accent)"
                 >
                   {profile.email}
                 </a>
@@ -67,7 +67,7 @@ export function Footer() {
                   href={profile.linkedin}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="inline-flex items-center gap-2 text-sm text-[var(--ink-soft)] transition-colors hover:text-[var(--accent)]"
+                  className="inline-flex items-center gap-2 text-sm text-(--ink-soft) transition-colors hover:text-(--accent)"
                 >
                   <LinkedinIcon className="size-4" />
                   LinkedIn
@@ -78,7 +78,7 @@ export function Footer() {
                   href={profile.github}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="inline-flex items-center gap-2 text-sm text-[var(--ink-soft)] transition-colors hover:text-[var(--accent)]"
+                  className="inline-flex items-center gap-2 text-sm text-(--ink-soft) transition-colors hover:text-(--accent)"
                 >
                   <GithubIcon className="size-4" />
                   GitHub
@@ -88,13 +88,13 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-[var(--line)] pt-6 sm:flex-row sm:items-center">
-          <p className="text-xs text-[var(--muted)]">
+        <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-(--line) pt-6 sm:flex-row sm:items-center">
+          <p className="text-xs text-(--muted)">
             © {YEAR} {profile.name}. {t(ui.rights)}
           </p>
           <a
             href="#top"
-            className="inline-flex items-center gap-2 text-xs font-medium text-[var(--muted)] transition-colors hover:text-[var(--ink)]"
+            className="inline-flex items-center gap-2 text-xs font-medium text-(--muted) transition-colors hover:text-(--ink)"
           >
             <ArrowUp className="size-3.5" />
             {t(ui.backToTop)}

@@ -26,17 +26,17 @@ export function Education() {
                 alt={`${item.school} ${t(ui.logoAlt)}`}
                 width={44}
                 height={44}
-                className="size-11 shrink-0 rounded-lg border border-[var(--line)]"
+                className="size-11 shrink-0 rounded-lg border border-(--line)"
               />
               <div>
-                <h3 className="text-base font-semibold text-[var(--ink)]">
+                <h3 className="text-base font-semibold text-(--ink)">
                   {item.school}
                 </h3>
-                <p className="mt-1 text-sm text-[var(--accent)]">
+                <p className="mt-1 text-sm text-(--accent)">
                   {t(item.degree)} · {t(item.field)}
                 </p>
                 <p className="eyebrow mt-2">{item.period}</p>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
+                <p className="mt-3 text-sm leading-relaxed text-(--muted)">
                   {t(item.description)}
                 </p>
               </div>

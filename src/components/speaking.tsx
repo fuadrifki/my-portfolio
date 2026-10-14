@@ -22,7 +22,7 @@ export function Speaking() {
           <Reveal key={talk.title.en}>
             <article className="surface-card grid gap-5 p-6 sm:p-7 md:grid-cols-12 md:gap-8">
               <div className="md:col-span-4">
-                <span className="grid size-11 place-items-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
+                <span className="grid size-11 place-items-center rounded-xl bg-(--accent-soft) text-(--accent)">
                   <Mic className="size-5" />
                 </span>
                 <p className="eyebrow mt-4">{talk.host}</p>
@@ -31,7 +31,7 @@ export function Speaking() {
                 <h3 className="display text-xl text-balance sm:text-2xl">
                   {t(talk.title)}
                 </h3>
-                <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-[var(--muted)]">
+                <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-(--muted)">
                   <span className="inline-flex items-center gap-1.5">
                     <CalendarDays className="size-3.5" />
                     {t(talk.date)}
