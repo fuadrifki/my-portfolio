@@ -16,8 +16,8 @@ This directory contains placeholder images for portfolio projects. Each image is
 | Atenda | `atenda.svg` | Enterprise | |
 | Ayo Belajar | `ayo-belajar.svg` | Personal | |
 | Sistem Informasi Akademik UT | `sia-ut.svg` | Enterprise | |
-| S1 Learning Platform | `s1-learning.svg` | Personal | |
-| PKR-2 | `pkr2.svg` | Personal | |
+| Mobile Learning App | `mobile-learning-app.svg` | Personal | |
+| Residence Management | `residence-management.svg` | Personal | |
 
 ## Replacing with Real Screenshots
 

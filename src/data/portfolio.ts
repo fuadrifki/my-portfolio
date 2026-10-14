@@ -345,11 +345,11 @@ export const projects: Project[] = [
     role: { en: "Frontend Developer", id: "Frontend Developer" },
     summary: {
       en: "A learning-management dashboard with class operations, live classes, quizzes, payments, and community features.",
-      id: "Dashboard learning-management dengan operasional kelas, live class, kuis, pembayaran, dan fitur komunitas."
+      id: "Dasbor manajemen pembelajaran dengan operasional kelas, kelas langsung, kuis, pembayaran, dan fitur komunitas."
     },
     description: {
       en: "Built as part of a software-house team: an LMS dashboard covering class management, live classes, chapters and quizzes, instructor and student flows, earnings and withdrawals, payments, messages, and forums across multiple roles. The frontend follows clean-architecture boundaries (app / domain / data) with React 16 and TypeScript, integrated against mock and staged REST APIs.",
-      id: "Dikerjakan sebagai bagian dari tim software house: dashboard LMS yang mencakup manajemen kelas, live class, chapter dan kuis, alur instruktur dan siswa, earning dan withdrawal, pembayaran, pesan, dan forum untuk beberapa peran. Frontend memakai batas clean architecture (app / domain / data) dengan React 16 dan TypeScript, terintegrasi ke REST API mock dan staging."
+      id: "Dikerjakan sebagai bagian dari tim software house: dasbor LMS yang mencakup manajemen kelas, kelas langsung, bab dan kuis, alur instruktur dan siswa, pendapatan dan penarikan dana, pembayaran, pesan, dan forum untuk beberapa peran. Frontend memakai batas clean architecture (app / domain / data) dengan React 16 dan TypeScript, terintegrasi ke REST API mock dan staging."
     },
     stack: ["React 16", "TypeScript", "Redux", "Clean Architecture", "REST API"]
   },
@@ -371,19 +371,19 @@ export const projects: Project[] = [
     stack: ["Vue.js", "JavaScript", "REST API"]
   },
   {
-    slug: "pkr-2",
-    name: "PKR-2",
+    slug: "residence-management",
+    name: "Residence Management",
     category: "personal",
-    image: "/images/projects/pkr2.svg",
-    period: "Personal project",
+    image: "/images/projects/residence-management.svg",
+    period: "Community project",
     role: { en: "Frontend Developer", id: "Frontend Developer" },
     summary: {
-      en: "A personal finance and dashboard application for tracking transactions and reading them at a glance.",
-      id: "Aplikasi keuangan pribadi dan dashboard untuk mencatat transaksi dan membacanya secara sekilas."
+      en: "A residential management web app covering resident records, dues, transactions, and financial reports.",
+      id: "Aplikasi web manajemen hunian yang mencakup data warga, iuran, transaksi, dan laporan keuangan."
     },
     description: {
-      en: "A personal finance and dashboard project. The current version is built with Nuxt and TypeScript, using Drizzle as the ORM on a Neon PostgreSQL database, with a focus on clear presentation of transaction data and summaries.",
-      id: "Proyek keuangan pribadi dan dashboard. Versi saat ini dibangun dengan Nuxt dan TypeScript, menggunakan Drizzle sebagai ORM di atas basis data Neon PostgreSQL, dengan fokus pada penyajian data transaksi dan ringkasan yang jelas."
+      en: "Built with Nuxt and TypeScript, using Drizzle as the ORM on a Neon PostgreSQL database: resident records, dues and categorized transaction tracking, financial reports, and a companion bot. Kept generic with no estate-specific naming.",
+      id: "Dibangun dengan Nuxt dan TypeScript, menggunakan Drizzle sebagai ORM di atas basis data Neon PostgreSQL: data warga, pencatatan iuran dan transaksi berkategori, laporan keuangan, dan bot pendamping. Dibuat generik tanpa penamaan spesifik perumahan."
     },
     stack: ["Nuxt", "TypeScript", "Drizzle", "Neon PostgreSQL"]
   },
@@ -396,11 +396,11 @@ export const projects: Project[] = [
     role: { en: "Mobile Frontend Developer", id: "Mobile Frontend Developer" },
     summary: {
       en: "A cross-platform learning app with structured chapters, exercises, tasks, and video lessons, backed by Firebase.",
-      id: "Aplikasi pembelajaran lintas platform dengan chapter, latihan, dan tugas terstruktur plus video materi, berbasis Firebase."
+      id: "Aplikasi pembelajaran lintas platform dengan bab, latihan, dan tugas terstruktur serta video materi, berbasis Firebase."
     },
     description: {
       en: "Built the mobile experience with React Native: authenticated flows (sign in / sign up), chapter-based study structure with exercises and tasks, progress reports, and video lessons, backed by Firebase Authentication and Firestore.",
-      id: "Membangun pengalaman mobile dengan React Native: alur terautentikasi (masuk / daftar), struktur belajar berbasis chapter dengan latihan dan tugas, laporan progres, dan video materi, berbasis Firebase Authentication dan Firestore."
+      id: "Membangun pengalaman mobile dengan React Native: alur terautentikasi (masuk / daftar), struktur belajar berbasis bab dengan latihan dan tugas, laporan perkembangan, dan video materi, berbasis Firebase Authentication dan Firestore."
     },
     stack: ["React Native", "Firebase Auth", "Firestore", "React Navigation"]
   },
@@ -416,17 +416,17 @@ export const projects: Project[] = [
     },
     summary: {
       en: "A cross-platform mobile top-up app for Android and iOS, delivered end to end as the sole frontend contributor.",
-      id: "Aplikasi pulsa lintas platform untuk Android dan iOS, dikerjakan end to end sebagai satu-satunya kontributor frontend."
+      id: "Aplikasi pulsa lintas platform untuk Android dan iOS, dikerjakan menyeluruh dari awal sampai akhir sebagai satu-satunya kontributor frontend."
     },
     description: {
       en: "Sole frontend owner across 130+ commits: a React Native top-up app with clean-architecture boundaries (domain / services / containers), credential-based API integration, and native builds for both stores.",
-      id: "Pemilik tunggal frontend dalam 130+ commit: aplikasi pulsa React Native dengan batas clean architecture (domain / services / containers), integrasi API berbasis kredensial, dan build native untuk kedua store."
+      id: "Pemilik tunggal frontend dalam 130+ commit: aplikasi pulsa React Native dengan batas clean architecture (domain / services / containers), integrasi API berbasis kredensial, dan build native untuk kedua toko aplikasi."
     },
     stack: ["React Native", "TypeScript", "Clean Architecture", "REST API"]
   },
   {
-    slug: "almaarif-jambi-plus",
-    name: "Al Maarif Jambi Plus",
+    slug: "almaarif-jambi-web",
+    name: "Al Maarif Jambi Web",
     category: "enterprise",
     image: "/images/projects/almaarif.svg",
     period: "Project work",
@@ -437,7 +437,7 @@ export const projects: Project[] = [
     },
     description: {
       en: "Contributed to a Turborepo/pnpm monorepo (Next.js 16 App Router, React 19, TypeScript, Tailwind v4) backed by Drizzle ORM on Neon PostgreSQL — admin screens, data flows, and environment-based configuration.",
-      id: "Berkontribusi pada monorepo Turborepo/pnpm (Next.js 16 App Router, React 19, TypeScript, Tailwind v4) yang didukung Drizzle ORM di atas Neon PostgreSQL — layar admin, alur data, dan konfigurasi berbasis environment."
+      id: "Berkontribusi pada monorepo Turborepo/pnpm (Next.js 16 App Router, React 19, TypeScript, Tailwind v4) yang didukung Drizzle ORM di atas Neon PostgreSQL — layar admin, alur data, dan konfigurasi berbasis lingkungan."
     },
     stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "Drizzle", "Neon PostgreSQL", "Turborepo"]
   },
