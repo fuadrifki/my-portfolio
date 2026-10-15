@@ -44,10 +44,10 @@ export const profile = {
     en: "Frontend Engineer with 7+ years of professional experience building and maintaining web and mobile applications, specializing in JavaScript, TypeScript, Vue.js, and React. Experienced in developing complex, large-scale logistics applications supporting end-to-end shipment operations, customer management, and administrative workflows. Skilled in frontend architecture, reusable component development, API integration, internationalization, PDF generation, and thermal printing. Experienced in cross-functional collaboration, code reviews, and frontend team coordination.",
     id: "Frontend Engineer dengan 7+ tahun pengalaman profesional membangun dan memelihara aplikasi web dan mobile, berspesialisasi dalam JavaScript, TypeScript, Vue.js, dan React. Berpengalaman mengembangkan aplikasi logistik kompleks berskala besar yang mendukung operasional pengiriman end-to-end, manajemen pelanggan, dan alur administrasi. Terampil dalam arsitektur frontend, pengembangan komponen reusable, integrasi API, internasionalisasi, pembuatan PDF, dan thermal printing. Berpengalaman dalam kolaborasi lintas fungsi, code review, dan koordinasi tim frontend."
   } satisfies Localized,
-  photo: "/images/profile-placeholder.svg",
+  photo: "/images/logos/profile.jpeg",
   photoAlt: {
-    en: "Portrait placeholder for Fuad Rifqi Zamzami",
-    id: "Foto profil sementara Fuad Rifqi Zamzami"
+    en: "Portrait photo of Fuad Rifqi Zamzami",
+    id: "Foto Fuad Rifqi Zamzami"
   } satisfies Localized,
   email: "fuad.rifki98@gmail.com",
   linkedin: "https://www.linkedin.com/in/fuad-rifqi",
