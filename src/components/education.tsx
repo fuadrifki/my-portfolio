@@ -40,6 +40,9 @@ export function Education() {
                 <p className="mt-1 text-sm text-(--accent)">
                   {t(item.degree)} · {t(item.field)}
                 </p>
+                <p className="mt-1 text-sm text-(--muted)">
+                  GPA {item.gpa}
+                </p>
                 <p className="eyebrow mt-2">{item.period}</p>
                 <p className="mt-1.5 inline-flex items-center gap-1.5 text-xs text-(--muted)">
                   <MapPin className="size-3.5" />

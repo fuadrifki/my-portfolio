@@ -211,6 +211,9 @@ body {
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--muted);
+  /* Inactive tabs stay transparent so only the active pill paints,
+     avoiding a background flash when the active state moves. */
+  background-color: transparent;
   transition:
     color 0.15s ease,
     background-color 0.15s ease;

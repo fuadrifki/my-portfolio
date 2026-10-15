@@ -1,0 +1,13 @@
+<svg width="640" height="640" viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Portrait placeholder">
+  <!-- Replace with an actual portrait photo. Keep a square image. -->
+  <defs>
+    <linearGradient id="pp-bg" x1="0" y1="0" x2="640" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E8E6DF"/>
+      <stop offset="1" stop-color="#CFCCC0"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="640" fill="url(#pp-bg)"/>
+  <circle cx="320" cy="252" r="104" fill="#8A877B"/>
+  <path d="M136 640c0-128 82-208 184-208s184 80 184 208v0H136v0z" fill="#8A877B"/>
+  <circle cx="320" cy="252" r="104" fill="none" stroke="#6F6C60" stroke-width="6" opacity="0.45"/>
+</svg>

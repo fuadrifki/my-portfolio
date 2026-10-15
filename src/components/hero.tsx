@@ -1,17 +1,14 @@
 "use client";
 
-import { ArrowRight, Briefcase, Mail, MapPin } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, ArrowUpRight, Mail, MapPin } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { useLanguage } from "@/components/providers";
 import { profile, ui } from "@/data/portfolio";
 
 const FOCUS_ITEMS = [
-  "Vue.js",
   "Nuxt.js",
-  "React",
   "Next.js",
-  "JavaScript",
-  "TypeScript",
   "Tailwind CSS",
   "React Native",
   "Node.js"
@@ -29,7 +26,7 @@ export function Hero() {
       <div className="relative mx-auto w-full max-w-6xl px-5 pb-16 pt-14 sm:px-8 md:pb-24 md:pt-24">
         <div className="grid items-start gap-12 md:grid-cols-12 md:gap-10">
           <div className="animate-fade-up md:col-span-7">
-            <p className="eyebrow">{t(profile.title)}</p>
+            <p className="eyebrow">{t(ui.heroRole)}</p>
             <h1 className="display mt-4 text-[clamp(2.5rem,8vw,4.75rem)] text-(--ink)">
               {profile.name}
             </h1>
@@ -37,30 +34,34 @@ export function Hero() {
               {t(profile.focus)}
             </p>
             <p className="lede mt-6 max-w-xl text-pretty">{t(profile.intro)}</p>
-            <p className="lede mt-4 max-w-xl text-pretty">
-              {t(profile.introSecondary)}
-            </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a href="#projects" className="btn btn-primary">
-                {t(ui.viewWork)}
+                {t(ui.exploreProjects)}
                 <ArrowRight className="size-4" />
               </a>
-              <a href={`mailto:${profile.email}`} className="btn btn-outline">
+              <a href="#contact" className="btn btn-outline">
                 <Mail className="size-4" />
-                {t(ui.emailMe)}
+                {t(ui.contactMe)}
               </a>
             </div>
           </div>
 
           <aside
-            className="animate-fade-up surface-card md:col-span-5"
+            className="animate-fade-up surface-card overflow-hidden md:col-span-5"
             style={{ animationDelay: "120ms" }}
           >
-            <div className="flex items-center justify-between gap-4 border-b border-(--line) p-5">
-              <span className="grid size-11 place-items-center rounded-xl bg-(--ink) text-base font-bold tracking-tight text-(--bg)">
-                {profile.monogram}
-              </span>
+            <div className="border-b border-(--line)">
+              <Image
+                src={profile.photo}
+                alt={t(profile.photoAlt)}
+                width={640}
+                height={640}
+                sizes="(min-width: 768px) 40vw, 100vw"
+                className="aspect-square w-full object-cover"
+              />
+            </div>
+            <div className="flex items-center gap-4 border-b border-(--line) p-5">
               <span className="inline-flex items-center gap-2 rounded-full border border-(--line) bg-(--surface-2) px-3 py-1 text-xs font-medium text-(--ink-soft)">
                 <span className="relative flex size-2">
                   <span className="absolute inline-flex size-2 animate-ping rounded-full bg-(--accent) opacity-60" />
@@ -88,12 +89,6 @@ export function Hero() {
                   {t(profile.location)}
                 </span>
               </div>
-              <div className="flex items-center justify-between gap-4 py-1.5 text-sm text-(--ink-soft) transition-colors hover:text-(--accent)">
-                <span className="inline-flex items-center gap-2">
-                  <Briefcase className="size-4" />
-                  {t(profile.workplace)}
-                </span>
-              </div>
               <a
                 href={`mailto:${profile.email}`}
                 className="flex items-center justify-between gap-4 py-1.5 text-sm text-(--ink-soft) transition-colors hover:text-(--accent)"
@@ -102,7 +97,7 @@ export function Hero() {
                   <Mail className="size-4 text-(--muted)" />
                   {profile.email}
                 </span>
-                <ArrowRight className="size-4 opacity-50" />
+                <ArrowUpRight className="size-4 opacity-50" />
               </a>
               <a
                 href={profile.linkedin}
@@ -112,9 +107,9 @@ export function Hero() {
               >
                 <span className="inline-flex items-center gap-2.5">
                   <LinkedinIcon className="size-4 text-(--muted)" />
-                  {profile.linkedin}
+                  LinkedIn
                 </span>
-                <ArrowRight className="size-4 opacity-50" />
+                <ArrowUpRight className="size-4 opacity-50" />
               </a>
               <a
                 href={profile.github}
@@ -124,9 +119,9 @@ export function Hero() {
               >
                 <span className="inline-flex items-center gap-2.5">
                   <GithubIcon className="size-4 text-(--muted)" />
-                  {profile.github}
+                  GitHub
                 </span>
-                <ArrowRight className="size-4 opacity-50" />
+                <ArrowUpRight className="size-4 opacity-50" />
               </a>
             </div>
           </aside>

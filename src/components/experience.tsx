@@ -11,18 +11,18 @@ function ExperienceItem({ item }: { item: Experience }) {
   const { t } = useLanguage();
 
   return (
-    <article className="grid gap-6 border-b border-(--line) py-8 first:pt-0 md:grid-cols-12 md:gap-8 md:py-10">
+    <article className="grid gap-6 border-b border-(--line) py-8 md:grid-cols-12 md:gap-8 md:py-10">
       <div className="md:col-span-4">
-        <div className="flex items-start gap-3">
+        <div className="flex flex-col items-start gap-4">
           <Image
             src={item.logo}
             alt={`${item.company} ${t(ui.logoAlt)}`}
-            width={40}
-            height={40}
+            width={60}
+            height={60}
             className={
               item.logoTone === "dark"
-                ? "size-10 shrink-0 rounded-lg border border-(--line) bg-slate-950 object-contain p-1"
-                : "size-10 shrink-0 rounded-lg border border-(--line) bg-white/60 object-contain p-1"
+                ? "size-15 shrink-0 rounded-xl border border-(--line) bg-slate-950 object-contain p-1.5"
+                : "size-15 shrink-0 rounded-xl border border-(--line) bg-white/60 object-contain p-1.5"
             }
           />
           <div className="min-w-0">
@@ -80,7 +80,7 @@ export function Experience() {
       title={ui.experienceSection.title}
       description={ui.experienceSection.description}
     >
-      <div className="border-t border-(--line) pt-8 md:pt-10">
+      <div className="border-t border-(--line)">
         {experiences.map((item, index) => (
           <Reveal key={item.company} delay={index * 60}>
             <ExperienceItem item={item} />

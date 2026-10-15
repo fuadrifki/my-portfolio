@@ -28,36 +28,29 @@ export const LOCALES: { value: Locale; label: string }[] = [
 export const profile = {
   name: "Fuad Rifqi Zamzami",
   monogram: "FR",
-  title: {
-    en: "Frontend Engineer",
-    id: "Frontend Engineer"
-  } satisfies Localized,
   focus: {
-    en: "Vue · React · Nuxt · Next.js · JavaScript & TypeScript",
-    id: "Vue · React · Nuxt · Next.js · JavaScript & TypeScript"
+    en: "Vue.js · React · JavaScript · TypeScript",
+    id: "Vue.js · React · JavaScript · TypeScript"
   } satisfies Localized,
   location: {
-    en: "Jakarta Metropolitan Area",
-    id: "Jakarta Metropolitan Area"
-  } satisfies Localized,
-  workplace: {
-    en: "On-site · Hybrid · Remote friendly",
-    id: "Di tempat · Hybrid · Terbuka untuk remote"
+    en: "Jakarta, Indonesia",
+    id: "Jakarta, Indonesia"
   } satisfies Localized,
   availability: {
     en: "Open to Frontend Engineering roles",
     id: "Terbuka untuk posisi Frontend Engineer"
   } satisfies Localized,
   intro: {
-    en: "I build maintainable, production-grade web and mobile interfaces with JavaScript and TypeScript. Over the last few years I have worked on large enterprise platforms, e-commerce storefronts, and cross-platform apps — with a strong emphasis on clean architecture, reliable API integration, and code that the next engineer can actually read.",
-    id: "Saya membangun antarmuka web dan mobile yang rapi dan siap produksi dengan JavaScript dan TypeScript. Beberapa tahun terakhir saya mengerjakan platform enterprise berskala besar, storefront e-commerce, dan aplikasi lintas platform — dengan penekanan pada clean architecture, integrasi API yang andal, dan kode yang mudah dibaca engineer berikutnya."
+    en: "Frontend Engineer with 7+ years of professional experience building and maintaining web and mobile applications, specializing in JavaScript, TypeScript, Vue.js, and React. Experienced in developing complex, large-scale logistics applications supporting end-to-end shipment operations, customer management, and administrative workflows. Skilled in frontend architecture, reusable component development, API integration, internationalization, PDF generation, and thermal printing. Experienced in cross-functional collaboration, code reviews, and frontend team coordination.",
+    id: "Frontend Engineer dengan 7+ tahun pengalaman profesional membangun dan memelihara aplikasi web dan mobile, berspesialisasi dalam JavaScript, TypeScript, Vue.js, dan React. Berpengalaman mengembangkan aplikasi logistik kompleks berskala besar yang mendukung operasional pengiriman end-to-end, manajemen pelanggan, dan alur administrasi. Terampil dalam arsitektur frontend, pengembangan komponen reusable, integrasi API, internasionalisasi, pembuatan PDF, dan thermal printing. Berpengalaman dalam kolaborasi lintas fungsi, code review, dan koordinasi tim frontend."
   } satisfies Localized,
-  introSecondary: {
-    en: "I care about clear component boundaries, predictable state, accessible markup, and thoughtful collaboration through code reviews and task coordination.",
-    id: "Saya peduli pada batas komponen yang jelas, state yang terprediksi, markup yang aksesibel, serta kolaborasi lewat code review dan koordinasi tugas."
+  photo: "/images/profile-placeholder.svg",
+  photoAlt: {
+    en: "Portrait placeholder for Fuad Rifqi Zamzami",
+    id: "Foto profil sementara Fuad Rifqi Zamzami"
   } satisfies Localized,
   email: "fuad.rifki98@gmail.com",
-  linkedin: "https://www.linkedin.com/in/fuad-rifki",
+  linkedin: "https://www.linkedin.com/in/fuad-rifqi",
   github: "https://github.com/fuadrifki"
 };
 
@@ -87,10 +80,14 @@ export const ui = {
   projectPreview: { en: "project preview", id: "pratinjau proyek" },
   logoAlt: { en: "logo", id: "logo" },
   getInTouch: { en: "Get in touch", id: "Hubungi saya" },
-  viewWork: { en: "View selected work", id: "Lihat karya pilihan" },
-  emailMe: { en: "Email me", id: "Kirim email" },
+  exploreProjects: { en: "Explore Projects", id: "Jelajahi Proyek" },
+  contactMe: { en: "Contact Me", id: "Hubungi Saya" },
+  heroRole: {
+    en: "Frontend Engineer | JavaScript & TypeScript | Vue.js & React",
+    id: "Frontend Engineer | JavaScript & TypeScript | Vue.js & React"
+  },
   basedIn: { en: "Based in", id: "Berlokasi di" },
-  focusAreas: { en: "Focus areas", id: "Fokus" },
+  focusAreas: { en: "Also working with", id: "Juga bekerja dengan" },
   selectedProjects: {
     eyebrow: { en: "Selected work", id: "Karya pilihan" },
     title: { en: "Projects I am proud of", id: "Proyek yang saya banggakan" },
@@ -189,33 +186,32 @@ export const projects: Project[] = [
     period: "Lion Parcel",
     role: { en: "Frontend Engineer", id: "Frontend Engineer" },
     summary: {
-      en: "A large-scale logistics platform covering shipment operations, customer workflows, CRM, and internal administrative operations.",
-      id: "Platform logistik skala besar yang mencakup operasional pengiriman, alur pelanggan, CRM, dan operasional administrasi internal."
+      en: "A large-scale logistics platform covering end-to-end shipment operations, customer workflows, CRM, and administrative workflows. I contribute across the platform through feature development, maintenance, and REST API integration.",
+      id: "Platform logistik skala besar yang mencakup operasional pengiriman end-to-end, alur pelanggan, CRM, dan alur administrasi. Saya berkontribusi di seluruh platform melalui pengembangan fitur, pemeliharaan, dan integrasi REST API."
     },
     description: {
-      en: "Genesis is the operational core of Lion Parcel. I work across the platform rather than a single module — shipment operations, customer-facing workflows, CRM surfaces, and the administrative tooling that back-office teams rely on. The frontend is built with Vue 3 and TypeScript on clean-architecture boundaries, and my focus is keeping a large, long-lived codebase understandable: clear component boundaries, consistent data flow, and dependable integration with the platform's REST APIs.",
-      id: "Genesis adalah inti operasional Lion Parcel. Saya mengerjakan platform secara menyeluruh, bukan satu modul saja — operasional pengiriman, alur pelanggan, permukaan CRM, dan tooling administrasi yang digunakan tim back-office. Frontend-nya dibangun dengan Vue 3 dan TypeScript di atas batas clean architecture, dan fokus saya adalah menjaga basis kode besar dan berumur panjang tetap mudah dipahami: batas komponen yang jelas, aliran data yang konsisten, dan integrasi REST API yang andal."
+      en: "Genesis is the operational core of Lion Parcel. I work across the platform on feature development and maintenance, building with Vue 3 and TypeScript on clean-architecture boundaries and keeping a large, long-lived codebase understandable through clear component boundaries, consistent data flow, and dependable REST API integration.",
+      id: "Genesis adalah inti operasional Lion Parcel. Saya mengerjakan platform secara menyeluruh pada pengembangan dan pemeliharaan fitur, membangun dengan Vue 3 dan TypeScript di atas batas clean architecture, serta menjaga basis kode besar dan berumur panjang tetap mudah dipahami melalui batas komponen yang jelas, aliran data yang konsisten, dan integrasi REST API yang andal."
     },
     stack: ["Vue 3", "TypeScript", "Vuex", "Clean Architecture", "REST API"],
     featured: true
   },
   {
     slug: "pindad",
-    name: "Pindad",
+    name: "E-Procurement PT Pindad",
     category: "enterprise",
     image: "/images/projects/pindad.svg",
     period: "Refactory client project",
     role: { en: "Frontend Developer", id: "Frontend Developer" },
     summary: {
-      en: "An enterprise web application built for PT Pindad (Persero), Indonesia's state-owned defence and industrial manufacturer.",
-      id: "Aplikasi web enterprise yang dibangun untuk PT Pindad (Persero), perusahaan pertahanan dan industri milik negara Indonesia."
+      en: "A web-based e-procurement platform for PT Pindad (Persero), supporting end-to-end procurement through an integrated digital system. Contributed to frontend development with React.js and TypeScript.",
+      id: "Platform e-procurement berbasis web untuk PT Pindad (Persero) yang mendukung pengadaan end-to-end melalui sistem digital yang terintegrasi. Berkontribusi pada pengembangan frontend dengan React.js dan TypeScript."
     },
     description: {
-      en: "Contributed frontend implementation for an internal enterprise system: translating requirements into structured pages and components, wiring the interface to backend services, and keeping the UI consistent across a broad set of operational screens.",
-      id: "Berkontribusi pada implementasi frontend untuk sistem enterprise internal: menerjemahkan kebutuhan menjadi halaman dan komponen yang terstruktur, menghubungkan antarmuka ke layanan backend, dan menjaga konsistensi UI pada banyak layar operasional."
+      en: "A web-based e-procurement platform for PT Pindad (Persero), designed to support end-to-end procurement processes through an integrated digital system.\n\nContributed to frontend development using React.js and TypeScript, integrating application features with backend GraphQL APIs.",
+      id: "Platform e-procurement berbasis web untuk PT Pindad (Persero), dirancang untuk mendukung proses pengadaan end-to-end melalui sistem digital yang terintegrasi.\n\nBerkontribusi pada pengembangan frontend menggunakan React.js dan TypeScript, mengintegrasikan fitur aplikasi dengan GraphQL API backend."
     },
-    stack: ["Vue.js", "JavaScript", "REST API"],
-    featured: true
+    stack: ["React.js", "TypeScript", "GraphQL"]
   },
   {
     slug: "refactory-profile",
@@ -225,15 +221,14 @@ export const projects: Project[] = [
     period: "Refactory",
     role: { en: "Frontend Developer", id: "Frontend Developer" },
     summary: {
-      en: "The public company profile site for Refactory, a technology education and software company based in Yogyakarta.",
-      id: "Situs company profile publik Refactory, perusahaan pendidikan teknologi dan perangkat lunak yang berbasis di Yogyakarta."
+      en: "The public company profile site for Refactory, a technology education and software company in Yogyakarta. Built the marketing-facing site with clear information architecture, responsive layouts, and reusable components.",
+      id: "Situs company profile publik Refactory, perusahaan pendidikan teknologi dan perangkat lunak di Yogyakarta. Membangun situs pemasaran dengan arsitektur informasi yang jelas, layout responsif, dan komponen yang dapat digunakan ulang."
     },
     description: {
-      en: "Built the marketing-facing web experience: a content-rich landing site with clear information architecture, responsive layouts, and a reusable component set that the team could extend as programmes and pages changed.",
-      id: "Membangun pengalaman web untuk pemasaran: situs landing kaya konten dengan arsitektur informasi yang jelas, layout responsif, dan komponen yang dapat digunakan ulang sehingga tim bisa menambah program dan halaman seiring perubahan."
+      en: "Built the marketing-facing web experience for Refactory: a content-rich site with clear information architecture, responsive layouts, and a reusable component set the team could extend as programs and pages changed.",
+      id: "Membangun pengalaman web pemasaran untuk Refactory: situs kaya konten dengan arsitektur informasi yang jelas, layout responsif, dan komponen yang dapat digunakan ulang sehingga tim bisa menambah program dan halaman seiring perubahan."
     },
-    stack: ["Vue.js", "Nuxt.js", "REST API"],
-    featured: true
+    stack: ["WordPress", "Elementor"]
   },
   {
     slug: "jersium",
@@ -246,12 +241,12 @@ export const projects: Project[] = [
       id: "Frontend Developer (Freelance)"
     },
     summary: {
-      en: "A Next.js e-commerce frontend where I owned the frontend implementation from design handoff to production.",
-      id: "Frontend e-commerce berbasis Next.js yang saya kerjakan dari serah terima desain hingga produksi."
+      en: "A Next.js e-commerce frontend. Handled the frontend implementation with pixel-accurate interfaces and storefront API integration.",
+      id: "Frontend e-commerce Next.js. Mengerjakan implementasi frontend dengan antarmuka yang pixel-accurate dan integrasi API storefront."
     },
     description: {
-      en: "Contributed as the frontend developer on this Next.js e-commerce project, turning designs into high-quality, pixel-perfect interfaces that matched the required specifications. Focused on implementation quality, reusable components, and a consistent shopping experience across the site, including the API integration behind the storefront.",
-      id: "Berkontribusi sebagai frontend developer pada proyek e-commerce Next.js ini, mengubah desain menjadi antarmuka berkualitas tinggi dan pixel-perfect sesuai spesifikasi yang diminta. Fokus pada kualitas implementasi, komponen yang dapat digunakan ulang, dan pengalaman belanja yang konsisten di seluruh situs, termasuk integrasi API di balik storefront."
+      en: "Handled the frontend development for this Next.js e-commerce project: turning designs into pixel-accurate interfaces with reusable components and integrating the storefront with backend APIs.",
+      id: "Mengerjakan pengembangan frontend untuk proyek e-commerce Next.js ini: mengubah desain menjadi antarmuka yang pixel-accurate dengan komponen yang dapat digunakan ulang serta mengintegrasikan storefront dengan API backend."
     },
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"]
   },
@@ -263,12 +258,12 @@ export const projects: Project[] = [
     period: "Lion Parcel",
     role: { en: "Frontend Engineer", id: "Frontend Engineer" },
     summary: {
-      en: "A content management system used by Lion Parcel teams to manage and publish website content.",
-      id: "Sistem manajemen konten yang digunakan tim Lion Parcel untuk mengelola dan mempublikasikan konten situs."
+      en: "A content management system for managing and publishing Lion Parcel website content. Contributed frontend features for article and content management with API integration.",
+      id: "Sistem manajemen konten untuk mengelola dan mempublikasikan konten situs Lion Parcel. Berkontribusi pada fitur frontend untuk pengelolaan artikel dan konten dengan integrasi API."
     },
     description: {
-      en: "Contributed frontend features to the Lion Parcel CMS, including interfaces for article and content management and the API integration behind them. Also helped break down article/CMS tasks within the team. Aspects such as SEO and overall product ownership sat with other team members.",
-      id: "Berkontribusi pada fitur frontend Lion Parcel CMS, termasuk antarmuka untuk pengelolaan artikel dan konten serta integrasi API di baliknya. Turut membantu memecah tugas artikel/CMS di dalam tim. Hal seperti SEO dan kepemilikan produk secara keseluruhan berada pada anggota tim lain."
+      en: "Contributed frontend features to the Lion Parcel CMS, including interfaces for article and content management and the API integration behind them.",
+      id: "Berkontribusi pada fitur frontend Lion Parcel CMS, termasuk antarmuka untuk pengelolaan artikel dan konten serta integrasi API di baliknya."
     },
     stack: ["Vue.js", "TypeScript", "Vuex", "REST API"]
   },
@@ -280,12 +275,12 @@ export const projects: Project[] = [
     period: "Lion Parcel",
     role: { en: "Frontend Engineer", id: "Frontend Engineer" },
     summary: {
-      en: "The public Lion Parcel website — service information, rate tools, and customer-facing content.",
-      id: "Situs publik Lion Parcel — informasi layanan, alat bantu tarif, dan konten untuk pelanggan."
+      en: "The public Lion Parcel website with service information, rate tools, and customer-facing content. Developed and maintained frontend features connected to backend APIs.",
+      id: "Situs publik Lion Parcel berisi informasi layanan, alat bantu tarif, dan konten pelanggan. Mengembangkan dan memelihara fitur frontend yang terhubung ke API backend."
     },
     description: {
-      en: "Developed and maintained frontend features on the public Lion Parcel website, connecting the interface to backend APIs and supporting content updates. Worked as part of the team rather than owning the site or its SEO end to end.",
-      id: "Mengembangkan dan memelihara fitur frontend pada situs publik Lion Parcel, menghubungkan antarmuka ke API backend, dan mendukung pembaruan konten. Bekerja sebagai bagian dari tim, bukan memiliki situs atau SEO-nya secara end to end."
+      en: "Developed and maintained frontend features on the public Lion Parcel website as part of the team, connecting the interface to backend APIs and supporting content updates.",
+      id: "Mengembangkan dan memelihara fitur frontend pada situs publik Lion Parcel sebagai bagian dari tim, menghubungkan antarmuka ke API backend dan mendukung pembaruan konten."
     },
     stack: ["Vue.js", "Nuxt.js", "Tailwind CSS", "REST API"]
   },
@@ -297,12 +292,12 @@ export const projects: Project[] = [
     period: "Lion Parcel",
     role: { en: "Frontend Engineer", id: "Frontend Engineer" },
     summary: {
-      en: "Shopify-side frontend features for Lion Parcel shipping, focused on booking and address management.",
-      id: "Fitur frontend sisi Shopify untuk pengiriman Lion Parcel, berfokus pada booking dan manajemen alamat."
+      en: "Shopify-side frontend features for Lion Parcel shipping, focused on booking and address management. Contributed as part of a multi-team shipping integration.",
+      id: "Fitur frontend sisi Shopify untuk pengiriman Lion Parcel, berfokus pada booking dan manajemen alamat. Berkontribusi sebagai bagian dari integrasi pengiriman lintas beberapa tim."
     },
     description: {
-      en: "Developed Shopify-side frontend features around shipping booking and address management for Lion Parcel. This was one part of a broader shipping integration delivered across several teams, not a solo end-to-end integration of the whole Lion Parcel logistics service.",
-      id: "Mengembangkan fitur frontend sisi Shopify untuk booking pengiriman dan manajemen alamat Lion Parcel. Ini merupakan salah satu bagian dari integrasi pengiriman yang lebih luas yang dikerjakan beberapa tim, bukan integrasi end to end seluruh layanan logistik Lion Parcel secara mandiri."
+      en: "Developed Shopify-side frontend features around shipping booking and address management for Lion Parcel, as one part of a broader shipping integration delivered across several teams.",
+      id: "Mengembangkan fitur frontend sisi Shopify untuk booking pengiriman dan manajemen alamat Lion Parcel, sebagai salah satu bagian dari integrasi pengiriman yang lebih luas yang dikerjakan beberapa tim."
     },
     stack: ["JavaScript", "React", "REST API"]
   },
@@ -314,14 +309,14 @@ export const projects: Project[] = [
     period: "Project work",
     role: { en: "Frontend Developer", id: "Frontend Developer" },
     summary: {
-      en: "An academic information system for managing student records, courses, and academic administration.",
-      id: "Sistem informasi akademik untuk mengelola data mahasiswa, mata kuliah, dan administrasi akademik."
+      en: "An academic information system for student records, courses, and administration. Implemented data-heavy screens with tables, filters, and forms.",
+      id: "Sistem informasi akademik untuk data mahasiswa, mata kuliah, dan administrasi. Mengimplementasikan layar padat data dengan tabel, filter, dan form."
     },
     description: {
       en: "Implemented data-heavy academic screens — tables, filters, and forms — with a focus on readability and clear feedback for administrative users.",
       id: "Mengimplementasikan layar akademik yang padat data — tabel, filter, dan form — dengan fokus pada keterbacaan dan umpan balik yang jelas untuk pengguna administrasi."
     },
-    stack: ["Vue.js", "JavaScript", "REST API"]
+    stack: ["Laravel", "PHP"]
   },
   {
     slug: "atenda",
@@ -331,14 +326,14 @@ export const projects: Project[] = [
     period: "Project work",
     role: { en: "Frontend Developer", id: "Frontend Developer" },
     summary: {
-      en: "An attendance and workforce application for recording and reviewing daily staff attendance.",
-      id: "Aplikasi absensi dan ketenagakerjaan untuk mencatat dan meninjau kehadiran staf harian."
+      en: "An attendance and workforce application for daily staff attendance. Built check-in flows, attendance history, and reporting views.",
+      id: "Aplikasi absensi dan ketenagakerjaan untuk kehadiran staf harian. Membangun alur check-in, riwayat kehadiran, dan tampilan laporan."
     },
     description: {
-      en: "Built the attendance interface: check-in experiences, attendance history, and reporting views wired to backend services.",
-      id: "Membangun antarmuka absensi: pengalaman check-in, riwayat kehadiran, dan tampilan laporan yang terhubung ke layanan backend."
+      en: "Built the attendance interface: check-in flows, attendance history, and reporting views wired to backend services.",
+      id: "Membangun antarmuka absensi: alur check-in, riwayat kehadiran, dan tampilan laporan yang terhubung ke layanan backend."
     },
-    stack: ["Vue.js", "JavaScript", "REST API"]
+    stack: ["React", "JavaScript", "REST API"]
   },
   {
     slug: "ayo-belajar",
@@ -365,8 +360,8 @@ export const projects: Project[] = [
     period: "Project work",
     role: { en: "Frontend Developer", id: "Frontend Developer" },
     summary: {
-      en: "An e-commerce frontend with a focus on product presentation and a straightforward purchase flow.",
-      id: "Frontend e-commerce dengan fokus pada penyajian produk dan alur pembelian yang sederhana."
+      en: "An e-commerce frontend focused on product presentation and a straightforward purchase flow. Built browsing and detail experiences integrated with the backend catalogue.",
+      id: "Frontend e-commerce dengan fokus pada penyajian produk dan alur pembelian yang sederhana. Membangun pengalaman jelajah dan detail produk yang terintegrasi dengan katalog backend."
     },
     description: {
       en: "Built product browsing and detail experiences, connected the catalogue to the backend, and kept the interface consistent across screen sizes.",
@@ -419,14 +414,14 @@ export const projects: Project[] = [
       id: "Mobile Frontend Developer (Freelance)"
     },
     summary: {
-      en: "A pulsa-conversion mobile app for Android and iOS: check live provider rates, convert phone credit, and track bank-transfer payouts.",
-      id: "Aplikasi konversi pulsa untuk Android dan iOS: cek kurs provider terkini, tukar pulsa, dan lacak pembayaran via transfer bank."
+      en: "A mobile application for Android and iOS for checking real-time mobile credit conversion rates, submitting conversion requests, and tracking bank-transfer payouts.",
+      id: "Aplikasi mobile untuk Android dan iOS untuk melihat nilai konversi pulsa secara real-time, mengajukan permintaan konversi pulsa, dan melacak pencairan dana melalui transfer bank."
     },
     description: {
       en: "End-to-end mobile frontend for a pulsa-to-cash service built with React Native: authenticated flows, a rate board per provider with min–max nominals, a guided transaction flow (phone number, amount, conversion preview, destination bank account), status-tracked history, and customer-service access — integrated against a credential-secured REST API within clean-architecture boundaries, with native builds for both stores.",
       id: "Frontend mobile end-to-end untuk layanan tukar pulsa menjadi saldo dengan React Native: alur terautentikasi, papan kurs per provider dengan batas minimal–maksimal nominal, alur transaksi terpandu (nomor HP, nominal, pratinjau konversi, rekening bank tujuan), riwayat berstatus, dan akses layanan pelanggan — terintegrasi ke REST API berkredensial dalam batas clean architecture, dengan build native untuk kedua toko aplikasi."
     },
-    stack: ["React Native", "TypeScript", "Clean Architecture", "REST API"]
+    stack: ["React Native", "TypeScript", "Android", "iOS"]
   },
   {
     slug: "almaarif-jambi-web",
@@ -436,8 +431,8 @@ export const projects: Project[] = [
     period: "Project work",
     role: { en: "Frontend Developer", id: "Frontend Developer" },
     summary: {
-      en: "A digital platform for an Islamic boarding school: admin operations on a monorepo with PostgreSQL behind it.",
-      id: "Platform digital pondok pesantren: operasional admin dalam monorepo dengan PostgreSQL di belakangnya."
+      en: "A digital platform for an Islamic boarding school, with admin operations in a monorepo backed by PostgreSQL. Contributed admin screens, data flows, and environment-based configuration.",
+      id: "Platform digital pondok pesantren dengan operasional admin dalam monorepo yang didukung PostgreSQL. Berkontribusi pada layar admin, alur data, dan konfigurasi berbasis lingkungan."
     },
     description: {
       en: "Contributed to a Turborepo/pnpm monorepo (Next.js 16 App Router, React 19, TypeScript, Tailwind v4) backed by Drizzle ORM on Neon PostgreSQL — admin screens, data flows, and environment-based configuration.",
@@ -457,8 +452,8 @@ export const projects: Project[] = [
       id: "POS kasir 2019 berbasis PHP MVC native dan MySQL — disimpan sebagai arsip era pra-JavaScript."
     },
     description: {
-      en: "A legacy point-of-sales system: custom PHP MVC (controllers / models / views), MySQL database, and a Gentelella admin template covering categories, products, customers, and sales. Kept as-is as proof of the journey from PHP into full-JS frontend work.",
-      id: "Sistem point-of-sales lawas: PHP MVC custom (controller / model / view), basis data MySQL, dan template admin Gentelella yang mencakup kategori, produk, customer, dan penjualan. Disimpan apa adanya sebagai bukti perjalanan dari PHP ke frontend full-JS."
+      en: "A legacy point-of-sales system built with custom PHP MVC (controllers, models, and views), MySQL, and the Gentelella admin template, covering categories, products, customers, and sales. Kept as an archive of my early development experience before transitioning to JavaScript-focused frontend work.",
+      id: "Sistem point-of-sales lawas yang dibangun dengan PHP MVC custom (controller, model, dan view), MySQL, dan template admin Gentelella, mencakup kategori, produk, customer, dan penjualan. Disimpan sebagai arsip pengalaman development awal saya sebelum beralih ke frontend yang berfokus pada JavaScript."
     },
     stack: ["PHP", "MySQL", "Bootstrap", "Gentelella"]
   }
@@ -488,40 +483,125 @@ export const experiences: Experience[] = [
   {
     company: "Lion Parcel",
     logo: "/images/logos/lion-parcel.png",
-    role: { en: "Frontend Engineer", id: "Frontend Engineer" },
+    role: { en: "Senior Frontend Developer", id: "Senior Frontend Developer" },
     period: {
-      en: "April 2021 — Present",
-      id: "April 2021 — Sekarang"
+      en: "May 2021 — Present",
+      id: "Mei 2021 — Sekarang"
     },
     location: { en: "Jakarta, Indonesia", id: "Jakarta, Indonesia" },
     description: {
-      en: "Frontend engineer on Lion Parcel's product team, working across the Genesis logistics platform and the company's public and internal web products.",
-      id: "Frontend engineer di tim produk Lion Parcel, mengerjakan platform logistik Genesis serta produk web publik dan internal perusahaan."
+      en: "Contribute to the development and maintenance of multiple web applications, including Genesis, a large-scale logistics operations platform.",
+      id: "Berkontribusi pada pengembangan dan pemeliharaan berbagai aplikasi web, termasuk Genesis, platform operasional logistik skala besar."
     },
     highlights: [
       {
-        en: "Build and maintain interfaces across Genesis, covering shipment operations, customer workflows, CRM, and administrative operations.",
-        id: "Membangun dan memelihara antarmuka di Genesis, mencakup operasional pengiriman, alur pelanggan, CRM, dan operasional administrasi."
+        en: "Develop and maintain frontend features across Genesis shipment workflows, including booking, shipment processing, tracking, delivery, customer management, and administrative operations.",
+        id: "Mengembangkan dan memelihara fitur frontend di seluruh alur pengiriman Genesis, mencakup booking, pemrosesan kiriman, pelacakan, pengantaran, manajemen pelanggan, dan operasional administrasi."
       },
       {
-        en: "Developed frontend features on Lion Parcel CMS and the public website, including API integration, and helped break down article/CMS tasks with the team.",
-        id: "Mengembangkan fitur frontend pada Lion Parcel CMS dan situs publik, termasuk integrasi API, serta membantu memecah tugas artikel/CMS bersama tim."
+        en: "Develop reusable frontend components and implement internationalization, PDF generation for operational documents such as shipping labels and waybills, and thermal printing.",
+        id: "Mengembangkan komponen frontend yang dapat digunakan ulang serta mengimplementasikan internasionalisasi, pembuatan PDF untuk dokumen operasional seperti label pengiriman dan waybill, dan thermal printing."
       },
       {
-        en: "Built Shopify-side frontend features for shipping booking and address management as part of a cross-team integration.",
-        id: "Membangun fitur frontend sisi Shopify untuk booking pengiriman dan manajemen alamat sebagai bagian dari integrasi lintas tim."
+        en: "Integrate frontend features with backend services through REST APIs and other service interfaces.",
+        id: "Mengintegrasikan fitur frontend dengan layanan backend melalui REST API dan antarmuka layanan lainnya."
       },
       {
-        en: "Collaborate through code reviews and coordinated task breakdowns within the frontend team.",
-        id: "Berkolaborasi lewat code review dan pemecahan tugas yang terkoordinasi di dalam tim frontend."
+        en: "Develop frontend features and API integrations for Lion CMS.",
+        id: "Mengembangkan fitur frontend dan integrasi API untuk Lion CMS."
+      },
+      {
+        en: "Develop features for the Lion Parcel corporate website and help break down article and CMS tasks for other engineers.",
+        id: "Mengembangkan fitur situs korporat Lion Parcel dan membantu memecah tugas artikel dan CMS untuk engineer lain."
+      },
+      {
+        en: "Develop Pintoko e-commerce frontend features and API integrations across product, checkout, and payment workflows.",
+        id: "Mengembangkan fitur frontend e-commerce Pintoko serta integrasi API pada alur produk, checkout, dan pembayaran."
+      },
+      {
+        en: "Develop Shopify-side booking and address management features integrated with Genesis.",
+        id: "Mengembangkan fitur booking dan manajemen alamat sisi Shopify yang terintegrasi dengan Genesis."
+      },
+      {
+        en: "Collaborate with Product, Backend, Platform Engineering, QA, and other stakeholders to clarify requirements and deliver features.",
+        id: "Berkolaborasi dengan Product, Backend, Platform Engineering, QA, dan stakeholder lain untuk memperjelas kebutuhan dan mengantarkan fitur."
+      },
+      {
+        en: "Support team delivery through task assignment, code reviews, approvals, and progress monitoring, including coordinating approximately 6–7 engineers when needed.",
+        id: "Mendukung delivery tim melalui pembagian tugas, code review, approval, dan pemantauan progres, termasuk mengoordinasikan sekitar 6–7 engineer saat dibutuhkan."
       }
     ],
     keyProjects: [
       "Genesis",
       "Lion Parcel CMS",
       "Lion Parcel Website",
-      "Shopify × Lion Parcel"
+      "Shopify × Lion Parcel",
+      "Pintoko"
     ]
+  },
+  {
+    company: "Jersium",
+    logo: "/images/logos/jersium.png",
+    logoTone: "dark",
+    role: {
+      en: "Frontend Developer (Freelance)",
+      id: "Frontend Developer (Freelance)"
+    },
+    period: {
+      en: "January 2025 — December 2025",
+      id: "Januari 2025 — Desember 2025"
+    },
+    location: { en: "Poland", id: "Polandia" },
+    arrangement: { en: "Remote", id: "Remote" },
+    description: {
+      en: "Developed the end-to-end frontend of an e-commerce platform using Next.js, covering the complete shopping experience from initial page development to customer account management.",
+      id: "Mengembangkan frontend end-to-end platform e-commerce menggunakan Next.js, mencakup seluruh pengalaman belanja dari pengembangan halaman awal hingga manajemen akun pelanggan."
+    },
+    highlights: [
+      {
+        en: "Developed the frontend experience across product discovery, shopping, checkout, and customer account management.",
+        id: "Mengembangkan pengalaman frontend pada penemuan produk, belanja, checkout, dan manajemen akun pelanggan."
+      },
+      {
+        en: "Translated client requirements and designs into pixel-perfect, responsive user interfaces with consistent visual accuracy.",
+        id: "Menerjemahkan kebutuhan dan desain klien menjadi antarmuka yang pixel-perfect, responsif, dengan akurasi visual yang konsisten."
+      }
+    ],
+    keyProjects: ["Next.js", "React", "TypeScript"]
+  },
+  {
+    company: "Tetra Pulsa",
+    logo: "/images/logos/tetra-pulsa.png",
+    logoTone: "dark",
+    role: {
+      en: "Mobile Frontend Developer (Freelance)",
+      id: "Mobile Frontend Developer (Freelance)"
+    },
+    period: {
+      en: "April 2022 — July 2023",
+      id: "April 2022 — Juli 2023"
+    },
+    location: { en: "Indonesia", id: "Indonesia" },
+    arrangement: { en: "Remote", id: "Remote" },
+    description: {
+      en: "Freelance mobile frontend work on Tetra Pulsa, a pulsa-conversion application for Android and iOS built with React Native and TypeScript.",
+      id: "Pekerjaan freelance frontend mobile pada Tetra Pulsa, aplikasi konversi pulsa untuk Android dan iOS yang dibangun dengan React Native dan TypeScript."
+    },
+    highlights: [
+      {
+        en: "Developed the frontend of a cross-platform mobile application using React Native and TypeScript.",
+        id: "Mengembangkan frontend aplikasi mobile lintas platform menggunakan React Native dan TypeScript."
+      },
+      {
+        en: "Implemented user-facing features for viewing real-time mobile credit conversion rates, submitting conversion requests, and tracking bank-transfer payouts.",
+        id: "Mengimplementasikan fitur untuk melihat nilai konversi pulsa secara real-time, mengajukan permintaan konversi, dan melacak pencairan dana melalui transfer bank."
+      },
+      {
+        en: "Worked with Android and iOS application codebases.",
+        id: "Berkontribusi pada codebase aplikasi Android dan iOS."
+      }
+    ],
+    keyProjects: ["Android", "iOS"]
   },
   {
     company: "Refactory",
@@ -533,51 +613,41 @@ export const experiences: Experience[] = [
     },
     location: { en: "Yogyakarta, Indonesia", id: "Yogyakarta, Indonesia" },
     description: {
-      en: "Frontend developer on client-facing software projects, translating requirements into responsive, maintainable web interfaces. This is where my professional career started.",
-      id: "Frontend developer pada proyek perangkat lunak untuk klien, menerjemahkan kebutuhan menjadi antarmuka web yang responsif dan terpelihara. Di sinilah karier profesional saya dimulai."
+      en: "Contributed to client and internal projects across different business domains and technology stacks.",
+      id: "Berkontribusi pada proyek klien dan internal di berbagai domain bisnis dan technology stack."
     },
     highlights: [
       {
-        en: "Delivered enterprise interfaces for clients including PT Pindad (Persero), connecting the UI to backend services.",
-        id: "Mengerjakan antarmuka enterprise untuk klien seperti PT Pindad (Persero), menghubungkan UI ke layanan backend."
+        en: "E-Procurement PT PINDAD (Persero): frontend development using React, TypeScript, and GraphQL — https://eproc.pindad.com/",
+        id: "E-Procurement PT PINDAD (Persero): pengembangan frontend menggunakan React, TypeScript, dan GraphQL — https://eproc.pindad.com/"
       },
       {
-        en: "Built the Refactory company profile site with a reusable component set and clear information architecture.",
-        id: "Membangun situs company profile Refactory dengan komponen yang dapat digunakan ulang dan arsitektur informasi yang jelas."
+        en: "Refactory Company Profile: website development using WordPress and Elementor.",
+        id: "Refactory Company Profile: pengembangan website menggunakan WordPress dan Elementor."
       },
       {
-        en: "Worked closely with designers and backend developers to keep delivery aligned with requirements.",
-        id: "Bekerja sama erat dengan desainer dan backend developer agar hasil sesuai kebutuhan."
+        en: "Atenda: frontend contributions to an attendance and payroll application using React.",
+        id: "Atenda: kontribusi frontend pada aplikasi absensi dan payroll menggunakan React."
+      },
+      {
+        en: "Ayo Belajar: frontend contributions to a learning platform using React.",
+        id: "Ayo Belajar: kontribusi frontend pada platform pembelajaran menggunakan React."
+      },
+      {
+        en: "Universitas Terbuka: contributions to an academic information system using Laravel.",
+        id: "Universitas Terbuka: kontribusi pada sistem informasi akademik menggunakan Laravel."
+      },
+      {
+        en: "Lion Parcel — Genesis: contributions to the logistics platform using Vue 3, TypeScript, Clean Architecture, and REST API integration.",
+        id: "Lion Parcel — Genesis: kontribusi pada platform logistik menggunakan Vue 3, TypeScript, Clean Architecture, dan integrasi REST API."
       }
     ],
-    keyProjects: ["Pindad", "Refactory Company Profile"]
-  },
-  {
-    company: "Jersium",
-    logo: "/images/logos/jersium.png",
-    logoTone: "dark",
-    role: { en: "Frontend Developer", id: "Frontend Developer" },
-    period: {
-      en: "January 2025 — December 2025",
-      id: "Januari 2025 — Desember 2025"
-    },
-    location: { en: "Poland", id: "Polandia" },
-    arrangement: { en: "Remote", id: "Remote" },
-    description: {
-      en: "Independent frontend work for e-commerce and product clients, delivered end to end from interface build to API integration.",
-      id: "Pekerjaan frontend mandiri untuk klien e-commerce dan produk, dikerjakan end to end dari pembangunan antarmuka hingga integrasi API."
-    },
-    highlights: [
-      {
-        en: "Built the Jersium e-commerce frontend on Next.js, including product, cart, and checkout flows.",
-        id: "Membangun frontend e-commerce Jersium dengan Next.js, mencakup alur produk, cart, dan checkout."
-      },
-      {
-        en: "Owned delivery directly with clients, from scope through implementation.",
-        id: "Menangani pengiriman langsung bersama klien, dari penentuan lingkup hingga implementasi."
-      }
-    ],
-    keyProjects: ["Next.js"]
+    keyProjects: [
+      "Pindad",
+      "Refactory Company Profile",
+      "Atenda",
+      "Ayo Belajar"
+    ]
   }
 ];
 
@@ -592,28 +662,52 @@ export type SkillGroup = {
 
 export const skillGroups: SkillGroup[] = [
   {
-    title: { en: "Languages", id: "Bahasa Pemrograman" },
-    items: ["JavaScript", "TypeScript"]
+    title: { en: "Programming Languages", id: "Bahasa Pemrograman" },
+    items: ["JavaScript", "TypeScript", "HTML", "CSS"]
   },
   {
-    title: { en: "Frameworks & Libraries", id: "Framework & Library" },
-    items: ["Vue.js", "Nuxt.js", "React", "Next.js"]
+    title: {
+      en: "Frontend Frameworks and Libraries",
+      id: "Framework dan Library Frontend"
+    },
+    items: ["Vue.js", "React", "Next.js", "Nuxt.js", "React Native", "Tailwind CSS"]
   },
   {
-    title: { en: "Mobile", id: "Mobile" },
-    items: ["React Native", "Expo"]
+    title: { en: "Platforms", id: "Platform" },
+    items: ["Android", "iOS"]
   },
   {
-    title: { en: "State & Data", id: "State & Data" },
-    items: ["Vuex", "REST API Integration", "Firebase Auth", "Firestore"]
+    title: {
+      en: "Architecture and UI Development",
+      id: "Arsitektur dan Pengembangan UI"
+    },
+    items: [
+      "Clean Architecture",
+      "Component-Based Architecture",
+      "Reusable Components",
+      "State Management",
+      "Responsive UI Development"
+    ]
   },
   {
-    title: { en: "Styling & UI", id: "Styling & UI" },
-    items: ["Tailwind CSS", "Responsive Design", "Accessible Markup"]
+    title: { en: "API and Integration", id: "API dan Integrasi" },
+    items: ["REST API", "GraphQL", "Frontend–Backend Integration"]
   },
   {
-    title: { en: "Architecture & Practice", id: "Arsitektur & Praktik" },
-    items: ["Clean Architecture", "Component Design", "Code Review", "Jest"]
+    title: { en: "Application Capabilities", id: "Kemampuan Aplikasi" },
+    items: ["Internationalization (i18n)", "PDF Generation", "Thermal Printing"]
+  },
+  {
+    title: { en: "Testing", id: "Pengujian" },
+    items: ["Jest", "Playwright"]
+  },
+  {
+    title: { en: "Tools and Collaboration", id: "Tools dan Kolaborasi" },
+    items: ["Git", "Jira", "Figma", "Vercel"]
+  },
+  {
+    title: { en: "Languages", id: "Bahasa" },
+    items: ["Bahasa Indonesia", "English"]
   }
 ];
 
@@ -627,6 +721,7 @@ export type Education = {
   logoTone?: "light" | "dark";
   degree: Localized;
   field: Localized;
+  gpa: string;
   period: string;
   location: Localized;
   description: Localized;
@@ -637,24 +732,26 @@ export const education: Education[] = [
     school: "Universitas Mercu Buana Yogyakarta",
     logo: "/images/logos/umb.png",
     degree: { en: "Bachelor's Degree (S1)", id: "Sarjana (S1)" },
-    field: { en: "Information Technology", id: "Teknologi Informasi" },
+    field: { en: "Informatics Engineering", id: "Teknik Informatika" },
+    gpa: "3.50",
     period: "March 2020 — May 2022",
     location: { en: "Yogyakarta, Indonesia", id: "Yogyakarta, Indonesia" },
     description: {
-      en: "Studied information technology with a focus on software development, databases, and information systems.",
-      id: "Menempuh studi teknologi informasi dengan fokus pada pengembangan perangkat lunak, basis data, dan sistem informasi."
+      en: "Studied Informatics while working at Refactory and contributing to software projects. Academic work included an expert system project, while freelance and thesis projects involved Tetra Pulsa, a mobile application, and a mobile learning app developed as my final thesis.",
+      id: "Menempuh pendidikan Informatika sambil bekerja di Refactory dan terlibat dalam berbagai proyek perangkat lunak. Proyek selama masa studi mencakup sistem pakar sebagai tugas akademik, Tetra Pulsa sebagai proyek freelance, serta aplikasi pembelajaran mobile sebagai proyek skripsi."
     }
   },
   {
     school: "Politeknik Sawunggalih Aji",
     logo: "/images/logos/polsa.png",
     degree: { en: "Associate Degree (D3)", id: "Ahli Madya (D3)" },
-    field: { en: "Information Technology", id: "Teknologi Informasi" },
+    field: { en: "Informatics Engineering", id: "Teknik Informatika" },
+    gpa: "3.69",
     period: "September 2016 — August 2019",
     location: { en: "Purworejo, Indonesia", id: "Purworejo, Indonesia" },
     description: {
-      en: "Vocational training in information technology, covering programming fundamentals and applied software work.",
-      id: "Pendidikan vokasi teknologi informasi, mencakup dasar pemrograman dan pekerjaan perangkat lunak terapan."
+      en: "Studied Informatics while gaining practical experience through freelance and academic software projects. Work included a queue management information system for RSAD Ismoyo in Kendari, a point-of-sale application, and a COGS accounting application for CV Mandiri Usaha Gypsum developed as my final graduation research project.",
+      id: "Menempuh pendidikan Informatika sambil memperoleh pengalaman praktis melalui proyek freelance dan akademik. Proyek meliputi sistem informasi antrian untuk RSAD Ismoyo di Kendari, aplikasi point of sale (POS), serta aplikasi akuntansi untuk menghitung harga pokok penjualan (HPP) di CV Mandiri Usaha Gypsum sebagai karya ilmiah kelulusan."
     }
   }
 ];
