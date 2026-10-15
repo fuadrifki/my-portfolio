@@ -22,7 +22,7 @@ function VideoPreview({ talk }: { talk: Talk }) {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen
-          className="aspect-video w-full"
+          className="block aspect-video w-full border-0"
         />
       </div>
     );
@@ -44,8 +44,8 @@ function VideoPreview({ talk }: { talk: Talk }) {
           className="aspect-video w-full object-cover"
         />
         <span className="absolute inset-0 grid place-items-center bg-black/20 transition group-hover:bg-black/30">
-          <span className="grid size-14 place-items-center rounded-full bg-white/95 text-(--accent) shadow-lg transition group-hover:scale-105">
-            <Play className="size-6 fill-current" />
+          <span className="grid size-12 place-items-center rounded-full bg-white/95 text-(--accent) shadow-lg transition group-hover:scale-105 sm:size-14">
+            <Play className="size-5 fill-current sm:size-6" />
           </span>
         </span>
       </button>
@@ -76,7 +76,7 @@ export function Speaking() {
         {talks.map((talk) => (
           <Reveal key={talk.title.en}>
             <article className="surface-card grid gap-5 p-6 sm:p-7 md:grid-cols-12 md:gap-8">
-              <div className="md:col-span-4">
+              <div className="min-w-0 md:col-span-4">
                 <span className="grid size-11 place-items-center rounded-xl bg-(--accent-soft) text-(--accent)">
                   <Mic className="size-5" />
                 </span>
@@ -88,15 +88,15 @@ export function Speaking() {
                         key={logo}
                         src={logo}
                         alt={`${talk.host} ${t(ui.logoAlt)}`}
-                        width={64}
-                        height={32}
-                        className="h-8 w-auto rounded-md border border-(--line) bg-white object-contain px-1.5 py-1"
+                        width={80}
+                        height={40}
+                        className="h-10 w-auto rounded-md border border-(--line) bg-white object-contain px-1.5 py-1"
                       />
                     ))}
                   </div>
                 ) : null}
               </div>
-              <div className="md:col-span-8">
+              <div className="min-w-0 md:col-span-8">
                 <h3 className="display text-xl text-balance sm:text-2xl">
                   {t(talk.title)}
                 </h3>

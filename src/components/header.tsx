@@ -169,7 +169,7 @@ export function Header() {
             <ThemeControl />
             <button
               type="button"
-              className="btn btn-ghost h-9 w-9 p-0 lg:hidden"
+              className="grid size-9 shrink-0 place-items-center rounded-full border border-(--line) bg-(--surface) text-(--muted) transition-colors hover:text-(--ink) lg:hidden"
               aria-expanded={open}
               aria-controls="mobile-nav"
               aria-label={open ? t(ui.closeMenu) : t(ui.menu)}
