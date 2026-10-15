@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUp } from "lucide-react";
+import { ArrowUp, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { useLanguage } from "@/components/providers";
 import { profile, ui, YEAR } from "@/data/portfolio";
@@ -57,8 +57,9 @@ export function Footer() {
               <li>
                 <a
                   href={`mailto:${profile.email}`}
-                  className="text-sm text-(--ink-soft) transition-colors hover:text-(--accent)"
+                  className="inline-flex items-center gap-2 text-sm text-(--ink-soft) transition-colors hover:text-(--accent)"
                 >
+                  <Mail className="size-4" />
                   {profile.email}
                 </a>
               </li>
