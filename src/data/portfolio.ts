@@ -419,12 +419,12 @@ export const projects: Project[] = [
       id: "Mobile Frontend Developer (Freelance)"
     },
     summary: {
-      en: "A cross-platform mobile top-up app for Android and iOS, delivered end to end as the sole frontend contributor.",
-      id: "Aplikasi pulsa lintas platform untuk Android dan iOS, dikerjakan menyeluruh dari awal sampai akhir sebagai satu-satunya kontributor frontend."
+      en: "A pulsa-conversion mobile app for Android and iOS: check live provider rates, convert phone credit, and track bank-transfer payouts.",
+      id: "Aplikasi konversi pulsa untuk Android dan iOS: cek kurs provider terkini, tukar pulsa, dan lacak pembayaran via transfer bank."
     },
     description: {
-      en: "Sole frontend owner across 130+ commits: a React Native top-up app with clean-architecture boundaries (domain / services / containers), credential-based API integration, and native builds for both stores.",
-      id: "Pemilik tunggal frontend dalam 130+ commit: aplikasi pulsa React Native dengan batas clean architecture (domain / services / containers), integrasi API berbasis kredensial, dan build native untuk kedua toko aplikasi."
+      en: "End-to-end mobile frontend for a pulsa-to-cash service built with React Native: authenticated flows, a rate board per provider with min–max nominals, a guided transaction flow (phone number, amount, conversion preview, destination bank account), status-tracked history, and customer-service access — integrated against a credential-secured REST API within clean-architecture boundaries, with native builds for both stores.",
+      id: "Frontend mobile end-to-end untuk layanan tukar pulsa menjadi saldo dengan React Native: alur terautentikasi, papan kurs per provider dengan batas minimal–maksimal nominal, alur transaksi terpandu (nomor HP, nominal, pratinjau konversi, rekening bank tujuan), riwayat berstatus, dan akses layanan pelanggan — terintegrasi ke REST API berkredensial dalam batas clean architecture, dengan build native untuk kedua toko aplikasi."
     },
     stack: ["React Native", "TypeScript", "Clean Architecture", "REST API"]
   },
