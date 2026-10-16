@@ -97,7 +97,17 @@ export function ProjectCard({ project }: { project: Project }) {
 
 export function Projects() {
   const { t } = useLanguage();
-  const highlighted = projects.slice(0, 6);
+  const highlightedSlugs = [
+    "genesis",
+    "jersium",
+    "pindad",
+    "refactory-profile",
+    "lion-parcel-website",
+    "tetra-pulsa"
+  ];
+  const highlighted = highlightedSlugs
+    .map((slug) => projects.find((project) => project.slug === slug))
+    .filter((project): project is Project => Boolean(project));
 
   return (
     <Section
@@ -107,9 +117,13 @@ export function Projects() {
       title={ui.selectedProjects.title}
       description={ui.selectedProjects.description}
     >
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="columns-1 gap-6 sm:columns-2 lg:columns-3">
         {highlighted.map((project, index) => (
-          <Reveal key={project.slug} delay={(index % 3) * 80}>
+          <Reveal
+            key={project.slug}
+            delay={(index % 3) * 80}
+            className="mb-6 break-inside-avoid"
+          >
             <ProjectCard project={project} />
           </Reveal>
         ))}
@@ -180,9 +194,13 @@ export function AllProjects() {
           </button>
         ))}
       </div>
-      <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 columns-1 gap-6 sm:columns-2 lg:columns-3">
         {visible.map((project, index) => (
-          <Reveal key={project.slug} delay={(index % 3) * 80}>
+          <Reveal
+            key={project.slug}
+            delay={(index % 3) * 80}
+            className="mb-6 break-inside-avoid"
+          >
             <ProjectCard project={project} />
           </Reveal>
         ))}

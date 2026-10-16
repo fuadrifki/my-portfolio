@@ -67,7 +67,7 @@ export function Skills() {
         {skillGroups.map((group, index) => (
           <Reveal key={group.title.en} delay={index * 50}>
             <div className="surface-card card-hover h-full p-5">
-              <h3 className="eyebrow flex items-center gap-2">
+              <h3 className="eyebrow flex items-start gap-2">
                 {(() => {
                   const GroupIcon = SKILL_ICONS[group.icon];
                   return (
