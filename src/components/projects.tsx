@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Smartphone } from "lucide-react";
 import { useLanguage } from "@/components/providers";
 import { Reveal } from "@/components/reveal";
 import { Section } from "@/components/section";
@@ -61,6 +62,22 @@ function ProjectCard({ project }: { project: Project }) {
         <p className="mt-1.5 font-mono text-xs text-(--muted)">
           {t(project.role)} · {project.period}
         </p>
+        {project.platforms && project.platforms.length > 0 ? (
+          <p className="mt-2 flex flex-wrap items-center gap-1.5">
+            <Smartphone
+              aria-hidden="true"
+              className="size-3.5 text-(--muted)"
+            />
+            {project.platforms.map((platform) => (
+              <span
+                key={platform}
+                className="rounded-md border border-(--line) px-2 py-0.5 font-mono text-[0.7rem] text-(--ink-soft)"
+              >
+                {platform}
+              </span>
+            ))}
+          </p>
+        ) : null}
         <p className="mt-3 text-sm leading-relaxed text-(--muted)">
           {t(project.summary)}
         </p>
