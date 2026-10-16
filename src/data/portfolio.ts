@@ -454,8 +454,8 @@ export const projects: Project[] = [
       id: "Platform digital pondok pesantren dengan operasional admin dalam monorepo yang didukung PostgreSQL. Berkontribusi pada layar admin, alur data, dan konfigurasi berbasis lingkungan."
     },
     description: {
-      en: "Contributed to a Turborepo/pnpm monorepo (Next.js 16 App Router, React 19, TypeScript, Tailwind v4) backed by Drizzle ORM on Neon PostgreSQL — admin screens, data flows, and environment-based configuration.",
-      id: "Berkontribusi pada monorepo Turborepo/pnpm (Next.js 16 App Router, React 19, TypeScript, Tailwind v4) yang didukung Drizzle ORM di atas Neon PostgreSQL — layar admin, alur data, dan konfigurasi berbasis lingkungan."
+      en: "Contributed to a Turborepo/pnpm monorepo (Next.js 16 App Router, React 19, TypeScript, Tailwind v4) backed by Drizzle ORM on Neon PostgreSQL — admin screens, data flows, environment-based configuration, and design system development. Built reusable UI components and consistent interface patterns across student, class, attendance, and report screens. Led the design system initiative, establishing component conventions, visual guidelines, and shared patterns that scaled across multiple admin surfaces.",
+      id: "Berkontribusi pada monorepo Turborepo/pnpm (Next.js 16 App Router, React 19, TypeScript, Tailwind v4) yang didukung Drizzle ORM di atas Neon PostgreSQL — layar admin, alur data, konfigurasi berbasis lingkungan, dan pengembangan desain sistem. Membangun komponen UI yang dapat digunakan ulang dan pola antarmuka konsisten across layar admin siswa, kelas, kehadiran, dan laporan. Memimpin inisiatif desain sistem, menetapkan konvensi komponen, pedoman visual, dan pola bersama yang menskalakan di beberapa surface admin."
     },
     stack: [
       "Next.js",
@@ -480,10 +480,35 @@ export const projects: Project[] = [
       id: "Aplikasi web manajemen hunian yang mencakup data warga, iuran, transaksi, dan laporan keuangan."
     },
     description: {
-      en: "Built with Nuxt and TypeScript, using Drizzle as the ORM on a Neon PostgreSQL database: resident records, dues and categorized transaction tracking, financial reports, and a companion bot. Kept generic with no estate-specific naming.",
-      id: "Dibangun dengan Nuxt dan TypeScript, menggunakan Drizzle sebagai ORM di atas basis data Neon PostgreSQL: data warga, pencatatan iuran dan transaksi berkategori, laporan keuangan, dan bot pendamping. Dibuat generik tanpa penamaan spesifik perumahan."
+      en: "Built a residential management web app with Nuxt 4 and TypeScript, using Drizzle ORM on Neon PostgreSQL. Features resident records, dues and categorized transaction tracking, financial reports, and a companion bot deployed to Vercel. The implementation migrated from a Firebase-backed prototype, establishing production-grade database and hosting infrastructure.",
+      id: "Dibangun aplikasi web manajemen hunian dengan Nuxt 4 dan TypeScript, menggunakan Drizzle ORM di atas Neon PostgreSQL. Fitur mencakup data warga, pencatatan iuran dan transaksi berkategori, laporan keuangan, dan bot pendamping yang dideploy ke Vercel. Implementasi ini memigrasikan dari prototipe berbasis Firebase, menyiapkan infrastruktur database dan hosting tingkat produksi."
     },
-    stack: ["Nuxt", "TypeScript", "Drizzle", "Neon PostgreSQL"]
+    stack: [
+      "Nuxt",
+      "TypeScript",
+      "Vue",
+      "Drizzle ORM",
+      "Neon PostgreSQL",
+      "Vercel"
+    ]
+  },
+  {
+    slug: "rsad-ismoyo-kendari",
+    name: "RSAD Ismoyo Kendari",
+    category: "business-productivity",
+    image: "/images/projects/rsad-ismoyo.png",
+    imageFit: "contain",
+    period: "Freelance",
+    role: { en: "Frontend Developer", id: "Frontend Developer" },
+    summary: {
+      en: "A web-based queue information system for RSAD Ismoyo Kendari.",
+      id: "Sistem informasi antrian berbasis web untuk RSAD Ismoyo Kendari."
+    },
+    description: {
+      en: "Built a web-based queue information system for RSAD Ismoyo Kendari using PHP and SQL. Deployed via cPanel.",
+      id: "Membangun sistem informasi antrian berbasis web untuk RSAD Ismoyo Kendari menggunakan PHP dan SQL. Dideploy melalui cPanel."
+    },
+    stack: ["PHP", "SQL"]
   },
   {
     slug: "mobile-learning-app",
