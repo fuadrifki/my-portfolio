@@ -75,7 +75,7 @@ export function Speaking() {
       <div className="space-y-4">
         {talks.map((talk) => (
           <Reveal key={talk.title.en}>
-            <article className="surface-card grid gap-5 p-6 sm:p-7 md:grid-cols-12 md:gap-8">
+            <article className="surface-card card-hover grid gap-5 p-6 sm:p-7 md:grid-cols-12 md:gap-8">
               <div className="min-w-0 md:col-span-4">
                 <span className="grid size-11 place-items-center rounded-xl bg-(--accent-soft) text-(--accent)">
                   <Mic className="size-5" />

@@ -21,7 +21,7 @@ export function Education() {
       <div className="grid gap-4 md:grid-cols-2">
         {education.map((item, index) => (
           <Reveal key={item.school} delay={index * 60}>
-            <article className="surface-card flex h-full gap-4 p-5 sm:p-6">
+            <article className="surface-card card-hover flex h-full gap-4 p-5 sm:p-6">
               <Image
                 src={item.logo}
                 alt={`${item.school} ${t(ui.logoAlt)}`}

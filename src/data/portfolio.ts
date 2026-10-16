@@ -471,7 +471,8 @@ export const projects: Project[] = [
     slug: "residence-management",
     name: "Residence Management",
     category: "business-productivity",
-    image: "/images/projects/residence-management.svg",
+    image: "/images/projects/residence.png",
+    imageFit: "contain",
     period: "Personal project",
     role: { en: "Frontend Developer", id: "Frontend Developer" },
     summary: {
@@ -734,66 +735,221 @@ export const experiences: Experience[] = [
 /* Skills                                                              */
 /* ------------------------------------------------------------------ */
 
+export type SkillIcon =
+  | "layers"
+  | "component"
+  | "recycle"
+  | "database"
+  | "palette"
+  | "monitor-smartphone"
+  | "globe"
+  | "plug"
+  | "languages"
+  | "file-text"
+  | "printer"
+  | "flag"
+  | "code-xml"
+  | "blocks"
+  | "smartphone"
+  | "drafting-compass"
+  | "webhook"
+  | "sparkles"
+  | "flask-conical"
+  | "wrench";
+
+export type SkillItem = {
+  name: string;
+  logo?: string;
+  url?: string;
+  icon?: SkillIcon;
+};
+
 export type SkillGroup = {
   title: Localized;
-  items: string[];
+  icon: SkillIcon;
+  items: SkillItem[];
 };
+
+const DEVICON = "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons";
 
 export const skillGroups: SkillGroup[] = [
   {
     title: { en: "Programming Languages", id: "Bahasa Pemrograman" },
-    items: ["JavaScript", "TypeScript", "HTML", "CSS"]
+    icon: "code-xml",
+    items: [
+      {
+        name: "JavaScript",
+        logo: `${DEVICON}/javascript/javascript-original.svg`,
+        url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+      },
+      {
+        name: "TypeScript",
+        logo: `${DEVICON}/typescript/typescript-original.svg`,
+        url: "https://www.typescriptlang.org/"
+      },
+      {
+        name: "HTML",
+        logo: `${DEVICON}/html5/html5-original.svg`,
+        url: "https://developer.mozilla.org/en-US/docs/Web/HTML"
+      },
+      {
+        name: "CSS",
+        logo: `${DEVICON}/css3/css3-original.svg`,
+        url: "https://developer.mozilla.org/en-US/docs/Web/CSS"
+      }
+    ]
   },
   {
     title: {
       en: "Frontend Frameworks and Libraries",
       id: "Framework dan Library Frontend"
     },
+    icon: "blocks",
     items: [
-      "Vue.js",
-      "React",
-      "Next.js",
-      "Nuxt.js",
-      "React Native",
-      "Tailwind CSS"
+      {
+        name: "Vue.js",
+        logo: `${DEVICON}/vuejs/vuejs-original.svg`,
+        url: "https://vuejs.org/"
+      },
+      {
+        name: "React",
+        logo: `${DEVICON}/react/react-original.svg`,
+        url: "https://react.dev/"
+      },
+      {
+        name: "Next.js",
+        logo: `${DEVICON}/nextjs/nextjs-original.svg`,
+        url: "https://nextjs.org/"
+      },
+      {
+        name: "Nuxt.js",
+        logo: `${DEVICON}/nuxtjs/nuxtjs-original.svg`,
+        url: "https://nuxt.com/"
+      },
+      {
+        name: "React Native",
+        logo: `${DEVICON}/react/react-original.svg`,
+        url: "https://reactnative.dev/"
+      },
+      {
+        name: "Tailwind CSS",
+        logo: `${DEVICON}/tailwindcss/tailwindcss-original.svg`,
+        url: "https://tailwindcss.com/"
+      }
     ]
   },
   {
     title: { en: "Platforms", id: "Platform" },
-    items: ["Android", "iOS"]
+    icon: "smartphone",
+    items: [
+      {
+        name: "Android",
+        logo: `${DEVICON}/android/android-original.svg`,
+        url: "https://www.android.com/"
+      },
+      {
+        name: "iOS",
+        logo: `${DEVICON}/apple/apple-original.svg`,
+        url: "https://www.apple.com/ios/"
+      }
+    ]
   },
   {
     title: {
       en: "Architecture and UI Development",
       id: "Arsitektur dan Pengembangan UI"
     },
+    icon: "drafting-compass",
     items: [
-      "Clean Architecture",
-      "Component-Based Architecture",
-      "Reusable Components",
-      "State Management",
-      "Responsive UI Development"
+      { name: "Clean Architecture", icon: "layers" },
+      { name: "Component-Based Architecture", icon: "component" },
+      { name: "Reusable Components", icon: "recycle" },
+      { name: "State Management", icon: "database" },
+      { name: "Design System", icon: "palette" },
+      { name: "Responsive UI Development", icon: "monitor-smartphone" }
     ]
   },
   {
     title: { en: "API and Integration", id: "API dan Integrasi" },
-    items: ["REST API", "GraphQL", "Frontend–Backend Integration"]
+    icon: "webhook",
+    items: [
+      { name: "REST API", icon: "globe" },
+      {
+        name: "GraphQL",
+        logo: `${DEVICON}/graphql/graphql-plain.svg`,
+        url: "https://graphql.org/"
+      },
+      { name: "Frontend–Backend Integration", icon: "plug" }
+    ]
   },
   {
     title: { en: "Application Capabilities", id: "Kemampuan Aplikasi" },
-    items: ["Internationalization (i18n)", "PDF Generation", "Thermal Printing"]
+    icon: "sparkles",
+    items: [
+      { name: "Internationalization (i18n)", icon: "languages" },
+      { name: "PDF Generation", icon: "file-text" },
+      { name: "Thermal Printing", icon: "printer" }
+    ]
   },
   {
     title: { en: "Testing", id: "Pengujian" },
-    items: ["Jest", "Playwright"]
+    icon: "flask-conical",
+    items: [
+      {
+        name: "Jest",
+        logo: `${DEVICON}/jest/jest-plain.svg`,
+        url: "https://jestjs.io/"
+      },
+      {
+        name: "Playwright",
+        logo: `${DEVICON}/playwright/playwright-original.svg`,
+        url: "https://playwright.dev/"
+      }
+    ]
   },
   {
     title: { en: "Tools and Collaboration", id: "Tools dan Kolaborasi" },
-    items: ["Git", "Jira", "Figma", "Vercel"]
+    icon: "wrench",
+    items: [
+      {
+        name: "Git",
+        logo: `${DEVICON}/git/git-original.svg`,
+        url: "https://git-scm.com/"
+      },
+      {
+        name: "Jira",
+        logo: `${DEVICON}/jira/jira-original.svg`,
+        url: "https://www.atlassian.com/software/jira"
+      },
+      {
+        name: "Figma",
+        logo: `${DEVICON}/figma/figma-original.svg`,
+        url: "https://www.figma.com/"
+      },
+      {
+        name: "Vercel",
+        logo: `${DEVICON}/vercel/vercel-original.svg`,
+        url: "https://vercel.com/"
+      },
+      {
+        name: "Cloudflare",
+        logo: `${DEVICON}/cloudflare/cloudflare-original.svg`,
+        url: "https://developers.cloudflare.com/"
+      },
+      {
+        name: "Node.js",
+        logo: `${DEVICON}/nodejs/nodejs-original.svg`,
+        url: "https://nodejs.org/"
+      }
+    ]
   },
   {
     title: { en: "Languages", id: "Bahasa" },
-    items: ["Bahasa Indonesia", "English"]
+    icon: "languages",
+    items: [
+      { name: "Bahasa Indonesia", icon: "flag" },
+      { name: "English", icon: "flag" }
+    ]
   }
 ];
 
