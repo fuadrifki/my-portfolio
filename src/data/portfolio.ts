@@ -98,14 +98,14 @@ export const ui = {
   },
   moreProjects: { en: "More projects", id: "Proyek lainnya" },
   featured: { en: "Featured", id: "Unggulan" },
-  viewAllProjects: { en: "View All Projects", id: "Lihat Semua Proyek" },
+  viewAllProjects: { en: "All Projects", id: "Semua Proyek" },
   filterAll: { en: "All", id: "Semua" },
   allProjects: {
     eyebrow: { en: "Archive", id: "Arsip" },
     title: { en: "All Projects", id: "Semua Proyek" },
     description: {
-      en: "The complete archive of my work across logistics platforms, e-commerce, mobile apps, and experiments.",
-      id: "Arsip lengkap pekerjaan saya di platform logistik, e-commerce, aplikasi mobile, dan eksperimen."
+      en: "The complete archive of my work across logistics platforms, e-commerce, mobile apps, and personal projects.",
+      id: "Arsip lengkap pekerjaan saya di platform logistik, e-commerce, aplikasi mobile, dan proyek pribadi."
     }
   },
   experienceSection: {
@@ -262,23 +262,6 @@ export const projects: Project[] = [
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"]
   },
   {
-    slug: "pindad",
-    name: "E-Procurement PT Pindad",
-    category: "enterprise-applications",
-    image: "/images/projects/pindad.jpg",
-    period: "Refactory client project",
-    role: { en: "Frontend Developer", id: "Frontend Developer" },
-    summary: {
-      en: "A web-based e-procurement platform for PT Pindad (Persero), supporting end-to-end procurement through an integrated digital system. Contributed to frontend development with React.js and TypeScript.",
-      id: "Platform e-procurement berbasis web untuk PT Pindad (Persero) yang mendukung pengadaan end-to-end melalui sistem digital yang terintegrasi. Berkontribusi pada pengembangan frontend dengan React.js dan TypeScript."
-    },
-    description: {
-      en: "A web-based e-procurement platform for PT Pindad (Persero), designed to support end-to-end procurement processes through an integrated digital system.\n\nContributed to frontend development using React.js and TypeScript, integrating application features with backend GraphQL APIs.",
-      id: "Platform e-procurement berbasis web untuk PT Pindad (Persero), dirancang untuk mendukung proses pengadaan end-to-end melalui sistem digital yang terintegrasi.\n\nBerkontribusi pada pengembangan frontend menggunakan React.js dan TypeScript, mengintegrasikan fitur aplikasi dengan GraphQL API backend."
-    },
-    stack: ["React.js", "TypeScript", "GraphQL"]
-  },
-  {
     slug: "refactory-profile",
     name: "Refactory Company Profile",
     category: "company-websites",
@@ -297,22 +280,21 @@ export const projects: Project[] = [
     stack: ["WordPress", "Elementor"]
   },
   {
-    slug: "lion-parcel-website",
-    name: "Lion Parcel Website",
-    category: "company-websites",
-    image: "/images/logos/lion-parcel.png",
-    imageFit: "contain",
+    slug: "pintoko",
+    name: "Pintoko",
+    category: "ecommerce",
+    image: "/images/projects/pintoko.png",
     period: "Lion Parcel",
-    role: { en: "Frontend Engineer", id: "Frontend Engineer" },
+    role: { en: "Frontend Developer", id: "Frontend Developer" },
     summary: {
-      en: "The public Lion Parcel website with service information, rate tools, and customer-facing content. Developed and maintained frontend features connected to backend APIs.",
-      id: "Situs publik Lion Parcel berisi informasi layanan, alat bantu tarif, dan konten pelanggan. Mengembangkan dan memelihara fitur frontend yang terhubung ke API backend."
+      en: "An e-commerce frontend focused on product presentation and a straightforward purchase flow. Built browsing and detail experiences integrated with the backend catalogue.",
+      id: "Frontend e-commerce dengan fokus pada penyajian produk dan alur pembelian yang sederhana. Membangun pengalaman jelajah dan detail produk yang terintegrasi dengan katalog backend."
     },
     description: {
-      en: "Developed and maintained frontend features on the public Lion Parcel website as part of the team, connecting the interface to backend APIs and supporting content updates.",
-      id: "Mengembangkan dan memelihara fitur frontend pada situs publik Lion Parcel sebagai bagian dari tim, menghubungkan antarmuka ke API backend dan mendukung pembaruan konten."
+      en: "Built product browsing and detail experiences, connected the catalogue to the backend, and kept the interface consistent across screen sizes.",
+      id: "Membangun pengalaman jelajah dan detail produk, menghubungkan katalog ke backend, dan menjaga konsistensi antarmuka di berbagai ukuran layar."
     },
-    stack: ["Vue.js", "Nuxt.js", "Tailwind CSS", "REST API"]
+    stack: ["Vue.js", "JavaScript", "REST API"]
   },
   {
     slug: "tetra-pulsa",
@@ -337,21 +319,39 @@ export const projects: Project[] = [
     platforms: ["Android", "iOS"]
   },
   {
-    slug: "pintoko",
-    name: "Pintoko",
-    category: "ecommerce",
-    image: "/images/projects/pintoko.png",
-    period: "Lion Parcel",
+    slug: "pindad",
+    name: "E-Procurement PT Pindad",
+    category: "enterprise-applications",
+    image: "/images/projects/pindad.png",
+    period: "Refactory client project",
     role: { en: "Frontend Developer", id: "Frontend Developer" },
     summary: {
-      en: "An e-commerce frontend focused on product presentation and a straightforward purchase flow. Built browsing and detail experiences integrated with the backend catalogue.",
-      id: "Frontend e-commerce dengan fokus pada penyajian produk dan alur pembelian yang sederhana. Membangun pengalaman jelajah dan detail produk yang terintegrasi dengan katalog backend."
+      en: "A web-based e-procurement platform for PT Pindad (Persero), supporting end-to-end procurement through an integrated digital system. Contributed to frontend development with React.js and TypeScript.",
+      id: "Platform e-procurement berbasis web untuk PT Pindad (Persero) yang mendukung pengadaan end-to-end melalui sistem digital yang terintegrasi. Berkontribusi pada pengembangan frontend dengan React.js dan TypeScript."
     },
     description: {
-      en: "Built product browsing and detail experiences, connected the catalogue to the backend, and kept the interface consistent across screen sizes.",
-      id: "Membangun pengalaman jelajah dan detail produk, menghubungkan katalog ke backend, dan menjaga konsistensi antarmuka di berbagai ukuran layar."
+      en: "A web-based e-procurement platform for PT Pindad (Persero), designed to support end-to-end procurement processes through an integrated digital system.\n\nContributed to frontend development using React.js and TypeScript, integrating application features with backend GraphQL APIs.",
+      id: "Platform e-procurement berbasis web untuk PT Pindad (Persero), dirancang untuk mendukung proses pengadaan end-to-end melalui sistem digital yang terintegrasi.\n\nBerkontribusi pada pengembangan frontend menggunakan React.js dan TypeScript, mengintegrasikan fitur aplikasi dengan GraphQL API backend."
     },
-    stack: ["Vue.js", "JavaScript", "REST API"]
+    stack: ["React.js", "TypeScript", "GraphQL"]
+  },
+  {
+    slug: "lion-parcel-website",
+    name: "Lion Parcel Website",
+    category: "company-websites",
+    image: "/images/logos/lion-parcel.png",
+    imageFit: "contain",
+    period: "Lion Parcel",
+    role: { en: "Frontend Engineer", id: "Frontend Engineer" },
+    summary: {
+      en: "The public Lion Parcel website with service information, rate tools, and customer-facing content. Developed and maintained frontend features connected to backend APIs.",
+      id: "Situs publik Lion Parcel berisi informasi layanan, alat bantu tarif, dan konten pelanggan. Mengembangkan dan memelihara fitur frontend yang terhubung ke API backend."
+    },
+    description: {
+      en: "Developed and maintained frontend features on the public Lion Parcel website as part of the team, connecting the interface to backend APIs and supporting content updates.",
+      id: "Mengembangkan dan memelihara fitur frontend pada situs publik Lion Parcel sebagai bagian dari tim, menghubungkan antarmuka ke API backend dan mendukung pembaruan konten."
+    },
+    stack: ["Vue.js", "Nuxt.js", "Tailwind CSS", "REST API"]
   },
   {
     slug: "lion-cms",

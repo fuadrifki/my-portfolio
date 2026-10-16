@@ -95,6 +95,16 @@ body {
   border-radius: 4px;
 }
 
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+button:disabled,
+[aria-disabled="true"] {
+  cursor: default;
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -378,6 +388,19 @@ body {
 
 .project-card:hover .project-media img {
   transform: scale(1.03);
+}
+
+.project-card {
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-strong);
+  box-shadow: 0 16px 32px -20px rgb(0 0 0 / 0.3);
 }
 
 .grid-lines {

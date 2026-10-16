@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { Globe, Menu, Moon, Sun, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useLanguage, useTheme } from "@/components/providers";
 import { LOCALES, profile, ui } from "@/data/portfolio";
@@ -56,6 +56,7 @@ function ThemeControl() {
         aria-label={t(ui.light)}
         title={t(ui.light)}
         onClick={() => setTheme("light")}
+        className="cursor-pointer"
       >
         <Sun className="size-3.5" />
       </button>
@@ -65,6 +66,7 @@ function ThemeControl() {
         aria-label={t(ui.dark)}
         title={t(ui.dark)}
         onClick={() => setTheme("dark")}
+        className="cursor-pointer"
       >
         <Moon className="size-3.5" />
       </button>
@@ -81,12 +83,16 @@ function LanguageControl({ className = "" }: { className?: string }) {
       role="group"
       aria-label={t(ui.language)}
     >
+      <span className="grid size-[1.9rem] shrink-0 place-items-center text-(--muted)">
+        <Globe aria-hidden="true" className="size-3.5" />
+      </span>
       {LOCALES.map((option) => (
         <button
           key={option.value}
           type="button"
           aria-pressed={locale === option.value}
           onClick={() => setLocale(option.value as Locale)}
+          className="cursor-pointer"
         >
           {option.label}
         </button>

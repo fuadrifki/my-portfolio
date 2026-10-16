@@ -11,12 +11,12 @@ import {
   projects,
   ui,
   type Project,
-  type ProjectCategory,
+  type ProjectCategory
 } from "@/data/portfolio";
 
 function StackChips({
   items,
-  align = "start",
+  align = "start"
 }: {
   items: string[];
   align?: "start" | "end";
@@ -51,7 +51,7 @@ export function ProjectCard({ project }: { project: Project }) {
           className={
             project.imageFit === "contain"
               ? "h-full w-full bg-(--surface-2) object-contain p-10"
-              : "h-full w-full object-cover"
+              : "h-full w-full bg-(--surface-2) object-cover"
           }
         />
       </div>
@@ -129,13 +129,11 @@ const ALL_FILTER = "all" as const;
 export function AllProjects() {
   const { t } = useLanguage();
   const [filter, setFilter] = useState<ProjectCategory | typeof ALL_FILTER>(
-    ALL_FILTER,
+    ALL_FILTER
   );
   const categories = projects
     .map((project) => project.category)
-    .filter(
-      (category, index, list) => list.indexOf(category) === index,
-    );
+    .filter((category, index, list) => list.indexOf(category) === index);
   const visible =
     filter === ALL_FILTER
       ? projects
@@ -150,7 +148,7 @@ export function AllProjects() {
       description={ui.allProjects.description}
     >
       <div
-        className="segmented segmented-wrap"
+        className="flex flex-wrap items-center gap-2"
         role="group"
         aria-label={t(ui.allProjects.title)}
       >
@@ -158,6 +156,11 @@ export function AllProjects() {
           type="button"
           aria-pressed={filter === ALL_FILTER}
           onClick={() => setFilter(ALL_FILTER)}
+          className={
+            filter === ALL_FILTER
+              ? "rounded-full border border-transparent bg-(--ink) px-3.5 py-1.5 text-xs font-semibold text-(--bg) transition-colors"
+              : "rounded-full border border-(--line) bg-transparent px-3.5 py-1.5 text-xs font-semibold text-(--muted) transition-colors hover:border-(--line-strong) hover:text-(--ink)"
+          }
         >
           {t(ui.filterAll)}
         </button>
@@ -167,6 +170,11 @@ export function AllProjects() {
             type="button"
             aria-pressed={filter === category}
             onClick={() => setFilter(category)}
+            className={
+              filter === category
+                ? "rounded-full border border-transparent bg-(--ink) px-3.5 py-1.5 text-xs font-semibold text-(--bg) transition-colors"
+                : "rounded-full border border-(--line) bg-transparent px-3.5 py-1.5 text-xs font-semibold text-(--muted) transition-colors hover:border-(--line-strong) hover:text-(--ink)"
+            }
           >
             {t(categoryLabels[category])}
           </button>
