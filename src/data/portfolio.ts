@@ -44,7 +44,7 @@ export const profile = {
     en: "Frontend Engineer with 7+ years of professional experience building and maintaining web and mobile applications, specializing in JavaScript, TypeScript, Vue.js, and React. Experienced in developing complex, large-scale logistics applications supporting end-to-end shipment operations, customer management, and administrative workflows. Skilled in frontend architecture, reusable component development, API integration, internationalization, PDF generation, and thermal printing. Experienced in cross-functional collaboration, code reviews, and frontend team coordination.",
     id: "Frontend Engineer dengan 7+ tahun pengalaman profesional membangun dan memelihara aplikasi web dan mobile, berspesialisasi dalam JavaScript, TypeScript, Vue.js, dan React. Berpengalaman mengembangkan aplikasi logistik kompleks berskala besar yang mendukung operasional pengiriman end-to-end, manajemen pelanggan, dan alur administrasi. Terampil dalam arsitektur frontend, pengembangan komponen reusable, integrasi API, internasionalisasi, pembuatan PDF, dan thermal printing. Berpengalaman dalam kolaborasi lintas fungsi, code review, dan koordinasi tim frontend."
   } satisfies Localized,
-  photo: "/images/logos/profile.jpeg",
+  photo: "/images/logos/profile.png",
   photoAlt: {
     en: "Portrait photo of Fuad Rifqi Zamzami",
     id: "Foto Fuad Rifqi Zamzami"
@@ -98,6 +98,16 @@ export const ui = {
   },
   moreProjects: { en: "More projects", id: "Proyek lainnya" },
   featured: { en: "Featured", id: "Unggulan" },
+  viewAllProjects: { en: "View All Projects", id: "Lihat Semua Proyek" },
+  filterAll: { en: "All", id: "Semua" },
+  allProjects: {
+    eyebrow: { en: "Archive", id: "Arsip" },
+    title: { en: "All Projects", id: "Semua Proyek" },
+    description: {
+      en: "The complete archive of my work across logistics platforms, e-commerce, mobile apps, and experiments.",
+      id: "Arsip lengkap pekerjaan saya di platform logistik, e-commerce, aplikasi mobile, dan eksperimen."
+    }
+  },
   experienceSection: {
     eyebrow: { en: "Experience", id: "Pengalaman" },
     title: { en: "Where I have worked", id: "Tempat saya bekerja" },
@@ -177,6 +187,7 @@ export type Project = {
   description: Localized;
   stack: string[];
   platforms?: string[];
+  imageFit?: "cover" | "contain";
   featured?: boolean;
 };
 
@@ -214,7 +225,8 @@ export const projects: Project[] = [
     slug: "genesis",
     name: "Genesis — Lion Parcel",
     category: "logistics-operations",
-    image: "/images/projects/genesis.svg",
+    image: "/images/logos/lion-parcel.png",
+    imageFit: "contain",
     period: "Lion Parcel",
     role: { en: "Frontend Engineer", id: "Frontend Engineer" },
     summary: {
@@ -232,7 +244,8 @@ export const projects: Project[] = [
     slug: "jersium",
     name: "Jersium",
     category: "ecommerce",
-    image: "/images/projects/jersium.svg",
+    image: "/images/logos/jersium.png",
+    imageFit: "contain",
     period: "Freelance",
     role: {
       en: "Frontend Developer",
@@ -249,10 +262,64 @@ export const projects: Project[] = [
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"]
   },
   {
+    slug: "pindad",
+    name: "E-Procurement PT Pindad",
+    category: "enterprise-applications",
+    image: "/images/projects/pindad.jpg",
+    period: "Refactory client project",
+    role: { en: "Frontend Developer", id: "Frontend Developer" },
+    summary: {
+      en: "A web-based e-procurement platform for PT Pindad (Persero), supporting end-to-end procurement through an integrated digital system. Contributed to frontend development with React.js and TypeScript.",
+      id: "Platform e-procurement berbasis web untuk PT Pindad (Persero) yang mendukung pengadaan end-to-end melalui sistem digital yang terintegrasi. Berkontribusi pada pengembangan frontend dengan React.js dan TypeScript."
+    },
+    description: {
+      en: "A web-based e-procurement platform for PT Pindad (Persero), designed to support end-to-end procurement processes through an integrated digital system.\n\nContributed to frontend development using React.js and TypeScript, integrating application features with backend GraphQL APIs.",
+      id: "Platform e-procurement berbasis web untuk PT Pindad (Persero), dirancang untuk mendukung proses pengadaan end-to-end melalui sistem digital yang terintegrasi.\n\nBerkontribusi pada pengembangan frontend menggunakan React.js dan TypeScript, mengintegrasikan fitur aplikasi dengan GraphQL API backend."
+    },
+    stack: ["React.js", "TypeScript", "GraphQL"]
+  },
+  {
+    slug: "refactory-profile",
+    name: "Refactory Company Profile",
+    category: "company-websites",
+    image: "/images/logos/refactory.png",
+    imageFit: "contain",
+    period: "Refactory",
+    role: { en: "Frontend Developer", id: "Frontend Developer" },
+    summary: {
+      en: "The public company profile site for Refactory, a technology education and software company in Yogyakarta. Built the marketing-facing site with clear information architecture, responsive layouts, and reusable components.",
+      id: "Situs company profile publik Refactory, perusahaan pendidikan teknologi dan perangkat lunak di Yogyakarta. Membangun situs pemasaran dengan arsitektur informasi yang jelas, layout responsif, dan komponen yang dapat digunakan ulang."
+    },
+    description: {
+      en: "Built the marketing-facing web experience for Refactory: a content-rich site with clear information architecture, responsive layouts, and a reusable component set the team could extend as programs and pages changed.",
+      id: "Membangun pengalaman web pemasaran untuk Refactory: situs kaya konten dengan arsitektur informasi yang jelas, layout responsif, dan komponen yang dapat digunakan ulang sehingga tim bisa menambah program dan halaman seiring perubahan."
+    },
+    stack: ["WordPress", "Elementor"]
+  },
+  {
+    slug: "lion-parcel-website",
+    name: "Lion Parcel Website",
+    category: "company-websites",
+    image: "/images/logos/lion-parcel.png",
+    imageFit: "contain",
+    period: "Lion Parcel",
+    role: { en: "Frontend Engineer", id: "Frontend Engineer" },
+    summary: {
+      en: "The public Lion Parcel website with service information, rate tools, and customer-facing content. Developed and maintained frontend features connected to backend APIs.",
+      id: "Situs publik Lion Parcel berisi informasi layanan, alat bantu tarif, dan konten pelanggan. Mengembangkan dan memelihara fitur frontend yang terhubung ke API backend."
+    },
+    description: {
+      en: "Developed and maintained frontend features on the public Lion Parcel website as part of the team, connecting the interface to backend APIs and supporting content updates.",
+      id: "Mengembangkan dan memelihara fitur frontend pada situs publik Lion Parcel sebagai bagian dari tim, menghubungkan antarmuka ke API backend dan mendukung pembaruan konten."
+    },
+    stack: ["Vue.js", "Nuxt.js", "Tailwind CSS", "REST API"]
+  },
+  {
     slug: "tetra-pulsa",
     name: "Tetra Pulsa",
     category: "financial-services",
-    image: "/images/projects/tetra-pulsa.svg",
+    image: "/images/logos/tetra-pulsa.png",
+    imageFit: "contain",
     period: "Freelance",
     role: {
       en: "Mobile Frontend Developer (Freelance)",
@@ -273,7 +340,7 @@ export const projects: Project[] = [
     slug: "pintoko",
     name: "Pintoko",
     category: "ecommerce",
-    image: "/images/projects/pintoko.svg",
+    image: "/images/projects/pintoko.png",
     period: "Lion Parcel",
     role: { en: "Frontend Developer", id: "Frontend Developer" },
     summary: {
@@ -290,7 +357,8 @@ export const projects: Project[] = [
     slug: "lion-cms",
     name: "Lion Parcel CMS",
     category: "content-management",
-    image: "/images/projects/lion-cms.svg",
+    image: "/images/logos/lion-parcel.png",
+    imageFit: "contain",
     period: "Lion Parcel",
     role: { en: "Frontend Engineer", id: "Frontend Engineer" },
     summary: {
@@ -304,27 +372,11 @@ export const projects: Project[] = [
     stack: ["Vue.js", "TypeScript", "Vuex", "REST API"]
   },
   {
-    slug: "lion-parcel-website",
-    name: "Lion Parcel Website",
-    category: "company-websites",
-    image: "/images/projects/lion-cms.svg",
-    period: "Lion Parcel",
-    role: { en: "Frontend Engineer", id: "Frontend Engineer" },
-    summary: {
-      en: "The public Lion Parcel website with service information, rate tools, and customer-facing content. Developed and maintained frontend features connected to backend APIs.",
-      id: "Situs publik Lion Parcel berisi informasi layanan, alat bantu tarif, dan konten pelanggan. Mengembangkan dan memelihara fitur frontend yang terhubung ke API backend."
-    },
-    description: {
-      en: "Developed and maintained frontend features on the public Lion Parcel website as part of the team, connecting the interface to backend APIs and supporting content updates.",
-      id: "Mengembangkan dan memelihara fitur frontend pada situs publik Lion Parcel sebagai bagian dari tim, menghubungkan antarmuka ke API backend dan mendukung pembaruan konten."
-    },
-    stack: ["Vue.js", "Nuxt.js", "Tailwind CSS", "REST API"]
-  },
-  {
     slug: "shopify-lion-parcel",
     name: "Shopify × Lion Parcel",
     category: "logistics-operations",
-    image: "/images/projects/shopify-lionparcel.svg",
+    image: "/images/logos/lion-parcel.png",
+    imageFit: "contain",
     period: "Lion Parcel",
     role: { en: "Frontend Engineer", id: "Frontend Engineer" },
     summary: {
@@ -338,27 +390,11 @@ export const projects: Project[] = [
     stack: ["JavaScript", "React", "REST API"]
   },
   {
-    slug: "refactory-profile",
-    name: "Refactory Company Profile",
-    category: "company-websites",
-    image: "/images/projects/refactory-profile.svg",
-    period: "Refactory",
-    role: { en: "Frontend Developer", id: "Frontend Developer" },
-    summary: {
-      en: "The public company profile site for Refactory, a technology education and software company in Yogyakarta. Built the marketing-facing site with clear information architecture, responsive layouts, and reusable components.",
-      id: "Situs company profile publik Refactory, perusahaan pendidikan teknologi dan perangkat lunak di Yogyakarta. Membangun situs pemasaran dengan arsitektur informasi yang jelas, layout responsif, dan komponen yang dapat digunakan ulang."
-    },
-    description: {
-      en: "Built the marketing-facing web experience for Refactory: a content-rich site with clear information architecture, responsive layouts, and a reusable component set the team could extend as programs and pages changed.",
-      id: "Membangun pengalaman web pemasaran untuk Refactory: situs kaya konten dengan arsitektur informasi yang jelas, layout responsif, dan komponen yang dapat digunakan ulang sehingga tim bisa menambah program dan halaman seiring perubahan."
-    },
-    stack: ["WordPress", "Elementor"]
-  },
-  {
     slug: "sia-ut",
     name: "SIA Universitas Terbuka",
     category: "education",
-    image: "/images/projects/sia-ut.svg",
+    image: "/images/projects/ut.png",
+    imageFit: "contain",
     period: "Refactory client project",
     role: { en: "Frontend Developer", id: "Frontend Developer" },
     summary: {
@@ -372,27 +408,10 @@ export const projects: Project[] = [
     stack: ["Laravel", "PHP"]
   },
   {
-    slug: "pindad",
-    name: "E-Procurement PT Pindad",
-    category: "enterprise-applications",
-    image: "/images/projects/pindad.svg",
-    period: "Refactory client project",
-    role: { en: "Frontend Developer", id: "Frontend Developer" },
-    summary: {
-      en: "A web-based e-procurement platform for PT Pindad (Persero), supporting end-to-end procurement through an integrated digital system. Contributed to frontend development with React.js and TypeScript.",
-      id: "Platform e-procurement berbasis web untuk PT Pindad (Persero) yang mendukung pengadaan end-to-end melalui sistem digital yang terintegrasi. Berkontribusi pada pengembangan frontend dengan React.js dan TypeScript."
-    },
-    description: {
-      en: "A web-based e-procurement platform for PT Pindad (Persero), designed to support end-to-end procurement processes through an integrated digital system.\n\nContributed to frontend development using React.js and TypeScript, integrating application features with backend GraphQL APIs.",
-      id: "Platform e-procurement berbasis web untuk PT Pindad (Persero), dirancang untuk mendukung proses pengadaan end-to-end melalui sistem digital yang terintegrasi.\n\nBerkontribusi pada pengembangan frontend menggunakan React.js dan TypeScript, mengintegrasikan fitur aplikasi dengan GraphQL API backend."
-    },
-    stack: ["React.js", "TypeScript", "GraphQL"]
-  },
-  {
     slug: "ayo-belajar",
     name: "Ayo Belajar",
     category: "education",
-    image: "/images/projects/ayo-belajar.svg",
+    image: "/images/projects/ayo-belajar.jpeg",
     period: "Refactory client project",
     role: { en: "Frontend Developer", id: "Frontend Developer" },
     summary: {
@@ -409,7 +428,7 @@ export const projects: Project[] = [
     slug: "atenda",
     name: "Atenda",
     category: "business-productivity",
-    image: "/images/projects/atenda.svg",
+    image: "/images/projects/atenda.png",
     period: "Refactory client project",
     role: { en: "Frontend Developer", id: "Frontend Developer" },
     summary: {
@@ -421,6 +440,32 @@ export const projects: Project[] = [
       id: "Membangun antarmuka absensi: alur check-in, riwayat kehadiran, dan tampilan laporan yang terhubung ke layanan backend."
     },
     stack: ["React", "JavaScript", "REST API"]
+  },
+  {
+    slug: "almaarif-jambi",
+    name: "Al Maarif Jambi",
+    category: "education",
+    image: "/images/projects/almaarif.png",
+    imageFit: "contain",
+    period: "Personal project",
+    role: { en: "Frontend Developer", id: "Frontend Developer" },
+    summary: {
+      en: "A digital platform for an Islamic boarding school, with admin operations in a monorepo backed by PostgreSQL. Contributed admin screens, data flows, and environment-based configuration.",
+      id: "Platform digital pondok pesantren dengan operasional admin dalam monorepo yang didukung PostgreSQL. Berkontribusi pada layar admin, alur data, dan konfigurasi berbasis lingkungan."
+    },
+    description: {
+      en: "Contributed to a Turborepo/pnpm monorepo (Next.js 16 App Router, React 19, TypeScript, Tailwind v4) backed by Drizzle ORM on Neon PostgreSQL — admin screens, data flows, and environment-based configuration.",
+      id: "Berkontribusi pada monorepo Turborepo/pnpm (Next.js 16 App Router, React 19, TypeScript, Tailwind v4) yang didukung Drizzle ORM di atas Neon PostgreSQL — layar admin, alur data, dan konfigurasi berbasis lingkungan."
+    },
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Drizzle",
+      "Neon PostgreSQL",
+      "Turborepo"
+    ]
   },
   {
     slug: "residence-management",
@@ -457,31 +502,6 @@ export const projects: Project[] = [
     stack: ["React Native", "Firebase Auth", "Firestore", "React Navigation"]
   },
   {
-    slug: "almaarif-jambi",
-    name: "Al Maarif Jambi",
-    category: "education",
-    image: "/images/projects/almaarif.svg",
-    period: "Personal project",
-    role: { en: "Frontend Developer", id: "Frontend Developer" },
-    summary: {
-      en: "A digital platform for an Islamic boarding school, with admin operations in a monorepo backed by PostgreSQL. Contributed admin screens, data flows, and environment-based configuration.",
-      id: "Platform digital pondok pesantren dengan operasional admin dalam monorepo yang didukung PostgreSQL. Berkontribusi pada layar admin, alur data, dan konfigurasi berbasis lingkungan."
-    },
-    description: {
-      en: "Contributed to a Turborepo/pnpm monorepo (Next.js 16 App Router, React 19, TypeScript, Tailwind v4) backed by Drizzle ORM on Neon PostgreSQL — admin screens, data flows, and environment-based configuration.",
-      id: "Berkontribusi pada monorepo Turborepo/pnpm (Next.js 16 App Router, React 19, TypeScript, Tailwind v4) yang didukung Drizzle ORM di atas Neon PostgreSQL — layar admin, alur data, dan konfigurasi berbasis lingkungan."
-    },
-    stack: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Drizzle",
-      "Neon PostgreSQL",
-      "Turborepo"
-    ]
-  },
-  {
     slug: "pos",
     name: "Point of Sales",
     category: "business-productivity",
@@ -497,6 +517,24 @@ export const projects: Project[] = [
       id: "Sistem point-of-sales lawas yang dibangun dengan PHP MVC custom (controller, model, dan view), MySQL, dan template admin Gentelella, mencakup kategori, produk, customer, dan penjualan. Disimpan sebagai arsip pengalaman development awal saya sebelum beralih ke frontend yang berfokus pada JavaScript."
     },
     stack: ["PHP", "MySQL", "Bootstrap"]
+  },
+  {
+    slug: "hppr",
+    name: "HPPr — CV Mugy Sidoarjo",
+    category: "business-productivity",
+    image: "/images/projects/hppr.svg",
+    period: "Academic project",
+    role: { en: "Fullstack Developer", id: "Fullstack Developer" },
+    summary: {
+      en: "A web-based information system for production cost pricing of ordered products, built as a D3 final project with PHP, CodeIgniter 4, and MySQL.",
+      id: "Sistem informasi berbasis web untuk harga bahan pokok produksi produk pesanan, dibangun sebagai proyek akhir D3 dengan PHP, CodeIgniter 4, dan MySQL."
+    },
+    description: {
+      en: "Final Project / Academic Research (Diploma III in Informatics Engineering): a web-based production cost price information system (HPPr) for ordered products, developed with PHP, CodeIgniter 4, and MySQL. Case study: CV Mugy Sidoarjo.",
+      id: "Tugas Akhir / Penelitian Akademik (D3 Teknik Informatika): Sistem Informasi Harga Bahan Pokok Produksi (HPPr) Produk Pesanan Berbasis Web, dikembangkan dengan PHP, CodeIgniter 4, dan MySQL. Studi kasus: CV Mugy Sidoarjo."
+    },
+    stack: ["PHP", "CodeIgniter 4", "MySQL"],
+    platforms: ["Web"]
   }
 ];
 
@@ -798,8 +836,8 @@ export const education: Education[] = [
     period: "September 2016 — August 2019",
     location: { en: "Purworejo, Indonesia", id: "Purworejo, Indonesia" },
     description: {
-      en: "Studied Informatics while gaining practical experience through freelance and academic software projects. Work included a queue management information system for RSAD Ismoyo in Kendari, a point-of-sale application, and a COGS accounting application for CV Mandiri Usaha Gypsum developed as my final graduation research project.",
-      id: "Menempuh pendidikan Informatika sambil memperoleh pengalaman praktis melalui proyek freelance dan akademik. Proyek meliputi sistem informasi antrian untuk RSAD Ismoyo di Kendari, aplikasi point of sale (POS), serta aplikasi akuntansi untuk menghitung harga pokok penjualan (HPP) di CV Mandiri Usaha Gypsum sebagai karya ilmiah kelulusan."
+      en: "Studied Informatics while gaining practical experience through freelance and academic software projects. Work included a queue management information system for RSAD Ismoyo in Kendari, a point-of-sale application, and a web-based production cost price information system (HPPr) for CV Mugy Sidoarjo developed as my final graduation research project.",
+      id: "Menempuh pendidikan Informatika sambil memperoleh pengalaman praktis melalui proyek freelance dan akademik. Proyek meliputi sistem informasi antrian untuk RSAD Ismoyo di Kendari, aplikasi point of sale (POS), serta sistem informasi harga bahan pokok produksi (HPPr) berbasis web untuk CV Mugy Sidoarjo sebagai karya ilmiah kelulusan."
     }
   }
 ];

@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { Menu, Moon, Sun, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { useLanguage, useTheme } from "@/components/providers";
 import { LOCALES, profile, ui } from "@/data/portfolio";
 import type { Locale, Localized } from "@/data/portfolio";
@@ -96,6 +97,9 @@ function LanguageControl({ className = "" }: { className?: string }) {
 
 export function Header() {
   const { t } = useLanguage();
+  const pathname = usePathname();
+  const onHome = pathname === "/";
+  const sectionHref = (id: string) => (onHome ? `#${id}` : `/#${id}`);
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const active = useActiveSection(SECTION_IDS);
@@ -139,7 +143,7 @@ export function Header() {
       >
         <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-5 sm:px-8">
           <a
-            href="#top"
+            href={sectionHref("top")}
             className="group flex items-center gap-2.5 text-sm font-semibold text-(--ink)"
           >
             <span className="grid size-8 place-items-center rounded-lg bg-(--ink) text-[0.7rem] font-bold tracking-tight text-(--bg) transition-colors group-hover:bg-(--accent) group-hover:text-(--accent-ink)">
@@ -155,13 +159,16 @@ export function Header() {
             {navLinks.map((item) => (
               <a
                 key={item.id}
-                href={`#${item.id}`}
+                href={sectionHref(item.id)}
                 className="nav-link"
                 data-active={active === item.id}
               >
                 {item.label}
               </a>
             ))}
+            <a href="/projects" className="nav-link">
+              {t(ui.viewAllProjects)}
+            </a>
           </nav>
 
           <div className="flex items-center gap-2">
@@ -192,7 +199,7 @@ export function Header() {
               {navLinks.map((item) => (
                 <a
                   key={item.id}
-                  href={`#${item.id}`}
+                  href={sectionHref(item.id)}
                   className="flex items-center justify-between border-b border-(--line) py-3 text-sm font-medium text-(--ink-soft) last:border-b-0"
                   onClick={() => setOpen(false)}
                 >
@@ -200,6 +207,14 @@ export function Header() {
                   <span className="eyebrow">/{item.id}</span>
                 </a>
               ))}
+              <a
+                href="/projects"
+                className="flex items-center justify-between border-b border-(--line) py-3 text-sm font-medium text-(--ink-soft) last:border-b-0"
+                onClick={() => setOpen(false)}
+              >
+                {t(ui.viewAllProjects)}
+                <span className="eyebrow">/projects</span>
+              </a>
               <div className="flex items-center justify-between gap-3 py-3 sm:hidden">
                 <LanguageControl />
               </div>

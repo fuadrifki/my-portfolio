@@ -1,7 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
-import { Smartphone } from "lucide-react";
+import { ArrowRight, Smartphone } from "lucide-react";
 import { useLanguage } from "@/components/providers";
 import { Reveal } from "@/components/reveal";
 import { Section } from "@/components/section";
@@ -10,6 +11,7 @@ import {
   projects,
   ui,
   type Project,
+  type ProjectCategory,
 } from "@/data/portfolio";
 
 function StackChips({
@@ -34,7 +36,7 @@ function StackChips({
   );
 }
 
-function ProjectCard({ project }: { project: Project }) {
+export function ProjectCard({ project }: { project: Project }) {
   const { t } = useLanguage();
 
   return (
@@ -46,7 +48,11 @@ function ProjectCard({ project }: { project: Project }) {
           width={800}
           height={500}
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-          className="h-full w-full object-cover"
+          className={
+            project.imageFit === "contain"
+              ? "h-full w-full bg-(--surface-2) object-contain p-10"
+              : "h-full w-full object-cover"
+          }
         />
       </div>
       <div className="flex flex-1 flex-col p-6">
@@ -90,6 +96,9 @@ function ProjectCard({ project }: { project: Project }) {
 }
 
 export function Projects() {
+  const { t } = useLanguage();
+  const highlighted = projects.slice(0, 6);
+
   return (
     <Section
       id="projects"
@@ -99,7 +108,72 @@ export function Projects() {
       description={ui.selectedProjects.description}
     >
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project, index) => (
+        {highlighted.map((project, index) => (
+          <Reveal key={project.slug} delay={(index % 3) * 80}>
+            <ProjectCard project={project} />
+          </Reveal>
+        ))}
+      </div>
+      <div className="mt-10 flex justify-center">
+        <a href="/projects" className="btn btn-outline">
+          {t(ui.viewAllProjects)}
+          <ArrowRight className="size-4" />
+        </a>
+      </div>
+    </Section>
+  );
+}
+
+const ALL_FILTER = "all" as const;
+
+export function AllProjects() {
+  const { t } = useLanguage();
+  const [filter, setFilter] = useState<ProjectCategory | typeof ALL_FILTER>(
+    ALL_FILTER,
+  );
+  const categories = projects
+    .map((project) => project.category)
+    .filter(
+      (category, index, list) => list.indexOf(category) === index,
+    );
+  const visible =
+    filter === ALL_FILTER
+      ? projects
+      : projects.filter((project) => project.category === filter);
+
+  return (
+    <Section
+      id="projects"
+      index="01"
+      eyebrow={ui.allProjects.eyebrow}
+      title={ui.allProjects.title}
+      description={ui.allProjects.description}
+    >
+      <div
+        className="segmented segmented-wrap"
+        role="group"
+        aria-label={t(ui.allProjects.title)}
+      >
+        <button
+          type="button"
+          aria-pressed={filter === ALL_FILTER}
+          onClick={() => setFilter(ALL_FILTER)}
+        >
+          {t(ui.filterAll)}
+        </button>
+        {categories.map((category) => (
+          <button
+            key={category}
+            type="button"
+            aria-pressed={filter === category}
+            onClick={() => setFilter(category)}
+          >
+            {t(categoryLabels[category])}
+          </button>
+        ))}
+      </div>
+      <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {visible.map((project, index) => (
           <Reveal key={project.slug} delay={(index % 3) * 80}>
             <ProjectCard project={project} />
           </Reveal>

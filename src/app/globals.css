@@ -229,6 +229,15 @@ body {
   color: var(--bg);
 }
 
+/* Wrapped filter variant: roomier padding and gaps so pills never touch
+   the wrapper border. A dedicated class is required because unlayered
+   `.segmented` styles beat layered Tailwind utilities. */
+.segmented-wrap {
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;

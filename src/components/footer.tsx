@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowUp, Mail } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { useLanguage } from "@/components/providers";
 import { profile, ui, YEAR } from "@/data/portfolio";
@@ -16,13 +17,19 @@ const NAV: { id: string; key: keyof typeof ui.nav }[] = [
 
 export function Footer() {
   const { t } = useLanguage();
+  const pathname = usePathname();
+  const sectionHref = (id: string) =>
+    pathname === "/" ? `#${id}` : `/#${id}`;
 
   return (
     <footer className="border-t border-(--line)">
       <div className="mx-auto w-full max-w-6xl px-5 py-12 sm:px-8">
         <div className="grid gap-8 md:grid-cols-12">
           <div className="md:col-span-5">
-            <a href="#top" className="flex items-center gap-2.5">
+            <a
+              href={sectionHref("top")}
+              className="flex items-center gap-2.5"
+            >
               <span className="grid size-8 place-items-center rounded-lg bg-(--ink) text-[0.7rem] font-bold tracking-tight text-(--bg)">
                 {profile.monogram}
               </span>
@@ -41,7 +48,7 @@ export function Footer() {
               {NAV.map((item) => (
                 <li key={item.id}>
                   <a
-                    href={`#${item.id}`}
+                    href={sectionHref(item.id)}
                     className="text-sm text-(--ink-soft) transition-colors hover:text-(--accent)"
                   >
                     {t(ui.nav[item.key])}
@@ -94,7 +101,7 @@ export function Footer() {
             © {YEAR} {profile.name}. {t(ui.rights)}
           </p>
           <a
-            href="#top"
+            href={sectionHref("top")}
             className="inline-flex items-center gap-2 text-xs font-medium text-(--muted) transition-colors hover:text-(--ink)"
           >
             <ArrowUp className="size-3.5" />
