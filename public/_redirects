@@ -1,0 +1,2 @@
+/learning /knowledge 301
+/learning/* /knowledge/:splat 301

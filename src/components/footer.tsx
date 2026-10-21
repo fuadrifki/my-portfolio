@@ -47,7 +47,7 @@ export function Footer() {
             <p className="eyebrow">{t(ui.menu)}</p>
             <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2.5">
               <li>
-                <Link href="/learning" className="text-sm text-(--ink-soft) transition-colors hover:text-(--accent)">
+                <Link href="/knowledge" className="text-sm text-(--ink-soft) transition-colors hover:text-(--accent)">
                   {t(ui.nav.learning)}
                 </Link>
               </li>

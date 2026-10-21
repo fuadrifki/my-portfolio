@@ -11,7 +11,7 @@ import type { Locale, Localized } from "@/data/portfolio";
 const NAV: { id: string; label: Localized; href?: string }[] = [
   { id: "projects", label: ui.nav.projects, href: "/projects" },
   { id: "experience", label: ui.nav.experience },
-  { id: "learning", label: ui.nav.learning, href: "/learning" },
+  { id: "knowledge", label: ui.nav.learning, href: "/knowledge" },
   { id: "contact", label: ui.nav.contact }
 ];
 
@@ -130,8 +130,8 @@ export function Header() {
   const itemActive = (item: (typeof NAV)[number]) =>
     item.id === "projects"
       ? pathname.startsWith("/projects")
-      : item.id === "learning"
-        ? pathname.startsWith("/learning")
+      : item.id === "knowledge"
+        ? pathname.startsWith("/knowledge")
         : active === item.id;
 
   return (

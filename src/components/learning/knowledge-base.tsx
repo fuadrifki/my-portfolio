@@ -1,18 +1,25 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   ArrowLeft,
   ArrowRight,
   Check,
   Clipboard,
   Clock,
+  ChevronDown,
   ExternalLink,
   Search,
-  Sparkles
+  Sparkles,
+  X
 } from "lucide-react";
 import { useLanguage } from "@/components/providers";
+import {
+  getKnowledgeAreaForArticle,
+  knowledgeAreas
+} from "@/data/knowledge-navigation";
 import {
   frontendKnowledge,
   type KnowledgeCode,
@@ -61,9 +68,15 @@ function Paragraphs({ values }: { values: KnowledgeEntry["definition"] }) {
   return <>{values.map((value, index) => <p key={index}>{t(value)}</p>)}</>;
 }
 
+function normalizeSearchText(value: string) {
+  return value.trim().replace(/\s+/g, " ").toLocaleLowerCase();
+}
+
 function getSearchText(entry: KnowledgeEntry) {
   const localized = (values: KnowledgeEntry["definition"]) =>
     values.flatMap((value) => [value.en, value.id]);
+
+  const area = getKnowledgeAreaForArticle(entry.slug);
 
   return [
     entry.term,
@@ -75,6 +88,8 @@ function getSearchText(entry: KnowledgeEntry) {
     entry.summary.id,
     entry.question.en,
     entry.question.id,
+    area?.label.en ?? "",
+    area?.label.id ?? "",
     ...entry.keywords,
     ...localized(entry.definition),
     ...localized(entry.why),
@@ -82,7 +97,76 @@ function getSearchText(entry: KnowledgeEntry) {
     ...localized(entry.analogy),
     ...localized(entry.realExample),
     ...localized(entry.keyPoints)
-  ].join(" ").toLocaleLowerCase();
+  ].join(" ");
+}
+
+function getKnowledgeAreaEntries(areaKey: string) {
+  const area = knowledgeAreas.find((item) => item.key === areaKey);
+  if (!area) return [];
+  return area.articleSlugs
+    .map((slug) => frontendKnowledge.find((entry) => entry.slug === slug))
+    .filter((entry): entry is KnowledgeEntry => Boolean(entry));
+}
+
+const knowledgeCategories = [...new Map(frontendKnowledge.map((entry) => [entry.category.en, entry.category])).values()];
+
+// Retained as a reusable navigation pattern for future documentation sections.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function KnowledgeNavigation({
+  activeArea = "all",
+  currentSlug,
+  onSelectArea,
+  compact = false
+}: {
+  activeArea?: string;
+  currentSlug?: string;
+  onSelectArea?: (area: string) => void;
+  compact?: boolean;
+}) {
+  const { locale, t } = useLanguage();
+  const currentArea = currentSlug ? getKnowledgeAreaForArticle(currentSlug)?.key : undefined;
+  const [expandedAreas, setExpandedAreas] = useState<Set<string>>(() => new Set(currentArea ? [currentArea] : activeArea === "all" ? [] : [activeArea]));
+  function toggleArea(areaKey: string) {
+    setExpandedAreas((current) => { const next = new Set(current); if (next.has(areaKey)) next.delete(areaKey); else next.add(areaKey); return next; });
+    onSelectArea?.(areaKey);
+  }
+  const navigation = <nav aria-label={locale === "id" ? "Area pembelajaran" : "Learning areas"}>
+    <Link
+      href="/knowledge"
+      className="knowledge-all-articles"
+      data-active={!currentSlug && activeArea === "all"}
+      aria-current={!currentSlug && activeArea === "all" ? "page" : undefined}
+      onClick={(event) => {
+        if (!onSelectArea) return;
+        event.preventDefault();
+        onSelectArea("all");
+      }}
+    >
+      <span>{locale === "id" ? "Semua Artikel" : "All Articles"}</span>
+      <span>{frontendKnowledge.length}</span>
+    </Link>
+    <ul className="mt-2 space-y-1">
+      {knowledgeAreas.map((area) => {
+        const areaEntries = getKnowledgeAreaEntries(area.key);
+        const expanded = expandedAreas.has(area.key);
+        const selected = activeArea === area.key || currentArea === area.key;
+        return <li key={area.key}><button type="button" className="knowledge-area-disclosure" data-active={selected} aria-expanded={expanded} onClick={() => toggleArea(area.key)}><ChevronDown className="knowledge-area-chevron" aria-hidden="true" /><span>{t(area.label)}</span><span className="knowledge-area-count">{areaEntries.length}</span></button><div className="knowledge-submenu-wrap" data-expanded={expanded}><ul className="knowledge-article-submenu">{areaEntries.map((entry) => <li key={entry.slug}><Link href={`/knowledge/${entry.slug}`} className="knowledge-article-link" data-active={currentSlug === entry.slug} aria-current={currentSlug === entry.slug ? "page" : undefined}>{t(entry.title)}</Link></li>)}</ul></div></li>;
+      })}
+    </ul>
+  </nav>;
+
+  if (compact) {
+    return <details className="knowledge-mobile-navigation surface-card lg:hidden">
+      <summary>{locale === "id" ? "Jelajahi area pembelajaran" : "Browse learning areas"}</summary>
+      <div className="mt-3 border-t border-(--line) pt-3">{navigation}</div>
+    </details>;
+  }
+
+  return <div className="hidden lg:block">{navigation}</div>;
+}
+
+function matchesSearch(entry: KnowledgeEntry, normalizedQuery: string) {
+  return !normalizedQuery || normalizeSearchText(getSearchText(entry)).includes(normalizedQuery);
 }
 
 function TableOfContents({ compact = false }: { compact?: boolean }) {
@@ -100,46 +184,133 @@ function TableOfContents({ compact = false }: { compact?: boolean }) {
 
 export function KnowledgeHome() {
   const { locale, t } = useLanguage();
+  const router = useRouter();
+  const searchId = useId();
+  const suggestionListId = `${searchId}-suggestions`;
+  const searchAreaRef = useRef<HTMLDivElement>(null);
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
-  const categories = useMemo(() => {
-    const values = new Map<string, KnowledgeEntry["category"]>();
-    frontendKnowledge.forEach((entry) => values.set(entry.category.en, entry.category));
-    return [...values.entries()];
-  }, []);
+  const [suggestionsOpen, setSuggestionsOpen] = useState(false);
+  const [activeSuggestion, setActiveSuggestion] = useState(-1);
+  const normalizedQuery = useMemo(() => normalizeSearchText(query), [query]);
+  const categoryEntries = useMemo(() => activeCategory === "all"
+    ? frontendKnowledge
+    : frontendKnowledge.filter((entry) => entry.category.en === activeCategory), [activeCategory]);
   const entries = useMemo(() => {
-    const value = query.trim().toLocaleLowerCase(locale);
-    return frontendKnowledge.filter((entry) => {
-      const matchesCategory = activeCategory === "all" || entry.category.en === activeCategory;
-      const matchesQuery = !value || getSearchText(entry).includes(value);
-      return matchesCategory && matchesQuery;
-    });
-  }, [activeCategory, locale, query]);
+    return categoryEntries.filter((entry) => matchesSearch(entry, normalizedQuery));
+  }, [categoryEntries, normalizedQuery]);
+  const suggestions = useMemo(() => {
+    return (normalizedQuery ? entries : frontendKnowledge).slice(0, 6);
+  }, [entries, normalizedQuery]);
+  const activeCategoryLabel = activeCategory === "all"
+    ? (locale === "id" ? "Semua Artikel" : "All Articles")
+    : t(knowledgeCategories.find((category) => category.en === activeCategory) ?? { en: activeCategory, id: activeCategory });
+
+  useEffect(() => {
+    function closeSuggestions(event: PointerEvent) {
+      if (!searchAreaRef.current?.contains(event.target as Node)) {
+        setSuggestionsOpen(false);
+        setActiveSuggestion(-1);
+      }
+    }
+
+    document.addEventListener("pointerdown", closeSuggestions);
+    return () => document.removeEventListener("pointerdown", closeSuggestions);
+  }, []);
+
+  function chooseCategory(category: string) {
+    setActiveCategory(category);
+    setSuggestionsOpen(Boolean(normalizedQuery));
+    setActiveSuggestion(-1);
+  }
+
+  function clearSearch() {
+    setQuery("");
+    // Clearing the text must not reset the selected category/filter.
+    setSuggestionsOpen(true);
+    setActiveSuggestion(-1);
+  }
+
+  function openArticle(entry: KnowledgeEntry) {
+    setSuggestionsOpen(false);
+    router.push(`/knowledge/${entry.slug}`);
+  }
+
+  function handleSearchKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      clearSearch();
+      return;
+    }
+
+    if (!suggestions.length) return;
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      setSuggestionsOpen(true);
+      setActiveSuggestion((current) => (current + 1) % suggestions.length);
+    } else if (event.key === "ArrowUp") {
+      event.preventDefault();
+      setSuggestionsOpen(true);
+      setActiveSuggestion((current) => (current <= 0 ? suggestions.length - 1 : current - 1));
+    } else if (event.key === "Enter" && suggestionsOpen && activeSuggestion >= 0) {
+      event.preventDefault();
+      openArticle(suggestions[activeSuggestion]);
+    }
+  }
 
   return <main id="main" className="mx-auto w-full max-w-6xl px-5 py-12 sm:px-8 md:py-20">
     <header className="border-b border-(--line) pb-12">
-      <p className="eyebrow text-(--accent)">{locale === "id" ? "Basis Materi Frontend Engineering" : "Frontend Engineering Knowledge Base"}</p>
+      <p className="eyebrow text-(--accent)">{locale === "id" ? "Pengetahuan Frontend Engineering" : "Frontend Engineering Knowledge Base"}</p>
       <div className="mt-5 max-w-4xl">
         <h1 className="display text-4xl text-balance sm:text-5xl md:text-6xl">{locale === "id" ? "Pahami ekosistem frontend berdasarkan kebutuhan." : "Understand the frontend ecosystem as you need it."}</h1>
-        <p className="lede mt-6 max-w-3xl">{locale === "id" ? "Knowledge base untuk menjelajahi istilah, teknologi, perbandingan, dan keputusan arsitektur. Setiap artikel bergerak dari arti praktis menuju mekanisme teknis, trade-off, dan dampak pemeliharaan—tanpa urutan belajar wajib." : "A knowledge base for exploring terms, technologies, comparisons, and architecture decisions. Each article moves from practical meaning to technical mechanics, trade-offs, and maintenance impact—without a required reading order."}</p>
+        <p className="lede mt-6 max-w-3xl">{locale === "id" ? "Kumpulan materi untuk memahami istilah, teknologi, perbandingan, dan keputusan arsitektur frontend. Setiap artikel membahas makna praktis, cara kerja, trade-off, dan dampak pemeliharaan tanpa memaksa urutan belajar tertentu." : "A knowledge base for exploring terms, technologies, comparisons, and architecture decisions. Each article moves from practical meaning to technical mechanics, trade-offs, and maintenance impact—without a required reading order."}</p>
       </div>
-      <div className="relative mt-8 max-w-2xl"><Search aria-hidden="true" className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-(--muted)" /><input className="knowledge-search" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder={locale === "id" ? "Cari React vs Vue, server state, arsitektur…" : "Search React vs Vue, server state, architecture…"} aria-label={locale === "id" ? "Cari konsep frontend" : "Search frontend concepts"} /></div>
     </header>
 
-    <section className="py-10 md:py-14" aria-labelledby="ecosystem-title">
-      <div className="surface-card p-5 sm:p-7">
-        <p className="eyebrow text-(--accent)">{locale === "id" ? "Jelajahi topik" : "Explore topics"}</p>
-        <h2 id="ecosystem-title" className="mt-3 text-xl font-semibold">{locale === "id" ? "Pilih kategori sesuai kebutuhan" : "Choose a category for your current need"}</h2>
-        <div className="mt-5 flex flex-wrap gap-2" role="group" aria-label={locale === "id" ? "Filter kategori" : "Category filters"}>
-          <button type="button" className="chip" data-active={activeCategory === "all"} aria-pressed={activeCategory === "all"} onClick={() => setActiveCategory("all")}>{locale === "id" ? "Semua" : "All"}</button>
-          {categories.map(([key, label]) => <button key={key} type="button" className="chip" data-active={activeCategory === key} aria-pressed={activeCategory === key} onClick={() => setActiveCategory(key)}>{t(label)}</button>)}
+    <section className="py-10 md:py-14" aria-labelledby="terms-title">
+        <div ref={searchAreaRef} className="knowledge-search-sticky relative z-20">
+          <label className="sr-only" htmlFor={searchId}>{locale === "id" ? "Cari artikel" : "Search articles"}</label>
+          <Search aria-hidden="true" className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-(--muted)" />
+          <input
+            id={searchId}
+            className="knowledge-search pr-14"
+            type="search"
+            value={query}
+            onChange={(event) => {
+              setQuery(event.target.value);
+              setSuggestionsOpen(true);
+              setActiveSuggestion(-1);
+            }}
+            onFocus={() => setSuggestionsOpen(true)}
+            onKeyDown={handleSearchKeyDown}
+            placeholder={locale === "id" ? "Cari judul, istilah, atau kategori…" : "Search titles, terms, or categories…"}
+            role="combobox"
+            aria-label={locale === "id" ? "Cari artikel frontend" : "Search frontend articles"}
+            aria-autocomplete="list"
+            aria-controls={suggestionListId}
+            aria-expanded={suggestionsOpen && suggestions.length > 0}
+            aria-activedescendant={activeSuggestion >= 0 ? `${suggestionListId}-${activeSuggestion}` : undefined}
+          />
+          {query ? <button type="button" className="knowledge-search-clear" onClick={clearSearch} aria-label={locale === "id" ? "Hapus pencarian" : "Clear search"}><X className="size-4" aria-hidden="true" /></button> : null}
+          {suggestionsOpen && suggestions.length ? <div id={suggestionListId} role="listbox" aria-label={locale === "id" ? "Saran artikel" : "Article suggestions"} className="knowledge-suggestions z-50">
+            {suggestions.map((entry, index) => <button id={`${suggestionListId}-${index}`} key={entry.slug} type="button" role="option" aria-selected={activeSuggestion === index} className="knowledge-suggestion" data-active={activeSuggestion === index} onMouseEnter={() => setActiveSuggestion(index)} onClick={() => openArticle(entry)}><span className="font-semibold text-(--ink)">{t(entry.title)}</span><span className="mt-1 text-xs text-(--muted)">{t(entry.category)}</span></button>)}
+          </div> : null}
         </div>
-      </div>
-    </section>
 
-    <section className="pb-14" aria-labelledby="terms-title">
-      <div className="mb-7 flex items-end justify-between gap-4"><div><p className="eyebrow">{locale === "id" ? "Referensi terkurasi" : "Curated references"}</p><h2 id="terms-title" className="display mt-3 text-3xl">{locale === "id" ? "Mulai dari pertanyaan yang sedang Anda hadapi" : "Start with the question you are facing"}</h2></div><span className="text-xs text-(--muted)">{entries.length} {locale === "id" ? "artikel" : entries.length === 1 ? "article" : "articles"}</span></div>
-      {entries.length ? <div className="grid gap-4 md:grid-cols-2">{entries.map((entry) => <article key={entry.slug} className="surface-card card-hover flex flex-col p-5 sm:p-6"><div className="flex items-center justify-between gap-3"><span className="chip">{t(entry.category)}</span><span className="inline-flex items-center gap-1.5 text-xs text-(--muted)"><Clock className="size-3.5" />{t(entry.readingTime)}</span></div><h3 className="mt-5 text-2xl font-semibold">{entry.term}</h3><p className="mt-2 flex-1 text-sm leading-relaxed text-(--ink-soft)">{t(entry.summary)}</p><div className="mt-5 border-t border-(--line) pt-4"><p className="eyebrow">{locale === "id" ? "Pertanyaan utama" : "Core question"}</p><p className="mt-2 text-sm font-medium">{t(entry.question)}</p></div><Link href={`/learning/${entry.slug}`} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-(--accent)">{locale === "id" ? "Baca artikel" : "Read article"}<ArrowRight className="size-4" /></Link></article>)}</div> : <div className="surface-card p-6 text-sm text-(--muted)" role="status">{locale === "id" ? "Konsep tidak ditemukan." : "No matching concept found."}</div>}
+        <div className="mt-5 flex flex-wrap gap-2" role="group" aria-label={locale === "id" ? "Filter kategori" : "Category filters"}>
+          <button type="button" className="chip" data-active={activeCategory === "all"} aria-pressed={activeCategory === "all"} onClick={() => chooseCategory("all")}>{locale === "id" ? "Semua" : "All"}</button>
+          {knowledgeCategories.map((category) => <button key={category.en} type="button" className="chip" data-active={activeCategory === category.en} aria-pressed={activeCategory === category.en} onClick={() => chooseCategory(category.en)}>{t(category)}</button>)}
+        </div>
+
+        <div className="mb-7 mt-8 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="eyebrow">{normalizedQuery ? (locale === "id" ? "Hasil pencarian" : "Search results") : (locale === "id" ? "Referensi terkurasi" : "Curated references")}</p>
+            <h2 id="terms-title" className="display mt-3 text-3xl">{activeCategoryLabel}</h2>
+          </div>
+          <p className="text-sm font-medium text-(--muted)" aria-live="polite">{locale === "id" ? `${entries.length} artikel ditemukan` : `${entries.length} ${entries.length === 1 ? "article" : "articles"} found`}</p>
+        </div>
+
+        {entries.length ? <div className="grid gap-4 md:grid-cols-2">{entries.map((entry) => <article key={entry.slug} className="surface-card card-hover flex flex-col p-5 sm:p-6"><div className="flex items-center justify-between gap-3"><span className="chip">{t(entry.category)}</span><span className="inline-flex items-center gap-1.5 text-xs text-(--muted)"><Clock className="size-3.5" />{t(entry.readingTime)}</span></div><h3 className="mt-5 text-2xl font-semibold">{t(entry.title)}</h3><p className="mt-2 flex-1 text-sm leading-relaxed text-(--ink-soft)">{t(entry.summary)}</p><div className="mt-5 border-t border-(--line) pt-4"><p className="eyebrow">{locale === "id" ? "Pertanyaan utama" : "Core question"}</p><p className="mt-2 text-sm font-medium">{t(entry.question)}</p></div><Link href={`/knowledge/${entry.slug}`} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-(--accent)">{locale === "id" ? "Baca artikel" : "Read article"}<ArrowRight className="size-4" /></Link></article>)}</div> : <div className="surface-card px-6 py-10 text-center" role="status"><Search className="mx-auto size-6 text-(--muted)" aria-hidden="true" /><h3 className="mt-4 text-lg font-semibold">{locale === "id" ? "Artikel tidak ditemukan" : "No articles found"}</h3><p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-(--muted)">{locale === "id" ? "Periksa ejaan, coba istilah yang lebih umum, atau hapus pencarian untuk melihat kembali artikel dalam kategori ini." : "Check the spelling, try a broader term, or clear the search to see this category's articles again."}</p>{query ? <button type="button" className="btn btn-outline mt-5" onClick={clearSearch}>{locale === "id" ? "Hapus pencarian" : "Clear search"}</button> : null}</div>}
     </section>
   </main>;
 }
@@ -149,9 +320,9 @@ export function KnowledgeArticle({ entry }: { entry: KnowledgeEntry }) {
   const related = entry.related.map((slug) => frontendKnowledge.find((item) => item.slug === slug)).filter((item): item is KnowledgeEntry => Boolean(item));
   const sectionLabel = (id: string) => t(SECTION_IDS.find(([sectionId]) => sectionId === id)![1]);
 
-  return <main id="main" className="mx-auto w-full max-w-6xl px-5 py-10 sm:px-8 md:py-14">
-    <nav aria-label={locale === "id" ? "Breadcrumb Materi" : "Knowledge breadcrumb"} className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs leading-5 text-(--muted)"><Link href="/learning" className="inline-flex shrink-0 items-center gap-1.5 hover:text-(--ink)"><ArrowLeft className="size-3.5" />{locale === "id" ? "Basis Materi Frontend Engineering" : "Frontend Engineering Knowledge Base"}</Link><span aria-hidden="true" className="shrink-0">/</span><span aria-current="page" className="min-w-0">{entry.term}</span></nav>
-    <div className="mt-8 grid min-w-0 gap-10 lg:grid-cols-[minmax(0,1fr)_15rem] lg:gap-14">
+  return <main id="main" className="knowledge-article-page mx-auto w-full max-w-6xl px-5 py-10 sm:px-8 md:py-14">
+    <nav aria-label={locale === "id" ? "Breadcrumb Pengetahuan" : "Knowledge breadcrumb"} className="knowledge-article-breadcrumb flex flex-wrap items-center gap-x-2 gap-y-1 text-xs leading-5 text-(--muted)"><Link href="/knowledge" className="inline-flex shrink-0 items-center gap-1.5 hover:text-(--ink)"><ArrowLeft className="size-3.5" />{locale === "id" ? "Pengetahuan Frontend Engineering" : "Frontend Engineering Knowledge Base"}</Link><span aria-hidden="true" className="shrink-0">/</span><span aria-current="page" className="min-w-0 truncate font-medium text-(--ink)">{entry.term}</span></nav>
+    <div className="mt-8 grid min-w-0 gap-10 lg:grid-cols-[minmax(0,1fr)_13rem] lg:gap-10">
       <article className="min-w-0">
         <header className="border-b border-(--line) pb-9"><div className="flex flex-wrap items-center gap-3"><span className="chip">{t(entry.category)}</span><span className="inline-flex items-center gap-1.5 text-xs text-(--muted)"><Clock className="size-3.5" />{t(entry.readingTime)}</span></div><h1 className="display mt-5 text-4xl text-balance sm:text-5xl">{t(entry.title)}</h1><p className="lede mt-5">{t(entry.summary)}</p><TableOfContents compact /></header>
 
@@ -172,7 +343,7 @@ export function KnowledgeArticle({ entry }: { entry: KnowledgeEntry }) {
 
         <section className="mt-12 border-t border-(--line) pt-9" aria-labelledby="practice-title"><p className="eyebrow">{locale === "id" ? "Pertanyaan refleksi" : "Reflection questions"}</p><h2 id="practice-title" className="display mt-3 text-2xl">{locale === "id" ? "Gunakan untuk meninjau keputusan" : "Use these to review a decision"}</h2><ol className="mt-5 space-y-3">{entry.practiceQuestions.map((question,index)=><li key={index} className="surface-card flex gap-3 p-4 text-sm leading-relaxed"><span className="font-mono text-(--accent)" aria-hidden="true">{String(index+1).padStart(2,"0")}</span><span>{t(question)}</span></li>)}</ol></section>
 
-        <section className="mt-10" aria-labelledby="related-title"><h2 id="related-title" className="text-sm font-semibold">{locale === "id" ? "Konsep terkait" : "Related concepts"}</h2><div className="mt-4 grid gap-3 sm:grid-cols-2">{related.map((item)=><Link key={item.slug} href={`/learning/${item.slug}`} className="surface-card flex items-center justify-between gap-4 p-4 hover:border-(--line-strong)"><div><strong className="text-sm">{item.term}</strong><p className="mt-1 text-xs text-(--muted)">{t(item.summary)}</p></div><ArrowRight className="size-4 shrink-0 text-(--accent)" /></Link>)}</div></section>
+        <section className="mt-10" aria-labelledby="related-title"><h2 id="related-title" className="text-sm font-semibold">{locale === "id" ? "Konsep terkait" : "Related concepts"}</h2><div className="mt-4 grid gap-3 sm:grid-cols-2">{related.map((item)=><Link key={item.slug} href={`/knowledge/${item.slug}`} className="surface-card flex items-center justify-between gap-4 p-4 hover:border-(--line-strong)"><div><strong className="text-sm">{item.term}</strong><p className="mt-1 text-xs text-(--muted)">{t(item.summary)}</p></div><ArrowRight className="size-4 shrink-0 text-(--accent)" /></Link>)}</div></section>
       </article>
 
       <aside className="hidden lg:block"><TableOfContents /></aside>

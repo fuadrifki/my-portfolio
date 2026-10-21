@@ -1,6 +1,11 @@
 import type { Localized } from "@/data/portfolio";
 import { batchOneKnowledge } from "@/data/frontend-knowledge-batch-one";
 import { javascriptFundamentals } from "@/data/javascript-fundamentals";
+import { cleanArchitectureKnowledge } from "@/data/clean-architecture-knowledge";
+import { designSystemsKnowledge } from "@/data/design-systems-knowledge";
+import { apiIntegrationKnowledge } from "@/data/api-integration-knowledge";
+import { componentLifecycleReactivityKnowledge } from "@/data/component-lifecycle-reactivity-knowledge";
+import { microfrontendArchitectureKnowledge } from "@/data/microfrontend-architecture-knowledge";
 
 export type KnowledgeCode = {
   label: Localized;
@@ -509,6 +514,11 @@ export const frontendKnowledge: KnowledgeEntry[] = [
   ...foundationKnowledge,
   ...batchOneKnowledge,
   ...javascriptFundamentals,
+  cleanArchitectureKnowledge,
+  designSystemsKnowledge,
+  apiIntegrationKnowledge,
+  componentLifecycleReactivityKnowledge,
+  microfrontendArchitectureKnowledge,
 ].map((entry) => {
   if (entry.analogyConclusion && entry.analogyMapping) {
     return entry;

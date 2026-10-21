@@ -678,7 +678,7 @@ export function LocaleProvider({ children }: PropsWithChildren) {
       { label: "React — Thinking in React", href: "https://react.dev/learn/thinking-in-react" },
       { label: "Next.js — Project Structure", href: "https://nextjs.org/docs/app/getting-started/project-structure" }
     ],
-    related: ["context-vs-state-management", "client-vs-server-state", "react-vs-vue", "nextjs-vs-nuxt"],
+    related: ["clean-architecture-frontend", "context-vs-state-management", "client-vs-server-state", "react-vs-vue", "nextjs-vs-nuxt"],
     practiceQuestions: [
       { en: "Which files in your current repository repeatedly change together but live far apart?", id: "File apa dalam repository Anda yang sering berubah bersama tetapi lokasinya berjauhan?" },
       { en: "What should be public from a feature module, and how would you prevent access to its internals?", id: "Bagian apa yang seharusnya menjadi public API sebuah modul fitur, dan bagaimana Anda mencegah akses ke bagian internalnya?" }

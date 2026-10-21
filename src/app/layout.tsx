@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://fuadrifki.pages.dev"),
   title: {
     default: "Fuad Rifqi Zamzami — Frontend Engineer",
     template: "%s · Fuad Rifqi Zamzami"
