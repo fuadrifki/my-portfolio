@@ -708,12 +708,6 @@ button:disabled,
   padding: 0.55rem 0;
 }
 
-.knowledge-article-page { padding-top: 2.5rem; }
-
-@media (max-width: 639px) {
-  .knowledge-article-page { padding-top: 2rem; }
-}
-
 .learning-prose {
   max-width: 48rem;
 }

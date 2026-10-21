@@ -136,9 +136,6 @@ export function Header() {
 
   return (
     <>
-      <a href="#main" className="skip-link">
-        {t(ui.skipToContent)}
-      </a>
       <header
         className={`sticky top-0 z-50 transition-colors duration-300 ${
           scrolled

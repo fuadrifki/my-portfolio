@@ -320,7 +320,7 @@ export function KnowledgeArticle({ entry }: { entry: KnowledgeEntry }) {
   const related = entry.related.map((slug) => frontendKnowledge.find((item) => item.slug === slug)).filter((item): item is KnowledgeEntry => Boolean(item));
   const sectionLabel = (id: string) => t(SECTION_IDS.find(([sectionId]) => sectionId === id)![1]);
 
-  return <main id="main" className="knowledge-article-page mx-auto w-full max-w-6xl px-5 py-10 sm:px-8 md:py-14">
+  return <main id="main" className="mx-auto w-full max-w-6xl px-5 py-10 sm:px-8 md:py-14">
     <nav aria-label={locale === "id" ? "Breadcrumb Pengetahuan" : "Knowledge breadcrumb"} className="knowledge-article-breadcrumb flex flex-wrap items-center gap-x-2 gap-y-1 text-xs leading-5 text-(--muted)"><Link href="/knowledge" className="inline-flex shrink-0 items-center gap-1.5 hover:text-(--ink)"><ArrowLeft className="size-3.5" />{locale === "id" ? "Pengetahuan Frontend Engineering" : "Frontend Engineering Knowledge Base"}</Link><span aria-hidden="true" className="shrink-0">/</span><span aria-current="page" className="min-w-0 truncate font-medium text-(--ink)">{entry.term}</span></nav>
     <div className="mt-8 grid min-w-0 gap-10 lg:grid-cols-[minmax(0,1fr)_13rem] lg:gap-10">
       <article className="min-w-0">
