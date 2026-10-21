@@ -699,8 +699,10 @@ button:disabled,
 .knowledge-search:focus { border-color: var(--accent); outline: 2px solid color-mix(in srgb, var(--accent) 20%, transparent); outline-offset: 2px; }
 
 .knowledge-search-sticky {
-  position: static;
+  position: relative;
 }
+
+.knowledge-search-control { position: relative; }
 
 .knowledge-article-breadcrumb {
   position: relative;

@@ -269,6 +269,7 @@ export function KnowledgeHome() {
 
     <section className="py-10 md:py-14" aria-labelledby="terms-title">
         <div ref={searchAreaRef} className="knowledge-search-sticky relative z-20">
+          <div className="knowledge-search-control">
           <label className="sr-only" htmlFor={searchId}>{locale === "id" ? "Cari artikel" : "Search articles"}</label>
           <Search aria-hidden="true" className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-(--muted)" />
           <input
@@ -295,6 +296,7 @@ export function KnowledgeHome() {
           {suggestionsOpen && suggestions.length ? <div id={suggestionListId} role="listbox" aria-label={locale === "id" ? "Saran artikel" : "Article suggestions"} className="knowledge-suggestions z-50">
             {suggestions.map((entry, index) => <button id={`${suggestionListId}-${index}`} key={entry.slug} type="button" role="option" aria-selected={activeSuggestion === index} className="knowledge-suggestion" data-active={activeSuggestion === index} onMouseEnter={() => setActiveSuggestion(index)} onClick={() => openArticle(entry)}><span className="font-semibold text-(--ink)">{t(entry.title)}</span><span className="mt-1 text-xs text-(--muted)">{t(entry.category)}</span></button>)}
           </div> : null}
+          </div>
         </div>
 
         <div className="mt-5 flex flex-wrap gap-2" role="group" aria-label={locale === "id" ? "Filter kategori" : "Category filters"}>
