@@ -61,6 +61,7 @@ export const profile = {
 export const ui = {
   skipToContent: { en: "Skip to content", id: "Lewati ke konten" },
   nav: {
+    learning: { en: "Knowledge", id: "Pengetahuan" },
     projects: { en: "Projects", id: "Proyek" },
     experience: { en: "Experience", id: "Pengalaman" },
     skills: { en: "Skills", id: "Keahlian" },

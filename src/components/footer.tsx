@@ -2,6 +2,7 @@
 
 import { ArrowUp, Mail } from "lucide-react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { useLanguage } from "@/components/providers";
 import { profile, ui, YEAR } from "@/data/portfolio";
@@ -45,6 +46,11 @@ export function Footer() {
           <nav className="md:col-span-4" aria-label={t(ui.ariaFooter)}>
             <p className="eyebrow">{t(ui.menu)}</p>
             <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2.5">
+              <li>
+                <Link href="/learning" className="text-sm text-(--ink-soft) transition-colors hover:text-(--accent)">
+                  {t(ui.nav.learning)}
+                </Link>
+              </li>
               {NAV.map((item) => (
                 <li key={item.id}>
                   <a

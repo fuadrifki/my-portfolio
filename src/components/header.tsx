@@ -1,22 +1,21 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Globe, Menu, Moon, Sun, X } from "lucide-react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { useLanguage, useTheme } from "@/components/providers";
 import { LOCALES, profile, ui } from "@/data/portfolio";
 import type { Locale, Localized } from "@/data/portfolio";
 
-const NAV: { id: string; label: Localized }[] = [
-  { id: "projects", label: ui.nav.projects },
+const NAV: { id: string; label: Localized; href?: string }[] = [
+  { id: "projects", label: ui.nav.projects, href: "/projects" },
   { id: "experience", label: ui.nav.experience },
-  { id: "skills", label: ui.nav.skills },
-  { id: "education", label: ui.nav.education },
-  { id: "speaking", label: ui.nav.speaking },
+  { id: "learning", label: ui.nav.learning, href: "/learning" },
   { id: "contact", label: ui.nav.contact }
 ];
 
-const SECTION_IDS = NAV.map((item) => item.id);
+const SECTION_IDS = NAV.filter((item) => !item.href).map((item) => item.id);
 
 function useActiveSection(ids: string[]) {
   const [active, setActive] = useState<string>("");
@@ -126,14 +125,14 @@ export function Header() {
     return () => mq.removeEventListener("change", onChange);
   }, []);
 
-  const navLinks = useMemo(
-    () =>
-      NAV.map((item) => ({
-        ...item,
-        label: t(item.label)
-      })),
-    [t]
-  );
+  const itemHref = (item: (typeof NAV)[number]) =>
+    item.href ?? sectionHref(item.id);
+  const itemActive = (item: (typeof NAV)[number]) =>
+    item.id === "projects"
+      ? pathname.startsWith("/projects")
+      : item.id === "learning"
+        ? pathname.startsWith("/learning")
+        : active === item.id;
 
   return (
     <>
@@ -150,7 +149,7 @@ export function Header() {
         <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-5 sm:px-8">
           <a
             href={sectionHref("top")}
-            className="group flex items-center gap-2.5 text-sm font-semibold text-(--ink)"
+            className="group flex shrink-0 items-center gap-2.5 whitespace-nowrap text-sm font-semibold text-(--ink)"
           >
             <span className="grid size-8 place-items-center rounded-lg bg-(--ink) text-[0.7rem] font-bold tracking-tight text-(--bg) transition-colors group-hover:bg-(--accent) group-hover:text-(--accent-ink)">
               {profile.monogram}
@@ -159,25 +158,22 @@ export function Header() {
           </a>
 
           <nav
-            className="hidden items-center gap-7 lg:flex"
+            className="hidden shrink-0 items-center gap-6 lg:flex xl:gap-7"
             aria-label={t(ui.ariaPrimary)}
           >
-            {navLinks.map((item) => (
-              <a
+            {NAV.map((item) => (
+              <Link
                 key={item.id}
-                href={sectionHref(item.id)}
-                className="nav-link"
-                data-active={active === item.id}
+                href={itemHref(item)}
+                className="nav-link whitespace-nowrap"
+                data-active={itemActive(item)}
               >
-                {item.label}
-              </a>
+                {t(item.label)}
+              </Link>
             ))}
-            <a href="/projects" className="nav-link">
-              {t(ui.viewAllProjects)}
-            </a>
           </nav>
 
-          <div className="flex items-center gap-2">
+          <div className="flex shrink-0 items-center gap-2">
             <LanguageControl className="hidden sm:inline-flex" />
             <ThemeControl />
             <button
@@ -202,25 +198,17 @@ export function Header() {
               className="mx-auto flex w-full max-w-6xl flex-col px-5 py-3 sm:px-8"
               aria-label={t(ui.ariaMobile)}
             >
-              {navLinks.map((item) => (
-                <a
+              {NAV.map((item) => (
+                <Link
                   key={item.id}
-                  href={sectionHref(item.id)}
+                  href={itemHref(item)}
                   className="flex items-center justify-between border-b border-(--line) py-3 text-sm font-medium text-(--ink-soft) last:border-b-0"
                   onClick={() => setOpen(false)}
                 >
-                  {item.label}
+                  {t(item.label)}
                   <span className="eyebrow">/{item.id}</span>
-                </a>
+                </Link>
               ))}
-              <a
-                href="/projects"
-                className="flex items-center justify-between border-b border-(--line) py-3 text-sm font-medium text-(--ink-soft) last:border-b-0"
-                onClick={() => setOpen(false)}
-              >
-                {t(ui.viewAllProjects)}
-                <span className="eyebrow">/projects</span>
-              </a>
               <div className="flex items-center justify-between gap-3 py-3 sm:hidden">
                 <LanguageControl />
               </div>

@@ -239,6 +239,12 @@ button:disabled,
   color: var(--bg);
 }
 
+.chip[data-active="true"] {
+  border-color: var(--accent);
+  background-color: var(--accent-soft);
+  color: var(--accent);
+}
+
 /* Wrapped filter variant: roomier padding and gaps so pills never touch
    the wrapper border. A dedicated class is required because unlayered
    `.segmented` styles beat layered Tailwind utilities. */
@@ -421,4 +427,144 @@ button:disabled,
     linear-gradient(to right, var(--line) 1px, transparent 1px),
     linear-gradient(to bottom, var(--line) 1px, transparent 1px);
   background-size: 64px 64px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Knowledge Base                                                      */
+/* ------------------------------------------------------------------ */
+
+.knowledge-search {
+  width: 100%;
+  min-height: 3.4rem;
+  padding: 0.8rem 1rem 0.8rem 3rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 9999px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.95rem;
+  box-shadow: 0 12px 30px -24px rgb(0 0 0 / 0.45);
+}
+
+.knowledge-search::placeholder { color: var(--muted); }
+.knowledge-search:focus { border-color: var(--accent); outline: 2px solid color-mix(in srgb, var(--accent) 20%, transparent); outline-offset: 2px; }
+
+.learning-prose {
+  max-width: 48rem;
+}
+
+.learning-prose-section {
+  padding-top: 3.25rem;
+}
+
+.learning-prose-section h2 {
+  font-size: clamp(1.55rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.learning-prose-section > p,
+.learning-prose-section > ul {
+  margin-top: 1.15rem;
+  color: var(--ink-soft);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.learning-prose-section > ul {
+  padding-left: 1.35rem;
+  list-style: disc;
+}
+
+.learning-prose-section li + li {
+  margin-top: 0.55rem;
+}
+
+.learning-prose-section a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  text-underline-offset: 0.2em;
+}
+
+.learning-callout {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 0.75rem;
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.learning-callout.note { border-left-color: var(--muted); }
+.learning-callout.important { background: var(--accent-soft); }
+.learning-callout.warning { border-left-color: #c78922; }
+
+.learning-code {
+  overflow: hidden;
+  margin-top: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: #171816;
+  color: #f4f2eb;
+}
+
+.learning-code figcaption {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid #34352f;
+  color: #aaa99f;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
+}
+
+.learning-code figcaption span:nth-child(2) { margin-left: auto; }
+.learning-code button { display: inline-flex; align-items: center; gap: 0.35rem; color: #d8d5ca; }
+.learning-code pre { overflow-x: auto; padding: 1.15rem; font-family: var(--font-mono), monospace; font-size: 0.82rem; line-height: 1.75; }
+
+.learning-table-wrap {
+  overflow-x: auto;
+  margin-top: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 0.8rem;
+}
+
+.learning-table-wrap table { width: 100%; min-width: 38rem; border-collapse: collapse; font-size: 0.82rem; }
+.learning-table-wrap th { background: var(--surface-2); color: var(--ink); text-align: left; font-weight: 600; }
+.learning-table-wrap th,
+.learning-table-wrap td { padding: 0.85rem 1rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+.learning-table-wrap td { color: var(--ink-soft); line-height: 1.55; }
+.learning-table-wrap tr:last-child td { border-bottom: 0; }
+
+.quiz-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.quiz-option:hover { border-color: var(--line-strong); background: var(--surface-2); }
+.quiz-option:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); color: var(--ink); }
+.quiz-option.is-correct { border-color: #4f8a5b; background: color-mix(in srgb, #4f8a5b 12%, var(--surface)); }
+.quiz-option.is-wrong { border-color: var(--accent); }
+.quiz-option input { margin-top: 0.25rem; accent-color: var(--accent); }
+.quiz-option:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.btn:disabled {
+  opacity: 0.45;
+  transform: none;
 }
