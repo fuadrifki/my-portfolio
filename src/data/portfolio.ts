@@ -149,8 +149,8 @@ export const ui = {
       id: "Mari membangun sesuatu bersama"
     },
     description: {
-      en: "I am open to frontend engineering and senior frontend roles, as well as focused freelance work. The fastest way to reach me is email.",
-      id: "Saya terbuka untuk posisi frontend engineering dan senior frontend, serta pekerjaan freelance yang terfokus. Cara tercepat menghubungi saya adalah email."
+      en: "I am open to frontend engineering roles and focused freelance work. The fastest way to reach me is email.",
+      id: "Saya terbuka untuk posisi frontend engineering dan pekerjaan freelance yang terfokus. Cara tercepat menghubungi saya adalah email."
     }
   },
   online: { en: "Online", id: "Daring" },

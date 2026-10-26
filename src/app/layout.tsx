@@ -29,7 +29,6 @@ export const metadata: Metadata = {
   keywords: [
     "Fuad Rifqi Zamzami",
     "Frontend Engineer",
-    "Senior Frontend Developer",
     "JavaScript",
     "TypeScript",
     "Vue.js",
