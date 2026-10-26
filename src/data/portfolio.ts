@@ -51,7 +51,8 @@ export const profile = {
   } satisfies Localized,
   email: "fuad.rifki98@gmail.com",
   linkedin: "https://www.linkedin.com/in/fuad-rifki",
-  github: "https://github.com/fuadrifki"
+  github: "https://github.com/fuadrifki",
+  cv: "/Fuad_Rifqi_Zamzami_Frontend_Engineer_CV.pdf"
 };
 
 /* ------------------------------------------------------------------ */
@@ -83,6 +84,7 @@ export const ui = {
   getInTouch: { en: "Get in touch", id: "Hubungi saya" },
   exploreProjects: { en: "Explore Projects", id: "Jelajahi Proyek" },
   contactMe: { en: "Contact Me", id: "Hubungi Saya" },
+  downloadCv: { en: "Download CV", id: "Unduh CV" },
   heroRole: {
     en: "Frontend Engineer | JavaScript & TypeScript | Vue.js & React",
     id: "Frontend Engineer | JavaScript & TypeScript | Vue.js & React"

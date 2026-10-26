@@ -3,6 +3,8 @@
 import Image from "next/image";
 import {
   ArrowUpRight,
+  Download,
+  FileDown,
   Mail,
   MapPin
 } from "lucide-react";
@@ -13,7 +15,6 @@ import { profile, ui } from "@/data/portfolio";
 const FOCUS_ITEMS = [
   "Nuxt.js",
   "Next.js",
-  "Tailwind CSS",
   "React Native",
   "Node.js",
   "AI-Assisted Development"
@@ -149,6 +150,17 @@ export function Hero() {
                   GitHub
                 </span>
                 <ArrowUpRight className="size-4 opacity-50" />
+              </a>
+              <a
+                href={profile.cv}
+                download
+                className="flex items-center justify-between gap-4 py-1.5 text-sm text-(--ink-soft) transition-colors hover:text-(--accent)"
+              >
+                <span className="inline-flex items-center gap-2.5">
+                  <FileDown className="size-4 text-(--muted)" />
+                  {t(ui.downloadCv)}
+                </span>
+                <Download className="size-4 opacity-50" />
               </a>
             </div>
           </aside>
