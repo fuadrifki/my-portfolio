@@ -938,7 +938,7 @@ export const skillGroups: SkillGroup[] = [
       },
       {
         name: "Codex",
-        logo: "https://cdn.simpleicons.org/openai",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codex/codex-original.svg",
         url: "https://openai.com/codex/",
         icon: "sparkles"
       },
@@ -1011,7 +1011,11 @@ export const skillGroups: SkillGroup[] = [
         logo: "https://flagcdn.com/id.svg",
         icon: "flag"
       },
-      { name: "English", icon: "languages" }
+      {
+        name: "English",
+        logo: "https://flagcdn.com/gb.svg",
+        icon: "languages"
+      }
     ]
   }
 ];
