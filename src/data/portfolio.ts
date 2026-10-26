@@ -914,8 +914,20 @@ export const skillGroups: SkillGroup[] = [
     items: [
       { name: "Internationalization (i18n)", icon: "languages" },
       { name: "PDF Generation", icon: "file-text" },
-      { name: "Thermal Printing", icon: "printer" },
-      { name: "AI-Assisted Development", icon: "sparkles" }
+      { name: "Thermal Printing", icon: "printer" }
+    ]
+  },
+  {
+    title: {
+      en: "AI Development Tools",
+      id: "Tool Pengembangan AI"
+    },
+    icon: "sparkles",
+    items: [
+      { name: "OpenCode", icon: "sparkles" },
+      { name: "Claude", icon: "sparkles" },
+      { name: "Codex", icon: "sparkles" },
+      { name: "Kiro", icon: "sparkles" }
     ]
   },
   {
