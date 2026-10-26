@@ -11,7 +11,8 @@ const FOCUS_ITEMS = [
   "Next.js",
   "Tailwind CSS",
   "React Native",
-  "Node.js"
+  "Node.js",
+  "AI-Assisted Development"
 ];
 
 export function Hero() {

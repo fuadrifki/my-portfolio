@@ -37,6 +37,7 @@ export const metadata: Metadata = {
     "Nuxt.js",
     "React Native",
     "Node.js",
+    "AI-Assisted Development",
     "Tailwind CSS"
   ],
   authors: [{ name: "Fuad Rifqi Zamzami" }],
