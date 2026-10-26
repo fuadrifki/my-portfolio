@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import {
   Blocks,
   CodeXml,
@@ -27,7 +28,12 @@ import {
 import { useLanguage } from "@/components/providers";
 import { Reveal } from "@/components/reveal";
 import { Section } from "@/components/section";
-import { skillGroups, ui, type SkillIcon } from "@/data/portfolio";
+import {
+  skillGroups,
+  ui,
+  type SkillIcon,
+  type SkillItem
+} from "@/data/portfolio";
 
 const SKILL_ICONS: Record<SkillIcon, typeof Shapes> = {
   layers: Layers,
@@ -51,6 +57,33 @@ const SKILL_ICONS: Record<SkillIcon, typeof Shapes> = {
   "flask-conical": FlaskConical,
   wrench: Wrench
 };
+
+function SkillLogo({ item }: { item: SkillItem }) {
+  const [failed, setFailed] = useState(false);
+
+  if (!item.logo || failed) {
+    const FallbackIcon = item.icon ? SKILL_ICONS[item.icon] : Shapes;
+
+    return (
+      <FallbackIcon
+        aria-hidden="true"
+        className="size-4 shrink-0 text-(--muted)"
+      />
+    );
+  }
+
+  return (
+    <Image
+      src={item.logo}
+      alt={`${item.name} logo`}
+      width={20}
+      height={20}
+      loading="lazy"
+      onError={() => setFailed(true)}
+      className="size-5 shrink-0 rounded bg-white object-contain p-0.5"
+    />
+  );
+}
 
 export function Skills() {
   const { t } = useLanguage();
@@ -85,29 +118,7 @@ export function Skills() {
                     key={item.name}
                     className="flex items-center gap-2.5 text-sm text-(--ink-soft)"
                   >
-                    {(() => {
-                      if (item.logo) {
-                        return (
-                          <Image
-                            src={item.logo}
-                            alt={`${item.name} logo`}
-                            width={20}
-                            height={20}
-                            loading="lazy"
-                            className="size-5 shrink-0 rounded bg-white object-contain p-0.5"
-                          />
-                        );
-                      }
-                      const Icon = item.icon
-                        ? SKILL_ICONS[item.icon]
-                        : Shapes;
-                      return (
-                        <Icon
-                          aria-hidden="true"
-                          className="size-4 shrink-0 text-(--muted)"
-                        />
-                      );
-                    })()}
+                    <SkillLogo item={item} />
                     {item.url ? (
                       <a
                         href={item.url}

@@ -924,10 +924,30 @@ export const skillGroups: SkillGroup[] = [
     },
     icon: "sparkles",
     items: [
-      { name: "OpenCode", icon: "sparkles" },
-      { name: "Claude", icon: "sparkles" },
-      { name: "Codex", icon: "sparkles" },
-      { name: "Kiro", icon: "sparkles" }
+      {
+        name: "OpenCode",
+        logo: "https://cdn.simpleicons.org/opencode",
+        url: "https://opencode.ai/",
+        icon: "sparkles"
+      },
+      {
+        name: "Claude",
+        logo: "https://cdn.simpleicons.org/claude",
+        url: "https://claude.ai/",
+        icon: "sparkles"
+      },
+      {
+        name: "Codex",
+        logo: "https://cdn.simpleicons.org/openai",
+        url: "https://openai.com/codex/",
+        icon: "sparkles"
+      },
+      {
+        name: "Kiro",
+        logo: "https://kiro.dev/favicon.ico",
+        url: "https://kiro.dev/",
+        icon: "sparkles"
+      }
     ]
   },
   {
@@ -986,8 +1006,12 @@ export const skillGroups: SkillGroup[] = [
     title: { en: "Languages", id: "Bahasa" },
     icon: "languages",
     items: [
-      { name: "Bahasa Indonesia", icon: "flag" },
-      { name: "English", icon: "flag" }
+      {
+        name: "Bahasa Indonesia",
+        logo: "https://flagcdn.com/id.svg",
+        icon: "flag"
+      },
+      { name: "English", icon: "languages" }
     ]
   }
 ];

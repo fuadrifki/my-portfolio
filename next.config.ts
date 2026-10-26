@@ -20,6 +20,12 @@ const nextConfig: NextConfig = {
   // Static export has no Image Optimization API, so serve images as-is.
   images: {
     unoptimized: true,
+    remotePatterns: [
+      new URL("https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/**"),
+      new URL("https://cdn.simpleicons.org/**"),
+      new URL("https://kiro.dev/favicon.ico"),
+      new URL("https://flagcdn.com/id.svg")
+    ],
   },
   turbopack: {
     rules: {
