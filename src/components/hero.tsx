@@ -23,9 +23,7 @@ const QUICK_LINKS = [
   { id: "projects", label: ui.nav.projects },
   { id: "experience", label: ui.nav.experience },
   { id: "skills", label: ui.nav.skills },
-  { id: "education", label: ui.nav.education },
-  { id: "speaking", label: ui.nav.speaking },
-  { id: "contact", label: ui.nav.contact }
+  { id: "education", label: ui.nav.education }
 ];
 
 export function Hero() {
