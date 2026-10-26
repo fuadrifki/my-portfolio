@@ -15,6 +15,15 @@ const FOCUS_ITEMS = [
   "AI-Assisted Development"
 ];
 
+const QUICK_LINKS = [
+  { id: "projects", label: ui.nav.projects },
+  { id: "experience", label: ui.nav.experience },
+  { id: "skills", label: ui.nav.skills },
+  { id: "education", label: ui.nav.education },
+  { id: "speaking", label: ui.nav.speaking },
+  { id: "contact", label: ui.nav.contact }
+];
+
 export function Hero() {
   const { t } = useLanguage();
 
@@ -127,6 +136,24 @@ export function Hero() {
             </div>
           </aside>
         </div>
+
+        <nav
+          aria-label={t(ui.ariaPrimary)}
+          className="mt-10 overflow-x-auto border-y border-(--line) py-3 md:mt-14"
+        >
+          <ul className="flex min-w-max items-center gap-5 text-xs font-medium text-(--muted)">
+            {QUICK_LINKS.map(({ id, label }) => (
+              <li key={id}>
+                <a
+                  href={`#${id}`}
+                  className="whitespace-nowrap transition-colors hover:text-(--accent)"
+                >
+                  {t(label)}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </section>
   );
