@@ -46,15 +46,29 @@ export function Hero() {
             <p className="lede mt-6 max-w-xl text-pretty">{t(profile.intro)}</p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <a href="#projects" className="btn btn-primary">
+              <a href="#projects" className="btn btn-primary h-10 px-4 text-sm">
                 {t(ui.exploreProjects)}
                 <ArrowRight className="size-4" />
               </a>
-              <a href="#contact" className="btn btn-outline">
+              <a href="#contact" className="btn btn-outline h-10 px-4 text-sm">
                 <Mail className="size-4" />
                 {t(ui.contactMe)}
               </a>
             </div>
+            <nav
+              aria-label={t(ui.ariaPrimary)}
+              className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-medium text-(--muted)"
+            >
+              {QUICK_LINKS.slice(1, -1).map(({ id, label }) => (
+                <a
+                  key={id}
+                  href={`#${id}`}
+                  className="transition-colors hover:text-(--accent)"
+                >
+                  {t(label)}
+                </a>
+              ))}
+            </nav>
           </div>
 
           <aside
@@ -137,23 +151,6 @@ export function Hero() {
           </aside>
         </div>
 
-        <nav
-          aria-label={t(ui.ariaPrimary)}
-          className="mt-10 overflow-x-auto border-y border-(--line) py-3 md:mt-14"
-        >
-          <ul className="flex min-w-max items-center gap-5 text-xs font-medium text-(--muted)">
-            {QUICK_LINKS.map(({ id, label }) => (
-              <li key={id}>
-                <a
-                  href={`#${id}`}
-                  className="whitespace-nowrap transition-colors hover:text-(--accent)"
-                >
-                  {t(label)}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
       </div>
     </section>
   );
