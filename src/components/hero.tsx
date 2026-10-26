@@ -1,7 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, Mail, MapPin } from "lucide-react";
+import {
+  ArrowUpRight,
+  Mail,
+  MapPin
+} from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { useLanguage } from "@/components/providers";
 import { profile, ui } from "@/data/portfolio";
@@ -45,30 +49,31 @@ export function Hero() {
             </p>
             <p className="lede mt-6 max-w-xl text-pretty">{t(profile.intro)}</p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <a href="#projects" className="btn btn-primary h-10 px-4 text-sm">
-                {t(ui.exploreProjects)}
-                <ArrowRight className="size-4" />
-              </a>
-              <a href="#contact" className="btn btn-outline h-10 px-4 text-sm">
-                <Mail className="size-4" />
-                {t(ui.contactMe)}
-              </a>
+            <div className="mt-8">
+              <p className="text-xs text-(--muted)">
+                {t(ui.quickNavigationPrompt)}
+              </p>
+              <nav
+                aria-label={t(ui.ariaPrimary)}
+                className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-2 text-sm font-semibold sm:gap-y-1"
+              >
+                {QUICK_LINKS.map(({ id, label }, index) => (
+                  <span key={id} className="inline-flex items-center gap-x-2">
+                    <a
+                      href={`#${id}`}
+                      className="text-(--accent) underline decoration-1 underline-offset-4 transition-colors hover:text-(--ink) hover:decoration-2"
+                    >
+                      {t(label)}
+                    </a>
+                    {index < QUICK_LINKS.length - 1 ? (
+                      <span aria-hidden="true" className="text-(--muted)">
+                        ·
+                      </span>
+                    ) : null}
+                  </span>
+                ))}
+              </nav>
             </div>
-            <nav
-              aria-label={t(ui.ariaPrimary)}
-              className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-medium text-(--muted)"
-            >
-              {QUICK_LINKS.slice(1, -1).map(({ id, label }) => (
-                <a
-                  key={id}
-                  href={`#${id}`}
-                  className="transition-colors hover:text-(--accent)"
-                >
-                  {t(label)}
-                </a>
-              ))}
-            </nav>
           </div>
 
           <aside

@@ -89,6 +89,10 @@ export const ui = {
   },
   basedIn: { en: "Based in", id: "Berlokasi di" },
   focusAreas: { en: "Also working with", id: "Juga bekerja dengan" },
+  quickNavigationPrompt: {
+    en: "Looking for something specific? Jump straight to:",
+    id: "Mencari informasi tertentu? Langsung menuju:"
+  },
   selectedProjects: {
     eyebrow: { en: "Selected work", id: "Karya pilihan" },
     title: { en: "Projects I am proud of", id: "Proyek yang saya banggakan" },
