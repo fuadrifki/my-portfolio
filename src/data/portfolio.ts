@@ -37,8 +37,8 @@ export const profile = {
     id: "Jakarta, Indonesia"
   } satisfies Localized,
   availability: {
-    en: "Open to Frontend Engineering roles",
-    id: "Terbuka untuk posisi Frontend Engineer"
+    en: "Open to Frontend, React Native, and JavaScript roles",
+    id: "Terbuka untuk posisi Frontend, React Native, dan JavaScript"
   } satisfies Localized,
   intro: {
     en: "Frontend Engineer building and maintaining web and mobile applications, specializing in JavaScript, TypeScript, Vue.js, and React. Experienced in developing complex, large-scale logistics applications supporting end-to-end shipment operations, customer management, and administrative workflows. Skilled in frontend architecture, reusable component development, API integration, internationalization, PDF generation, and thermal printing. Experienced in cross-functional collaboration, code reviews, and frontend team coordination.",
@@ -149,8 +149,8 @@ export const ui = {
       id: "Mari membangun sesuatu bersama"
     },
     description: {
-      en: "I am open to frontend engineering roles and focused freelance work. The fastest way to reach me is email.",
-      id: "Saya terbuka untuk posisi frontend engineering dan pekerjaan freelance yang terfokus. Cara tercepat menghubungi saya adalah email."
+      en: "I am open to frontend web, React Native, and JavaScript roles, as well as focused freelance work. The fastest way to reach me is email.",
+      id: "Saya terbuka untuk posisi frontend web, React Native, dan JavaScript, serta pekerjaan freelance yang terfokus. Cara tercepat menghubungi saya adalah email."
     }
   },
   online: { en: "Online", id: "Daring" },
