@@ -26,8 +26,11 @@ function ExperienceItem({ item }: { item: Experience }) {
             }
           />
           <div className="min-w-0">
-            <h3 className="display text-lg">{t(item.role)}</h3>
-            <p className="mt-0.5 text-sm font-semibold text-(--accent)">
+            <h3 className="display mb-1.5 text-lg">{t(item.role)}</h3>
+            <p
+              translate="no"
+              className="notranslate mt-0.5 text-sm font-semibold text-(--accent)"
+            >
               {item.company}
             </p>
             <p className="eyebrow mt-1.5">{t(item.period)}</p>
