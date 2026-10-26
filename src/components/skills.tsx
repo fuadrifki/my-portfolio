@@ -61,27 +61,34 @@ const SKILL_ICONS: Record<SkillIcon, typeof Shapes> = {
 function SkillLogo({ item }: { item: SkillItem }) {
   const [failed, setFailed] = useState(false);
 
+  const iconFrame =
+    "flex size-5 shrink-0 items-center justify-center rounded bg-white p-0.5";
+
   if (!item.logo || failed) {
     const FallbackIcon = item.icon ? SKILL_ICONS[item.icon] : Shapes;
 
     return (
-      <FallbackIcon
-        aria-hidden="true"
-        className="size-4 shrink-0 text-(--muted)"
-      />
+      <span className={iconFrame}>
+        <FallbackIcon
+          aria-hidden="true"
+          className="size-4 text-slate-600"
+        />
+      </span>
     );
   }
 
   return (
-    <Image
-      src={item.logo}
-      alt={`${item.name} logo`}
-      width={20}
-      height={20}
-      loading="lazy"
-      onError={() => setFailed(true)}
-      className="size-5 shrink-0 rounded bg-white object-contain p-0.5"
-    />
+    <span className={iconFrame}>
+      <Image
+        src={item.logo}
+        alt={`${item.name} logo`}
+        width={16}
+        height={16}
+        loading="lazy"
+        onError={() => setFailed(true)}
+        className="size-4 object-contain"
+      />
+    </span>
   );
 }
 
