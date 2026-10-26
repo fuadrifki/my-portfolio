@@ -3,6 +3,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
 
+  experimental: {
+    agentUpgrade: "security",
+  },
+
   // Static export: `next build` emits a fully static site into `out/`,
   // which is what Cloudflare Pages serves.
   //
